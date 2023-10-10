@@ -47,7 +47,7 @@ justify-content: end;
 
 .login-form {
     position: absolute;
-    top: 70%;
+    top: 85%;
     left: 20%;
     transform: translate(-40%, -100%);
     background-color: #fff;
@@ -56,7 +56,7 @@ justify-content: end;
     border-radius: 4px;
     width: 200px;
     z-index: 100px; /* Ajusta el valor de z-index según sea necesario */
-    background-image: url('logoform.png');
+    background-image: url('../img/logoform.png');
     background-repeat: no-repeat;
     background-size: 55px; /* Ajusta el tamaño del logo según sea necesario */
     background-position: center top; /* Ajusta la posición del logo según sea necesario */
