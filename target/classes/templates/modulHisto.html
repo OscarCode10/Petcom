@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/moduls.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Cliente</title>
+    <title>Historia-Clínica</title>
 </head>
 <body>
     <nav>
@@ -38,19 +38,18 @@
         </div>
     </nav>
     <div id="all">
-        <h1>CLIENTE</h1>
+        <h1>HISTORIA CLÍNICA</h1>
         <div class="cont">
             <div class="bot">
-                <h2>REGISTRAR UNA CLIENTE</h2>
-                <a th:href="@{/registrarCliV}"><input type="submit" value="REGISTRAR"></a>
+                <h2>REGISTRAR UNA HISTORIA CLÍNICA</h2>
+                <a th:href="@{/registrarHistoV}"><input type="submit" value="REGISTRAR"></a>
             </div>
             <div class="bot">
-                <h2>VER A TODAS LAS CLIENTE</h2>
-                <a th:href="@{/listCli}"><input type="submit" value="VER"></a>
+                <h2>VER A TODAS LAS HISTORIA CLÍNICA</h2>
+                <a th:href="@{/listHisto}"><input type="submit" value="VER"></a>
             </div>
         </div>
     </div>
-    
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
@@ -61,7 +60,7 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img th:src="@{/img/logo.png}" class="log">
+                <img th:src="@{img/logo.png}" class="log">
             </div>
         </div>
         <div class="toda">

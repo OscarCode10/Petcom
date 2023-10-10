@@ -29,10 +29,10 @@ public class UsuarioContro {
     @PostMapping("/login")
     public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu){
         if (correoUsu!=null && claveUsu!=null) {
-            Boolean sesion=user.login(correoUsu, claveUsu);
-            if (sesion==true) {
+            Boolean session=user.login(correoUsu, claveUsu);
+            if (session==true) {
                 return "admin";
-            }else{
+            }else{  
                 return "redirect:/index";
             }
         }else{
@@ -40,20 +40,10 @@ public class UsuarioContro {
         }
     }
 
-    @GetMapping("/histo")
-    public String doc(Model m){
-        return "doctor-historiacli";
-    }
-
     @GetMapping("/usu")
     public String mo(Model m){
         return "modulUser";
     }
-
-    // @GetMapping("/listUsu")
-    // public String lis(Model m){
-    //     return "listU";
-    // }
 
     @GetMapping("/registrarUsuV")
     public String re(Model m){
@@ -105,8 +95,5 @@ public class UsuarioContro {
     public String cerrar(Model m){
         return "redirect:/index";
     }
-
-   
-
     
 }
