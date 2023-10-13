@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
 <head>
-  <link rel="stylesheet" href="../static/css/registers.css">
-  <link rel="stylesheet" href="../static/css/dashAndFoot.css">
-  <title>Registrar Cliente</title>
+  <link rel="stylesheet" th:href="@{css/registers.css}">
+  <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
+  <title>Registrar Agenda</title>
 </head>
 <body>
   <nav>
@@ -36,54 +36,39 @@
     </div>
   </nav>
   <main>
-    <form th:action="@{/registrarCli}" th:object="${cliente}" method="post">
-      <h2>Registrar<br> Cliente</h2>
-      <select id="" name="" th:field="*{tipoDocumentoCli}">
-        <option value="">Tipo Documento</option>
-        <option value="C.C.">C.C.</option>
-        <option value="T.I.">T.I.</option>
-        <option value="C.E.">C.E.</option>
-        <option value="DNI">DNI</option>
-      </select><br><br>
+    <form th:action="@{/registrarAgenda}" th:object="${agenda}" method="post">
+      <h2>Registrar<br> Agenda</h2>
+     
+      <input type="date" id="idcli" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required value="1"><br><br>
 
-      <input type="number" id="numerodocumento" th:field="*{numDocumentoCli}" placeholder="Numero Documento"
-        required><br><br>
+      <input type="date" id="nombreMascota" th:field="*{fechaFin}" placeholder="Fecha de fin" required><br><br>
 
-      <input type="text" id="nombre" th:field="*{nombreCli}" placeholder="Nombre" required><br><br>
+      <input type="time" id="nombre" th:field="*{horaInicio}" placeholder="Hora de inicio" required><br><br>
 
-      <input type="text" id="apellido" th:field="*{apellidoCli}" placeholder="Apellido" required><br><br>
+      <input type="time" id="apellido" th:field="*{horaFin}" placeholder="Hora de fin" required><br><br>
 
-      <input type="number" id="telefono" th:field="*{telefonoCli}" placeholder="Telefono" required><br><br>
-
-      <input type="email" id="email" th:field="*{correoCli}" placeholder="Email" required><br><br>
-
-      <input type="password" id="clave" th:field="*{claveCli}" placeholder="Clave"><br><br>
-
-      <select id="rol" name="rol" th:field="*{estadoCli}">
-        <option value="">estado</option>
+      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoAgenda}" type="hidden" value="1">
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
       </select><br><br>
-
-
       <input type="submit" class="regis" value="Registrar">
     </form>
   </main>
   <footer>
     <div class="vete">
-      <h1>Veterinaria Boss Bunny</h1>
+        <h1>Veterinaria Boss Bunny</h1>
     </div>
     <div class="contac">
-      <div class="text">
-        <h1>CONTACTO</h1>
-        <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
-      </div>
-      <div class="img">
-        <img th:src="@{img/logo.png}" class="log">
-      </div>
+        <div class="text">
+            <h1>CONTACTO</h1>
+            <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+        </div>
+        <div class="img">
+          <img th:src="@{img/logo.png}" class="log">
+        </div>
     </div>
     <div class="toda">
-      <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
+        <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
     </div>
   </footer>
 </body>

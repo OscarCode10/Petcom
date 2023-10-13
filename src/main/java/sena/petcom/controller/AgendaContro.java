@@ -31,8 +31,9 @@ public class AgendaContro {
 
     @PostMapping("/registrarAgenda")
     public String registrarAgenda(@Validated Agenda agenda, BindingResult res, SessionStatus status){
+        System.out.println(res.getAllErrors());
         if (res.hasErrors()) {
-            return "redirect:/registerAgendaV";
+            return "redirect:/registrarAgendaV";
         } else{
             iAgenda.save(agenda);
             status.setComplete();
