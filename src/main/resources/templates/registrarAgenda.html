@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
+
 <head>
-  <link rel="stylesheet" th:href="@{css/registrar.css}">
-  <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
-  <title>RegistrarUsu</title>
+  <link rel="stylesheet" href="../static/css/registers.css">
+  <link rel="stylesheet" href="../static/css/dashAndFoot.css">
+  <title>Registrar Cliente</title>
 </head>
+
 <body>
   <nav>
     <img th:src="@{img/logo.png}" class="logo">
@@ -36,9 +38,9 @@
     </div>
   </nav>
   <main>
-    <form th:action="@{/registrarUsu}" th:object="${usuario}" method="post">
-      <h2>Registrar<br> Usuario</h2>
-      <select id="" name="" th:field="*{tipoDocumentoUsu}">
+    <form th:action="@{/registrarCli}" th:object="${cliente}" method="post">
+      <h2>Registrar<br> Cliente</h2>
+      <select id="" name="" th:field="*{tipoDocumentoCli}">
         <option value="">Tipo Documento</option>
         <option value="C.C.">C.C.</option>
         <option value="T.I.">T.I.</option>
@@ -46,51 +48,45 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" required><br><br>
+      <input type="number" id="numerodocumento" th:field="*{numDocumentoCli}" placeholder="Numero Documento"
+        required><br><br>
 
-      <input type="text" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" required><br><br>
+      <input type="text" id="nombre" th:field="*{nombreCli}" placeholder="Nombre" required><br><br>
 
-      <input type="text" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" required><br><br>
+      <input type="text" id="apellido" th:field="*{apellidoCli}" placeholder="Apellido" required><br><br>
 
-      <input type="number" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" required><br><br>
+      <input type="number" id="telefono" th:field="*{telefonoCli}" placeholder="Telefono" required><br><br>
 
-      <input type="email" id="email" th:field="*{correoUsu}" placeholder="Email" required><br><br>
+      <input type="email" id="email" th:field="*{correoCli}" placeholder="Email" required><br><br>
 
-      <input type="password" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
+      <input type="password" id="clave" th:field="*{claveCli}" placeholder="Clave"><br><br>
 
-      <select id="rol" name="rol" th:field="*{estadoUsu}">
+      <select id="rol" name="rol" th:field="*{estadoCli}">
         <option value="">estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
       </select><br><br>
 
-      <select id="rol" name="rol" th:field="*{FK.idRol}">
-        <option value="">Rol</option>
-        <option value="1">Administrador</option>
-        <option value="2">Secretario</option>
-        <option value="3">Doctor</option>
-        <option value="4">Peluquero</option>
-      </select><br><br>
+
       <input type="submit" class="regis" value="Registrar">
     </form>
   </main>
   <footer>
     <div class="vete">
-        <h1>Veterinaria Boss Bunny</h1>
+      <h1>Veterinaria Boss Bunny</h1>
     </div>
     <div class="contac">
-        <div class="text">
-            <h1>CONTACTO</h1>
-            <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
-        </div>
-        <div class="img">
-          <img th:src="@{img/logo.png}" class="log">
-        </div>
+      <div class="text">
+        <h1>CONTACTO</h1>
+        <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+      </div>
+      <div class="img">
+        <img th:src="@{img/logo.png}" class="log">
+      </div>
     </div>
     <div class="toda">
-        <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
+      <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
   </footer>
-
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/lists.css}">
-    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Registrar un usuario</title>
+    <link rel="stylesheet" href="../static/css/modificar-usu.css">
+
+    
+    <title>Doctor-Historia-Clínica</title>
 </head>
 <body>
     <nav>
@@ -37,42 +38,40 @@
             </div>
         </div>
     </nav>
-
-    <div class="all">
-        
-        <center><h1 class="List">LISTADO DE MASCOTAS </h1></center>
-        <br>
-        <table class="tabla-colores">
-            <tr>
-                <th>Id </th>
-                <th>Id Cliente</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Fecha Nacimiento</th>
-                <th>Raza</th>
-                <th>Genero</th>
-                <th>Estado</th>
-                <th>Operacion</th>
-            </tr>
-            <tr th:if="${mascotas.size()>0}" th:each="c:${mascotas}">
-                <td th:text="${c.idMascota}"></td>
-                <td th:text="${c.FK.idCliente}"></td>
-                <td th:text="${c.nombreMascota}"></td>
-                <td th:text="${c.apellidoMascota}"></td>
-                <td th:text="${c.fechaNacimiento}"></td>
-                <td th:text="${c.raza}"></td>
-                <td th:text="${c.genero}"></td>
-                <td th:if="${c.estadoMascota==true}">
-                    <h2>Activo</h2>
-                </td>
-                <td th:if="${c.estadoMascota==false}">
-                    <h2>Inactivo</h2>
-                </td>
-                <td class="cell-with-button">
-                    <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button class="btnM">Modificar</button></a>
-                </td>
-            </tr>
-        </table> 
+    <div id="all">
+        <div class="cont">
+            <form  th:object="${cliente}" action="post">
+                    <h1 id="h1">MODIFICAR CLIENTES</h1>
+                <div class="bot">
+                    <h2>Nombre del cliente</h2>
+                    <input type="text" value="">
+                </div>
+                <div class="bot">
+                    <h2>Tipo de documento</h2>
+                    <input type="text" value="">
+                </div>
+                <div class="bot">
+                    <h2>Numero de documento</h2>
+                    <input type="text" value="">
+                </div>
+                <div class="bot">
+                    <h2>Telefono</h2>
+                    <input type="text" value="">
+                </div>
+                <div class="bot">
+                    <h2>Correo</h2>
+                    <input type="text" value="">
+                </div>
+                <div class="bot">
+                    <h2>Estado</h2>
+                    <input type="text" value="">
+                </div>
+                <div class="buttons">
+                    <input type="button" id="btn1" value="MODIFICAR">
+                    <a th:href="@{/listCli}"><input type="button" id="btn2" value="VOLVER"></a>
+                </div>
+            </form>
+        </div>
     </div>
     <footer>
         <div class="vete">
@@ -93,4 +92,3 @@
     </footer>
 </body>
 </html>
-

@@ -48,7 +48,7 @@ public class UsuarioContro {
     @GetMapping("/registrarUsuV")
     public String re(Model m){
         m.addAttribute("usuario", new Usuario());
-        return "registrar";
+        return "registrarUsu";
     }
 
     @PostMapping("registrarUsu")
@@ -65,7 +65,7 @@ public class UsuarioContro {
     @GetMapping("/listUsu")
     public String listar(Model m) {
         m.addAttribute("usuarios", user.findAll());
-        return "/listU";
+        return "/listUsu";
     }
 
     @GetMapping("/modificarUsuV/{idUsuario}")
