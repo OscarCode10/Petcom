@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@200;300;400;600;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --1: #fff;
+    --2: #000;
+    --3: #1E509A;
+    --4: #123387;
+    --5: #8EA0BC;
+    --6: #D9D9D9;
+}
+
+nav{
+    display: flex;
+    background-color: var(--3);
+    width: 100%;
+}
+.logo{
+    justify-content: start;
+    margin-left: 10%;
+    width: 7rem;
+    height: 5.5rem;
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 6rem;
+    width: 100%;
+    margin-right: 15em;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn input{
+    height: 6rem;
+    padding: 1rem;
+    background-color: var(--3);
+    color: var(--1);
+    border-left: .1rem solid var(--1);
+    border-right: .1rem solid var(--1);
+    border-top: none;
+    border-bottom: none;
+    font-size: 1.2rem;
+}
+.cerrar{
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+}
+.cerrar input{
+    height: 6rem;
+    padding: 1rem;
+    background-color: var(--3);
+    color: var(--1);
+    border-left: .1rem solid var(--1);
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    font-size: 1.2rem;
+}
+
+/*--------------MAIN--------------------*/
+#all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    font-family: 'Poppins';
+}
+.cont h1{
+    font-size: 4rem;
+    color: var(--3);
+    font-weight: 500;
+    justify-content: center;
+}
+.cont{
+    background-color: var(--6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 40rem;
+    width: 60rem;
+    margin-top: 2rem;   
+    padding-inline-start: 2rem;
+}
+.cont .buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.bot{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    
+}
+.bot h2{
+    color: var(--2);
+    text-align: justify;
+    width: 30rem;
+    font-weight: 100;
+}
+.bot input{
+    background-color: var(--6);
+    color: var(--2);
+    margin-left: 10rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+}
+
+.buttons #btn1{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10em;
+    padding: 30px;
+    width: 200px;
+    background-color: var(--3);
+    color: var(--1);
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons #btn2{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10em;
+    padding: 30px;
+    width: 200px;
+    background-color: var(--3);
+    color: var(--1);
+    border: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+}
+
+/*---------------FIN MAIN--------------*/
+footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.vete{
+    background-color: var(--4);
+    color: var(--1);
+    font-size: 'Merriweather';
+    padding: 0.5rem;
+    padding-inline-start: 24rem;
+    font-size: .8rem;
+}
+.contac{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--5);
+    padding: 1.6rem;
+    font-family: 'Poppins';
+    padding-inline-start: 24rem;
+    border-bottom: .2rem solid rgba(53, 53, 53, 0.1);
+}
+.log{
+    width: 7rem;
+    height: 5.5rem;
+    margin-right: 20rem;
+    border-radius: 4rem;
+}
+.contac h1{
+    color:var(--4);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-left: 3rem;
+}
+.contac h2{
+    color:var(--1);
+    font-size: 1rem;
+    font-weight: 500;
+}
+.toda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+.toda h1{
+    color: var(--2);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
