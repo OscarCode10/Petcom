@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/moduls.css}">
+    <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Cliente</title>
+
+
+    <title>Consultar Citas</title>
 </head>
 <body>
     <nav>
-        <img th:src="@{img/logo.png}" class="logo">
+        <img src="logo.png" class="logo">
         <div class="btns">
             <div class="btn">
                 <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
+                <a href="@{/modulCita}"><input type="submit" value="CITAS"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+                <a href="oscar.html"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
@@ -27,7 +29,7 @@
                 <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+                <a th:href="@{/histo}"><input type="submit" value="HISTORIA CLÍNICA"></a>
             </div>
             <div class="btn">
                 <a href="oscar.html"><input type="submit" value="PERFIL"></a>
@@ -37,21 +39,34 @@
             </div>
         </div>
     </nav>
-    
-    <div id="all">
-        <h1>AGENDA</h1>
-        <div class="cont">
-            <div class="bot">
-                <h2>REGISTRAR UNA AGENDA</h2>
-                <a th:href="@{/registrarAgendaV}"><input type="submit" value="REGISTRAR"></a>
-            </div>
-            <div class="bot">
-                <h2>VER A TODAS LAS AGENDA</h2>
-                <a th:href="@{/listAgenda}"><input type="submit" value="VER"></a>
-            </div>
-        </div>
+    <div class="all">
+        
+        <center><h1 class="List">LISTADO DE CITAS </h1></center>
+        <br>
+        <table class="tabla-colores">
+            <tr>
+                <th>CLIENTE</th>
+                <th>MASCOTA</th>
+                <th>DOCTOR</th>
+                <th>FECHA</th>
+                <th>HORA</th>
+                <th>ACCIONES</th>
+            </tr>
+            <tr if="" each="">
+                <td>ANDRES ORTIZ</td>
+                <td>REY LEON</td>
+                <td>CRISTIAN  VALLEJOS</td>
+                <td>2023/10/04</td>
+                <td>05:01 </td>
+                <td class="cell-with-button">
+                <a href=""><button class="btnM">Modificar</button></a>
+            </td>
+            </tr>
+        </table> 
     </div>
 
+    
+    <br><br><br>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
@@ -62,7 +77,7 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img th:src="@{/img/logo.png}" class="log">
+                <img src="logo.png" class="log">
             </div>
         </div>
         <div class="toda">

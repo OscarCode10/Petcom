@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="dashAndFoot.css">
-    <link rel="stylesheet" type="text/css" href="modulCitas.css">
+    <link rel="stylesheet" th:href="@{/css/moduls.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}"> 
+  
     <title>Modulo Citas</title>
 </head>
 <body>
     <nav>
-        <img src="logo.png" class="logo">
+        <img th:src="@{img/logo.png}" class="logo">
         <div class="btns">
             <div class="btn">
                 <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
             </div>
+
             <div class="btn">
-                <a href="@{/modulCita}"><input type="submit" value="CITAS"></a>
-            </div>
-            <div class="btn">
-                <a href="oscar.html"><input type="submit" value="AGENDA"></a>
+                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
@@ -28,7 +27,7 @@
                 <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/histo}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
             </div>
             <div class="btn">
                 <a href="oscar.html"><input type="submit" value="PERFIL"></a>
@@ -50,13 +49,13 @@
                 <a href=""><input type="submit" value="MODIFICAR"></a>
             </div>
             <div class="bot">
-                <h2> TENER UN REPORTE </h2>
-                <a href=""><input type="submit" value="REPORTE"></a>
+                <h2> VER CITAS </h2>
+                <a href=""><input type="submit" value="VER"></a>
             </div>
         </div>
     </div>
 
-    <BR><BR><BR>
+    <BR><BR><BR><BR><BR>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>

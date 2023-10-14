@@ -51,4 +51,5 @@ public class Cita {
 
     @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<DetallesHistoria> idDetallesHistoriaFK;
+
 }
