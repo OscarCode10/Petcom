@@ -39,15 +39,15 @@
     <form th:action="@{/registrarAgenda}" th:object="${agenda}" method="post">
       <h2>Registrar<br> Agenda</h2>
      
-      <input type="date" id="idcli" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required value="1"><br><br>
+      <input type="date" id="" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required step="1"><br><br>
 
-      <input type="date" id="nombreMascota" th:field="*{fechaFin}" placeholder="Fecha de fin" required><br><br>
+      <input type="date" id="" th:field="*{fechaFin}" placeholder="Fecha de fin" required step="1"><br><br>
 
-      <input type="time" id="nombre" th:field="*{horaInicio}" placeholder="Hora de inicio" required><br><br>
+      <input type="time" id="" th:field="*{horaInicio}" placeholder="Hora de inicio" required step="1"><br><br>
 
-      <input type="time" id="apellido" th:field="*{horaFin}" placeholder="Hora de fin" required><br><br>
+      <input type="time" id="" th:field="*{horaFin}" placeholder="Hora de fin" required step="1"><br><br>
 
-      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoAgenda}" type="hidden" value="1">
+      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoAgenda}" value="1">
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
       </select><br><br>
