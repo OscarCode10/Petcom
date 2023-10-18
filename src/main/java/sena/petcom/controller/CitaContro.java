@@ -22,6 +22,16 @@ public class CitaContro {
         return "registrarCita";
     }
 
+    @GetMapping("/modificarCitaV")
+    public String modificarCita(){
+        return "modificarCita";
+    }
+
+    @GetMapping("/listCitaV")
+    public String listCita(){
+        return"listCita";
+    }
+
     // @PostMapping("/registrarCita")
     // public String registrarCita(@Validated Cita cita, BindingResult res, SessionStatus status){
     //     if (res.hasErrors()) {

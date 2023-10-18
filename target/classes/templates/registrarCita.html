@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Citas</title>
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+    <link rel="stylesheet" th:href="@{/css/registers.css}">
+</head>
+<body>
+    <nav>
+        <img th:src="@{img/logo.png}" class="logo">
+        <div class="btns">
+          <div class="btn">
+            <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
+          </div>
+
+          <div class="btn">
+            <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+          </div>
+          <div class="btn">
+            <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
+          </div>
+          <div class="btn">
+            <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+          </div>
+          <div class="btn">
+            <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+          </div>
+          <div class="btn">
+            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+          </div>
+          <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+          </div>
+        </div>
+      </nav>
+    <main>
+        <form th:action="@{/regisCita}" th:object="${cit}" method="post">
+          <h2>REGISTRAR CITA </h2>
+         
+          <input type="text" id="idcli" field="*{FK.idCliente}" placeholder="id del cliente" required value="1"><br><br>
+          
+          <input type="text" id="nombreMascota" field="*{nombreMascota}" placeholder="Nombre Mascota" required><br><br>
+
+          <input type="text" id="raza" field="*{raza}" placeholder="Raza" required><br><br>
+
+          <input type="date" id="fecha" field="*{raza}" placeholder="Fecha" required><br><br>
+
+          <input type="time" id="fecha" field="*{raza}" placeholder="Fecha" required><br><br>
+    
+          
+          <input type="submit" class="regis" value="Registrar">
+        </form>
+      </main>
+
+      <footer>
+        <div class="vete">
+            <h1>Veterinaria Boss Bunny</h1>
+        </div>
+        <div class="contac">
+            <div class="text">
+                <h1>CONTACTO</h1>
+                <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+            </div>
+            <div class="img">
+              <img th:src="@{img/logo.png}" class="log">
+            </div>
+        </div>
+        <div class="toda">
+            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
+        </div>
+      </footer>
+
+
+</body>
+</html>
