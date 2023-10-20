@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <html xmlns:th="https://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,7 @@
 
           <div class="btn">
             <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
-          </div>
+          </div> 
           <div class="btn">
             <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
           </div>
@@ -35,23 +36,31 @@
           </div>
         </div>
       </nav>
-    <main>
-        <form th:action="@{/regisCita}" th:object="${cit}" method="post">
-          <h2>REGISTRAR CITA </h2>
-         
-          <input type="text" id="idcli" field="*{FK.idCliente}" placeholder="id del cliente" required value="1"><br><br>
-          
-          <input type="text" id="nombreMascota" field="*{nombreMascota}" placeholder="Nombre Mascota" required><br><br>
+    <main><!-- <label for="idCita">ID de Cita:</label>
+        <input type="text" id="" th:field="*{idCita}" placeholder="ID de Cita" required><br><br>
+  
+        <label for="idAgenda">ID de Agenda:</label>
+        <input type="text" id="" th:field="*{idAgenda}" placeholder="ID de Agenda" required><br><br>
 
-          <input type="text" id="raza" field="*{raza}" placeholder="Raza" required><br><br>
 
-          <input type="date" id="fecha" field="*{raza}" placeholder="Fecha" required><br><br>
-
-          <input type="time" id="fecha" field="*{raza}" placeholder="Fecha" required><br><br>
+        <label for="idClienteCita">ID de Cliente de Cita:</label>
+        <input type="text" id="" th:field="*{idClienteCita}" placeholder="ID de Cliente de Cita" required><br><br>
+       -->
+       <form th:action="@{/registrarCita}" th:object="${cita}" method="post">
+        <h2>Registrar Cita</h2>
     
-          
-          <input type="submit" class="regis" value="Registrar">
-        </form>
+        <label for="motivoConsulta">Motivo de Consulta:</label>
+        <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" required><br><br>
+    
+        <label for="estadoCita">Estado de Cita:</label>
+        <select id="" th:field="*{estadoCita}">
+            <option th:value="true">Confirmada</option>
+            <option th:value="false">Pendiente</option>
+        </select><br><br>
+  
+        <input type="submit" class="regis" value="Registrar">
+    </form>
+    
       </main>
 
       <footer>

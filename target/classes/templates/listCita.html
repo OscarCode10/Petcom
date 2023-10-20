@@ -20,7 +20,7 @@
                 <a href="@{/modulCita}"><input type="submit" value="CITAS"></a>
             </div>
             <div class="btn">
-                <a href="oscar.html"><input type="submit" value="AGENDA"></a>
+                <a href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
@@ -45,24 +45,18 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                <th>CLIENTE</th>
-                <th>MASCOTA</th>
-                <th>DOCTOR</th>
-                <th>FECHA</th>
-                <th>HORA</th>
+                <th>MOTIVO</th>
+                <th>ESTADO</th>
                 <th>ACCIONES</th>
             </tr>
-            <tr if="" each="">
-                <td>ANDRES ORTIZ</td>
-                <td>REY LEON</td>
-                <td>CRISTIAN  VALLEJOS</td>
-                <td>2023/10/04</td>
-                <td>05:01 </td>
+            <tr th:each="cita : ${citas}">
+                <td th:text="${cita.motivoConsulta}"></td>
+                <td th:text="${cita.estadoCita}"></td>
                 <td class="cell-with-button">
-                <a th:href="@{/modificarCitaV}"><button class="btnM">Modificar</button></a>
-            </td>
+                <a th:href="@{/modificarCitaV/{id}(id=${cita.idCita})}"><button class="btnM">Modificar</button></a>
+                </td>
             </tr>
-        </table> 
+        </table>
     </div>
 
     

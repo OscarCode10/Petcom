@@ -59,6 +59,8 @@ public class MascotaContro {
         return "redirect:/listMasco";
     }
 
+
+    
     @PostMapping("/modificarMasco")
     public String modi(@Validated Mascota mascota, BindingResult res, Model m, SessionStatus status){
         if (res.hasErrors()) {

@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,13 +31,11 @@ public class Cita {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idCita;
-    
+
     @NotNull
-    @NotEmpty
     @Column
     private String motivoConsulta;
 
-    @NotEmpty
     @NotNull
     @Column
     private Boolean estadoCita;
@@ -51,5 +48,4 @@ public class Cita {
 
     @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<DetallesHistoria> idDetallesHistoriaFK;
-
 }

@@ -61,11 +61,12 @@
 
       <input type="password" id="clave" th:field="*{claveCli}" placeholder="Clave"><br><br>
 
-      <select id="rol" name="rol" th:field="*{estadoCli}">
-        <option value="">estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select><br><br>
+      <select id="estadoCita" name="estadoCita" th:field="*{estadoCita}">
+        <option value="">Estado de Cita</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="confirmada">Confirmada</option>
+        <option value="cancelada">Cancelada</option>
+    </select><br><br>
 
 
       <input type="submit" class="regis" value="Registrar">
