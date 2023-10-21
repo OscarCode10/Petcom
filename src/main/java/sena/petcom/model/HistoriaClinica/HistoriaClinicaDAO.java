@@ -1,4 +1,4 @@
-package sena.petcom.model.HisoriaClinica;
+package sena.petcom.model.HistoriaClinica;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Repository
 public class HistoriaClinicaDAO implements IHistoriaClinica{
@@ -14,25 +15,31 @@ public class HistoriaClinicaDAO implements IHistoriaClinica{
 
     @Override
     public void delete(Integer idHistoriaClinica) {
-        // TODO Auto-generated method stub
+        
         
     }
 
+    @SuppressWarnings("unchecked")
+    @Transactional
     @Override
     public List<HistoriaClinica> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return em.createQuery("from HistoriaClinica").getResultList();
     }
 
     @Override
     public HistoriaClinica findOne(Integer idHistoriaClinica) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+        return em.find(HistoriaClinica.class, idHistoriaClinica);
 
+    }
     @Override
     public void save(HistoriaClinica histo) {
-        // TODO Auto-generated method stub
+        if(histo.getIdHistoriaClinica()!=null && histo.getIdHistoriaClinica()>0){
+            em.merge(histo);
+        }
+        else{
+            em.persist(histo);
+        }
         
     }
 

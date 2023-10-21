@@ -1,4 +1,4 @@
-package sena.petcom.model.HisoriaClinica;
+package sena.petcom.model.HistoriaClinica;
 
 import java.util.List;
 

@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sena.petcom.model.Cliente.Cliente;
-import sena.petcom.model.HisoriaClinica.HistoriaClinica;
+import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 
 @Data
 @AllArgsConstructor

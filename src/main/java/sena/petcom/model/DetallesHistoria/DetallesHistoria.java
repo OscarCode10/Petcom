@@ -15,7 +15,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sena.petcom.model.Cita.Cita;
-import sena.petcom.model.HisoriaClinica.HistoriaClinica;
+import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 
 @Data
 @AllArgsConstructor
