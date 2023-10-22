@@ -39,57 +39,37 @@
     </nav>
 
     <div class="all">
-        
-        <center><h1 class="List">LISTADO DE USUARIOS </h1></center>
+        <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
         <br>
         <table class="tabla-colores">
             <tr>
                 <th>Id</th>
-                <th>Tipo Doc</th>
-                <th>Num Doc</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>Correo</th>
-                <th>Contraseña</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Hora Inicio</th>
+                <th>Hora Fin</th>
                 <th>Estado</th>
-                <th>Rol</th>
-                <th>Opciones</th>
-
+                <th>Operaciones</th>
             </tr>
-            <tr th:if="${usuarios.size()>0}" th:each="c:${usuarios}">
-                <td th:text="${c.idUsuario}"></td>
-                <td th:text="${c.tipoDocumentoUsu}"></td>
-                <td th:text="${c.numDocumentoUsu}"></td>
-                <td th:text="${c.nombreUsu}"></td>
-                <td th:text="${c.apellidoUsu}"></td>
-                <td th:text="${c.telefonoUsu}"></td>
-                <td th:text="${c.correoUsu}"></td>
-                <td th:text="${c.claveUsu}"></td>
-                <td th:if="${c.estadoUsu==true}">
-                    <h2>Inactivo</h2>
-                </td>
-                <td th:if="${c.estadoUsu==false}">
+            <tr th:if="${agenda.size()>0}" th:each="c:${agenda}">
+                <td th:text="${c.idAgenda}"></td>
+                <td th:text="${c.fechaInicio}"></td>
+                <td th:text="${c.fechaFin}"></td>
+                <td th:text="${c.horaInicio}"></td>
+                <td th:text="${c.horaFin}"></td>
+                <td th:if="${c.estadoAgenda==true}">
                     <h2>Activo</h2>
                 </td>
-                <td th:if="${c.FK.idRol==1}">
-                    <h2>Adminsitrador</h2>
-                </td>
-                <td th:if="${c.FK.idRol==2}">
-                    <h2>Secretario</h2>
-                </td>
-                <td th:if="${c.FK.idRol==3}">
-                    <h2>Doctor</h2>
-                </td>
-                <td th:if="${c.FK.idRol==4}">
-                    <h2>Peluquero</h2>
+                <td th:if="${c.estadoAgenda==false}">
+                    <h2>Inactivo</h2>
                 </td>
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarUsuV/{idUsuario}(idUsuario=${c.idUsuario})}"><button class="btnM">Modificar</button></a>
+                    <a th:href="@{/modificarAgendaV/{idAgenda}(idAgenda=${c.idAgenda})}"><button class="btnM">Modificar</button></a>
                 </td>
             </tr>
         </table> 
     </div>
+
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>

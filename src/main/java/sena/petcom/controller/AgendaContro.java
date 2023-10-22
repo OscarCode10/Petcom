@@ -49,8 +49,10 @@ public class AgendaContro {
 
     @GetMapping("/modificarAgendaV/{idAgenda}")
     public String modificarAgendaV(@PathVariable Integer idAgenda, Model m){
-        if(idAgenda>0){
-            m.addAttribute("agenda", iAgenda.findOne(idAgenda));
+        Agenda agenda = null;
+        if(idAgenda > 0){
+            agenda = iAgenda.findOne(idAgenda);
+            m.addAttribute("agenda", agenda);
             return "modificarAgenda";
         }
         return "redirect:/listAgenda";
@@ -63,7 +65,7 @@ public class AgendaContro {
         } else {
             iAgenda.save(agenda);
             status.setComplete();
-            return "redirect:/modulAgenda";
+            return "redirect:/listAgenda";
         }
     }
 }

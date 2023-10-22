@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/registers.css">
-
-    
-    <title>Doctor-Historia-Clínica</title>
+    <link rel="stylesheet" th:href="@{/css/registers.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+    <title>Actualizar Agenda</title>
 </head>
 <body>
     <nav>
-        <img th:src="@{/img/logo.png}" class="logo">
+        <img th:src="@{img/logo.png}" class="logo">
         <div class="btns">
             <div class="btn">
                 <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
@@ -38,41 +37,29 @@
             </div>
         </div>
     </nav>
-    <div id="all">
-        <div class="cont">
-            <form  th:object="${cliente}" action="post">
-                    <h1 id="h1">MODIFICAR CLIENTES</h1>
-                <div class="bot">
-                    <h2>Nombre del cliente</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Tipo de documento</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Numero de documento</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Telefono</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Correo</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Estado</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="buttons">
-                    <input type="button" id="btn1" value="MODIFICAR">
-                    <a th:href="@{/listCli}"><input type="button" id="btn2" value="VOLVER"></a>
-                </div>
-            </form>
-        </div>
-    </div>
+    <main>
+        <form th:action="@{/modificarAgenda}" th:object="${agenda}" method="post">
+          <h2>Registrar<br> Mascota</h2>
+    
+          <input type="text" id="" th:field="*{idAgenda}" placeholder="id CLIENTES" value="${agenda.idAgenda}" required readonly="readonly"><br><br>
+    
+          <input type="date" id="" th:field="*{fechaInicio}" placeholder="id CLIENTES" value="${agenda.fechaInicio}" required><br><br>
+    
+          <input type="date" id="" th:field="*{fechaFin}" placeholder="Nombre Mascota" value="${agenda.fechaFin}" required><br><br>
+    
+          <input type="time" id="" th:field="*{horaInicio}" placeholder="Apellido Mascota" value="${agenda.horaInicio}" required><br><br>
+    
+          <input type="time" id="" th:field="*{horaFin}" placeholder="Fecha Nacimiento" value="${agenda.horaFin}" required><br><br>
+    
+          <select id="" th:field="*{estadoAgenda}" value="${agenda.estadoAgenda}">
+            <option value="">Estado</option>
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+          </select><br><br>
+
+          <input type="submit" class="regis" value="Modificar">
+        </form>
+      </main>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
