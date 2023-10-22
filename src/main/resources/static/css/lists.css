@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@200;300;400;600;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --1: #fff;
+    --2: #000;
+    --3: #1E509A;
+    --4: #123387;
+    --5: #8EA0BC;
+    --6: #D9D9D9;
+    --7: #25407c;
+}
+
 .tabla-colores {
     width: 100%;
     border-collapse: collapse;
