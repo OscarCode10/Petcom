@@ -15,12 +15,18 @@
 /*DashBoard*/
 nav{
     display: flex;
-    background-color: var(--3);
+    background-color: var(--1);
     width: 100%;
 }
+
+nav:hover{
+    background-color: var(5);
+}
+
 .logo{
     justify-content: start;
     margin-left: 10%;
+    margin-top: 1%;
     width: 7rem;
     height: 5.5rem;
 }
@@ -38,18 +44,18 @@ nav{
     justify-content: center;
 }
 .btn input{
-    height: 6rem;
+    height: 3rem;
     padding: 1rem;
-    background-color: var(--3);
-    color: var(--1);
-    border-left: .1rem solid var(--1);
-    border-right: .1rem solid var(--1);
-    border-top: none;
-    border-bottom: none;
+    background-color: var(--1);
+    color: var(--3);
+    margin-top: 2rem;
+    border: none;
     font-size: 1.2rem;
+    font-weight: 600;
 }
+
 .btn input:hover{
-    background-color: var(--7);
+    border-bottom: .2rem solid var(--5);
 }
 
 .cerrar{
@@ -57,20 +63,20 @@ nav{
     align-items: center;    
     justify-content: center;
 }
+
 .cerrar input{
-    height: 6rem;
+    height: 3rem;
     padding: 1rem;
-    background-color: var(--3);
-    color: var(--1);
-    border-left: .1rem solid var(--1);
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
+    background-color: var(--1);
+    border: none;
+    margin-top: 2rem;
+    font-weight: 600;
+    color: var(--3);
     font-size: 1.2rem;
 }
 
 .cerrar input:hover{
-    background-color: var(--7);
+    border-bottom: .2rem solid var(--5);
 }
 
 /*Footer*/
@@ -80,7 +86,6 @@ footer{
     width: 100%;
 }
 .vete{
-    
     background-color: var(--4);
     color: var(--1);
     font-size: 'Merriweather';

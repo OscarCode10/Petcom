@@ -11,13 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
-import sena.petcom.model.Mascota.Mascota;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
-import sena.petcom.model.HistoriaClinica.HistoriaClinica;
-
 
 @Controller
 public class HistoriaClinicaContro {
