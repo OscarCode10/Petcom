@@ -20,7 +20,7 @@ public class ClienteContro {
     private ICliente cliente;
 
 
-    @GetMapping("/cliente")
+    @GetMapping("/modulCliente")
     public String mo(Model m){
         return "modulCliente";
     }

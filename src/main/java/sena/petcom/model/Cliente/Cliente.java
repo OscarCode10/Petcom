@@ -59,4 +59,8 @@ public class Cliente {
 
     @OneToMany(mappedBy="FK", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<Mascota> idMascotaFK;
+
+    public static Cliente findOne(Integer idCliente2) {
+        return null;
+    }
 }
