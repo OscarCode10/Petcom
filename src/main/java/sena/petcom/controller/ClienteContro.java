@@ -17,7 +17,7 @@ import sena.petcom.model.Cliente.Cliente;
 public class ClienteContro {
     
     @Autowired
-    private ICliente cliente;
+    private ICliente iCliente;
 
 
     @GetMapping("/modulCliente")
@@ -34,17 +34,17 @@ public class ClienteContro {
     @PostMapping("registrarCliente")
     public String addU(@Validated Cliente clien, BindingResult res, Model m, SessionStatus status) {
         if (res.hasErrors()) {
-            return "redirect:/cliente";
+            return "redirect:/registrarClienteV";
         }else{
-            cliente.save(clien);
+            iCliente.save(clien);
             status.setComplete();
-            return "redirect:/cliente";
+            return "redirect:/modulCliente";
         }
     }
 
     @GetMapping("/listCliente")
     public String listar(Model m) {
-        m.addAttribute("clientes", cliente.findAll());
+        m.addAttribute("clientes", iCliente.findAll());
         return "/listCliente";
     }
 
@@ -52,7 +52,7 @@ public class ClienteContro {
     public String verModi(@PathVariable Integer idCliente, Model m){
         Cliente cliente=null;
         if(idCliente>0){
-            cliente=Cliente.findOne(idCliente);
+            cliente=iCliente.findOne(idCliente);
             m.addAttribute("cliente",cliente);
             return "modificarCliente";
         }else{
@@ -65,7 +65,7 @@ public class ClienteContro {
         if (res.hasErrors()) {
             return "redirect:/modificarClienteV/{idCliente}";
         }else{
-            cliente.save(clien);
+            iCliente.save(clien);
             status.setComplete();
             return "redirect:/listCliente";
         }

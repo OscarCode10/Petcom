@@ -24,7 +24,6 @@ public class CitaDAO implements ICita {
         }
     }
 
-
     @Transactional
     @Override
     public List<Cita> findAll() {
@@ -35,14 +34,5 @@ public class CitaDAO implements ICita {
     @Override
     public Cita findOne(Integer idCita) {
         return em.find(Cita.class, idCita);
-    }
-
-    @Transactional
-    @Override
-    public void delete(Integer idCita) {
-        Cita cita = em.find(Cita.class, idCita);
-        if (cita != null) {
-            em.remove(cita);
-        }
     }
 }

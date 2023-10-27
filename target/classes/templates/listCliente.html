@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/lists.css">
-    <link rel="stylesheet" href="../static/css/dashAndFoot.css">
+    <link rel="stylesheet" th:href="@{/css/lists.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
     <title>Registrar un cliente</title>
 </head>
 <body>
@@ -48,32 +48,26 @@
                 <th>Tipo Doc</th>
                 <th>Num Doc</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
                 <th>Telefono</th>
                 <th>Correo</th>
-                <th>Contraseña</th>
                 <th>Estado</th>
                 <th>Opciones</th>
-
             </tr>
             <tr th:if="${clientes.size()>0}" th:each="c:${clientes}">
                 <td th:text="${c.idCliente}"></td>
-                <td th:text="${c.tipoDocumentoCli}"></td>
-                <td th:text="${c.numDocumentoCli}"></td>
-                <td th:text="${c.nombreCli}"></td>
-                <td th:text="${c.apellidoCli}"></td>
-                <td th:text="${c.telefonoCli}"></td>
-                <td th:text="${c.correoCli}"></td>
-                <td th:text="${c.claveCli}"></td>
-                <td th:if="${c.estadoCli==true}">
+                <td th:text="${c.tipoDocCliente}"></td>
+                <td th:text="${c.numDocCliente}"></td>
+                <td th:text="${c.nombreCliente}"></td>
+                <td th:text="${c.telefonoCliente}"></td>
+                <td th:text="${c.correoCliente}"></td>
+                <td th:if="${c.estadoCliente==true}">
                     <h2>Activo</h2>
                 </td>
-                <td th:if="${c.estadoCli==false}">
+                <td th:if="${c.estadoCliente==false}">
                     <h2>Inactivo</h2>
                 </td>
-                
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarCliV/{idCliente}(idCliente=${c.idCliente})}"><button class="btnM">Modificar</button></a>
+                    <a th:href="@{/modificarClienteV/{idCliente}(idCliente=${c.idCliente})}"><button class="btnM">Modificar</button></a>
                 </td>
             </tr>
         </table> 
