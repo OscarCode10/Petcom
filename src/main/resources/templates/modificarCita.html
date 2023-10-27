@@ -38,21 +38,24 @@
 </nav>
   <main>
     <form th:action="@{/modificarCita}" th:object="${cita}" method="post">
-        <h2>Modificar Cita</h2>
-    
-        <input type="hidden" th:field="*{idCita}" />
-    
-        <label for="motivoConsulta">Motivo de Consulta:</label>
-        <input type="text" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" required><br><br>
-    
-        <label for="estadoCita">Estado de Cita:</label>
-        <select id="" th:field="*{estadoCita}">
-            <option th:value="true">Confirmada</option>
-            <option th:value="false">Pendiente</option>
-        </select><br><br>
-    
-        <input type="submit" class="regis" value="Guardar Cambios">
-    </form>
+      <h2>Registrar<br> Cita</h2>
+
+      <input type="number" id="" th:field="*{idCita}" placeholder="Motivo de Consulta" value="${cita.idCita}" readonly><br><br>
+
+      <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" value="${cita.motivoConsulta}" required><br><br>
+      
+      <select id="" name="" th:field="*{estadoCita}" value="${cita.estadoCita}">
+          <option value="">Estado</option>
+          <option value="1">Activo</option>
+          <option value="0">Inactivo</option>
+      </select><br><br>
+
+      <input type="number" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda" value="${cita.FK.idAgenda}" required><br><br>
+
+      <input type="number" id="" th:field="*{FkC.idCliente}" placeholder="Id Cliente" value="${cita.FkC.idCliente}" required><br><br>
+            
+      <input type="submit" class="regis" value="Modificar">
+  </form>
   </main>
   <footer>
     <div class="vete">

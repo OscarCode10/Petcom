@@ -1,11 +1,15 @@
 package sena.petcom;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import sena.petcom.model.Agenda.Agenda;
+import sena.petcom.model.Agenda.IAgenda;
 import sena.petcom.model.Cliente.Cliente;
 import sena.petcom.model.Cliente.ICliente;
 import sena.petcom.model.Rol.IRol;
@@ -28,6 +32,9 @@ public class PetcomApplication {
 
 	@Autowired
 	ICliente icliente;
+
+	@Autowired
+	IAgenda iagenda;
 
 	@Bean
 	CommandLineRunner init(){

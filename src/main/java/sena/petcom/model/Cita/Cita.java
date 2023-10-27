@@ -26,26 +26,26 @@ import sena.petcom.model.DetallesHistoria.DetallesHistoria;
 @NoArgsConstructor
 @Builder
 @Entity
-    @Table(name="Cita")
-    public class Cita {
-        @Id
-        @GeneratedValue(strategy=GenerationType.IDENTITY)
-        private Integer idCita;
+@Table(name="Cita")
+public class Cita {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer idCita;
 
-        @NotNull
-        @Column
-        private String motivoConsulta;
+    @NotNull
+    @Column
+    private String motivoConsulta;
 
-        @NotNull
-        @Column
-        private Boolean estadoCita;
+    @NotNull
+    @Column
+    private Boolean estadoCita;
 
-        @ManyToOne(fetch=FetchType.LAZY)
-        private Agenda FK;
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Agenda FK;
 
-        @ManyToOne(fetch=FetchType.LAZY)
-        private Cliente Fk;
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Cliente FkC;
 
-        @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-        private List<DetallesHistoria> idDetallesHistoriaFK;
-    }
+    @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<DetallesHistoria> idDetallesHistoriaFK;
+}

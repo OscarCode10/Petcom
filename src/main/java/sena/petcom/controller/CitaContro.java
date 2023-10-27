@@ -55,22 +55,21 @@ public class CitaContro {
 
     @GetMapping("/listCita")
     public String listCitas(Model model) {
-        List<Cita> citas = iCita.findAll();  // Obtener la lista de citas desde tu servicio o repositorio
-        model.addAttribute("citas", citas);  // Pasar la lista de citas a la vista
-        return "listCita";  // Renderizar la vista
+        model.addAttribute("citas", iCita.findAll());
+        return "listCita";
     }
 
 
     @GetMapping("/modificarCitaV/{idCita}")
-public String modificarCita(@PathVariable Integer idCita, Model model) {
-    Cita cita = null;
-    if (idCita > 0) {
-        cita = iCita.findOne(idCita);
-        model.addAttribute("cita", cita);
-        return "modificarCita";
+    public String modificarCita(@PathVariable Integer idCita, Model model) {
+        Cita cita = null;
+        if (idCita > 0) {
+            cita = iCita.findOne(idCita);
+            model.addAttribute("cita", cita);
+            return "modificarCita";
+        }
+        return "redirect:/listCita";
     }
-    return "redirect:/listCita";
-}
 
     
     @PostMapping("/modificarCita")
@@ -78,7 +77,6 @@ public String modificarCita(@PathVariable Integer idCita, Model model) {
     if (result.hasErrors()) {
         return "redirect:/modificarCitaV" + cita.getIdCita();
     } else {
-        // Llama al servicio para actualizar la cita.
         iCita.save(cita);
         status.setComplete();
         return "redirect:/listCita";
