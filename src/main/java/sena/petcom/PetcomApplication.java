@@ -73,7 +73,7 @@ public class PetcomApplication {
 
 
 			Cliente cliente=Cliente.builder()
-				.tipoDocumentoCliente("C.C.")
+				.tipoDocCliente("C.C.")
 				.numDocCliente(1019019842)
 				.nombreCliente("Oscar Ortiz")
 				.telefonoCliente(322349683)

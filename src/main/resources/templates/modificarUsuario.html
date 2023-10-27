@@ -7,7 +7,7 @@
 </head>
 <body>
   <nav>
-    <img th:src="@{/img/logo.png}" class="logo">
+    <img th:src="@{img/logo.png}" class="logo">
     <div class="btns">
         <div class="btn">
             <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
@@ -22,7 +22,7 @@
             <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
         </div>
         <div class="btn">
-            <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+            <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
         </div>
         <div class="btn">
             <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -34,7 +34,7 @@
             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
         </div>
     </div>
-  </nav>
+</nav>
   <main>
     <form th:action="@{/modificarUsu}" th:object="${usuario}" method="post">
       <h2>Actualizar<br> Usuario</h2>

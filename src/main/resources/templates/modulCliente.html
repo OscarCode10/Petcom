@@ -24,7 +24,7 @@
                 <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
             </div>
             <div class="btn">
-                <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -40,13 +40,9 @@
     <div id="all">
         <h1>CLIENTE</h1>
         <div class="cont">
-            <h2></h2>
+            <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Cita: </h2>
             <div class="bot">
-                <h2>REGISTRAR UNA CLIENTE</h2>
                 <a th:href="@{/registrarClienteV}"><input type="submit" value="REGISTRAR"></a>
-            </div>
-            <div class="bot">
-                <h2>VER A TODAS LAS CLIENTE</h2>
                 <a th:href="@{/listCli}"><input type="submit" value="VER"></a>
             </div>
         </div>

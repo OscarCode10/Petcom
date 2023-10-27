@@ -32,7 +32,7 @@ public class Cliente {
 
     @NotNull
     @Column
-    private String tipoDocumentoCliente;
+    private String tipoDocCliente;
 
     @NotNull
     @Column(unique=true)
