@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+<head>
+  <link rel="stylesheet" th:href="@{css/registers.css}">
+  <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
+  <title>Registrar Historia Clínica</title>
+</head>
+<body>
+  <nav>
+    <img th:src="@{img/logo.png}" class="logo">
+    <div class="btns">
+        <div class="btn">
+            <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
+    </div>
+  </nav>
+  <main>
+    <form th:action="@{/regisHisto}" th:object="${histo}" method="post">
+      <h2>Registrar<br> Historia Clínica</h2>
+     
+      <input type="text" id="idmas" th:field="*{FK.idMascota}" placeholder="id MASCOTAS" required value="1"><br><br>
+
+      <input type="number" id="peso" th:field="*{peso}" placeholder="Peso" required><br><br>
+
+      <input type="number" id="tamaño" th:field="*{tamaño}" placeholder="Tamaño" required><br><br>
+
+      <input type="text" id="enfermedades" th:field="*{enfermedades}" placeholder="Enfermedades" required><br><br>
+
+      <input type="text" id="antecedentes" th:field="*{antecedentes}" placeholder="Antecedentes" required><br><br>
+
+      <input type="text" id="diagnosticoHistoria" th:field="*{diagnosticoHistoria}" placeholder="Diagnostico Historia" required><br><br>
+
+
+      <br><br>
+
+      
+      <input type="submit" class="regis" value="Registrar">
+    </form>
+  </main>
+  <footer>
+    <div class="vete">
+        <h1>Veterinaria Boss Bunny</h1>
+    </div>
+    <div class="contac">
+        <div class="text">
+            <h1>CONTACTO</h1>
+            <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+        </div>
+        <div class="img">
+          <img th:src="@{img/logo.png}" class="log">
+        </div>
+    </div>
+    <div class="toda">
+        <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
+    </div>
+  </footer>
+</body>
+</html>

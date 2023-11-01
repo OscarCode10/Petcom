@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/moduls.css}">
+    <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Historia-Clínica</title>
+    <title>Registrar un usuario</title>
 </head>
 <body>
     <nav>
@@ -37,15 +37,36 @@
             </div>
         </div>
     </nav>
-    <div id="all">
-        <h1>HISTORIA CLÍNICA</h1>
-        <div class="cont">
-            <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Historia Clínica:</h2>
-            <div class="bot">
-                <a th:href="@{/regisHistoV}"><input type="submit" value="REGISTRAR"></a>
-                <a th:href="@{/listHisto}"><input type="submit" value="VER"></a>
-            </div>
-        </div>
+
+    <div class="all">
+        
+        <center><h1 class="List">LISTADO DE MASCOTAS </h1></center>
+        <br>
+        <table class="tabla-colores">
+            <tr>
+                <th>Id </th>
+                <th>Id Mascota</th>
+                <th>Peso</th>
+                <th>Tamaño</th>
+                <th>Enfermedades</th>
+                <th>Antecedentes</th>
+                <th>Diagnostico</th>
+                
+            </tr>
+            <tr th:if="${historias.size()>0}" th:each="c:${historia}">
+                <td th:text="${c.idHistoriaClinica}"></td>
+                <td th:text="${c.FK.idMascota}"></td>
+                <td th:text="${c.peso}"></td>
+                <td th:text="${c.tamaño}"></td>
+                <td th:text="${c.enfermedades}"></td>
+                <td th:text="${c.antecedentes}"></td>
+                <td th:text="${c.diagnosticoHistoria}"></td>
+               
+                <td class="cell-with-button">
+                    <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button class="btnM">Modificar</button></a>
+                </td>
+            </tr>
+        </table> 
     </div>
     <footer>
         <div class="vete">
@@ -57,7 +78,7 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img th:src="@{img/logo.png}" class="log">
+                <img th:src="@{/img/logo.png}" class="log">
             </div>
         </div>
         <div class="toda">
@@ -66,3 +87,4 @@
     </footer>
 </body>
 </html>
+
