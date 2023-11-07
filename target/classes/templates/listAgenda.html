@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/lists.css}">
+    <link rel="stylesheet" th:href="@{/css/agenda.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
     <title>Registrar un usuario</title>
 </head>
@@ -41,33 +41,183 @@
     <div class="all">
         <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
         <br>
-        <table class="tabla-colores">
-            <tr>
-                <th>Id</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
-                <th>Hora Inicio</th>
-                <th>Hora Fin</th>
-                <th>Estado</th>
-                <th>Operaciones</th>
-            </tr>
-            <tr th:if="${agenda.size()>0}" th:each="c:${agenda}">
-                <td th:text="${c.idAgenda}"></td>
-                <td th:text="${c.fechaInicio}"></td>
-                <td th:text="${c.fechaFin}"></td>
-                <td th:text="${c.horaInicio}"></td>
-                <td th:text="${c.horaFin}"></td>
-                <td th:if="${c.estadoAgenda==true}">
-                    <h2>Activo</h2>
-                </td>
-                <td th:if="${c.estadoAgenda==false}">
-                    <h2>Inactivo</h2>
-                </td>
-                <td class="cell-with-button">
-                    <a th:href="@{/modificarAgendaV/{idAgenda}(idAgenda=${c.idAgenda})}"><button class="btnM">Modificar</button></a>
-                </td>
-            </tr>
-        </table> 
+        <div th:if="${agenda.size()>0}" th:each="c:${agenda}">
+            <br>
+            <h1></h1>
+            <table class="tabla-colores">
+                <tr class="indice">
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miercoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sabado</th>
+                    <th>Domingo</th>
+                </tr>
+                <tr>
+                    <th>9:30</th>
+                    <th>9:30</th>
+                    <th>9:30</th>
+                    <th>9:30</th>
+                    <th>9:30</th>
+                    <th>9:30</th>
+                    <th>9:30</th>
+                </tr>
+                <tr>
+                    <th>10:00</th>
+                    <th>10:00</th>
+                    <th>10:00</th>
+                    <th>10:00</th>
+                    <th>10:00</th>
+                    <th>10:00</th>
+                    <th>10:00</th>
+                </tr>
+                <tr>
+                    <th>10:30</th>
+                    <th>10:30</th>
+                    <th>10:30</th>
+                    <th>10:30</th>
+                    <th>10:30</th>
+                    <th>10:30</th>
+                    <th>10:30</th>
+                </tr>
+                <tr>
+                    <th>11:00</th>
+                    <th>11:00</th>
+                    <th>11:00</th>
+                    <th>11:00</th>
+                    <th>11:00</th>
+                    <th>11:00</th>
+                    <th>11:00</th>
+                </tr>
+                <tr>
+                    <th>11:30</th>
+                    <th>11:30</th>
+                    <th>11:30</th>
+                    <th>11:30</th>
+                    <th>11:30</th>
+                    <th>11:30</th>
+                    <th>11:30</th>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <th>12:00</th>
+                    <th>12:00</th>
+                    <th>12:00</th>
+                    <th>12:00</th>
+                    <th>12:00</th>
+                    <th>12:00</th>
+                </tr>
+                <tr>
+                    <th>12:30</th>
+                    <th>12:30</th>
+                    <th>12:30</th>
+                    <th>12:30</th>
+                    <th>12:30</th>
+                    <th>12:30</th>
+                    <th>12:30</th>
+                </tr>
+                <tr>
+                    <th>1:00</th>
+                    <th>1:00</th>
+                    <th>1:00</th>
+                    <th>1:00</th>
+                    <th>1:00</th>
+                    <th>1:00</th>
+                    <th>1:00</th>
+                </tr>
+                <tr>
+                    <th>1:30</th>
+                    <th>1:30</th>
+                    <th>1:30</th>
+                    <th>1:30</th>
+                    <th>1:30</th>
+                    <th>1:30</th>
+                    <th>1:30</th>
+                </tr>
+                <tr>
+                    <th>2:00</th>
+                    <th>2:00</th>
+                    <th>2:00</th>
+                    <th>2:00</th>
+                    <th>2:00</th>
+                    <th>2:00</th>
+                    <th>2:00</th>
+                </tr>
+                <tr>
+                    <th>2:30</th>
+                    <th>2:30</th>
+                    <th>2:30</th>
+                    <th>2:30</th>
+                    <th>2:30</th>
+                    <th>2:30</th>
+                    <th>2:30</th>
+                </tr>
+                <tr>
+                    <th>3:00</th>
+                    <th>3:00</th>
+                    <th>3:00</th>
+                    <th>3:00</th>
+                    <th>3:00</th>
+                    <th>3:00</th>
+                    <th>3:00</th>
+                </tr>
+                <tr>
+                    <th>3:30</th>
+                    <th>3:30</th>
+                    <th>3:30</th>
+                    <th>3:30</th>
+                    <th>3:30</th>
+                    <th>3:30</th>
+                    <th>3:30</th>
+                </tr>
+                <tr>
+                    <th>4:00</th>
+                    <th>4:00</th>
+                    <th>4:00</th>
+                    <th>4:00</th>
+                    <th>4:00</th>
+                    <th>4:00</th>
+                    <th>4:00</th>
+                </tr>
+                <tr>
+                    <th>4:30</th>
+                    <th>4:30</th>
+                    <th>4:30</th>
+                    <th>4:30</th>
+                    <th>4:30</th>
+                    <th>4:30</th>
+                    <th>4:30</th>
+                </tr>
+                <tr>
+                    <th>5:00</th>
+                    <th>5:00</th>
+                    <th>5:00</th>
+                    <th>5:00</th>
+                    <th>5:00</th>
+                    <th>5:00</th>
+                    <th>5:00</th>
+                </tr>
+                <tr>
+                    <th>5:30</th>
+                    <th>5:30</th>
+                    <th>5:30</th>
+                    <th>5:30</th>
+                    <th>5:30</th>
+                    <th>5:30</th>
+                    <th>5:30</th>
+                </tr>
+                <tr>
+                    <th>6:00</th>
+                    <th>6:00</th>
+                    <th>6:00</th>
+                    <th>6:00</th>
+                    <th>6:00</th>
+                    <th>6:00</th>
+                    <th>6:00</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <footer>

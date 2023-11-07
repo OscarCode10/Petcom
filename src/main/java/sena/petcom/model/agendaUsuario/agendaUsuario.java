@@ -37,5 +37,5 @@ public class agendaUsuario {
     private Usuario FK;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    private Agenda Fk;
+    private Agenda FkA;
 }

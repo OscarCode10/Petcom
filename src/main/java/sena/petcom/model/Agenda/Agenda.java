@@ -52,7 +52,7 @@ public class Agenda {
     @Column
     private Boolean estadoAgenda;
 
-    @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="FkA", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<agendaUsuario> idAgendaUsuarioFK;
 
     @OneToMany(mappedBy="FK", fetch=FetchType.LAZY, cascade=CascadeType.ALL)

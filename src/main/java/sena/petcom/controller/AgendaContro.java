@@ -12,11 +12,14 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
+import sena.petcom.model.Usuario.IUsuario;
 
 @Controller
 public class AgendaContro {
     @Autowired
     private IAgenda iAgenda;
+
+    @Autowired IUsuario iUsuario;
 
     @GetMapping("/modulAgenda")
     public String modulAgenda(){
@@ -26,6 +29,7 @@ public class AgendaContro {
     @GetMapping("/registrarAgendaV")
     public String registrarAgendaV(Model m){
         m.addAttribute("agenda", new Agenda());
+        m.addAttribute("usuarios", iUsuario.findAll());
         return "registrarAgenda";
     }
 

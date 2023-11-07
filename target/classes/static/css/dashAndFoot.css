@@ -3,7 +3,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Poppins';    
 }
 
 :root{
@@ -88,11 +88,12 @@ footer{
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 1rem;
 }
+
 .vete{
     background-color: var(--4);
     color: var(--1);
-    font-size: 'Merriweather';
     padding: 0.5rem;
     padding-inline-start: 24rem;
     font-size: .8rem;
@@ -107,6 +108,7 @@ footer{
     padding-inline-start: 24rem;
     border-bottom: .2rem solid rgba(53, 53, 53, 0.1);
 }
+
 .log{
     width: 7rem;
     height: 5.5rem;
@@ -114,17 +116,19 @@ footer{
     border-radius: 4rem;
     margin-top: .6rem;
 }
+
 .contac h1{
     color:var(--4);
     font-size: 1rem;
     font-weight: 800;
-    margin-left: 3rem;
 }
+
 .contac h2{
     color:var(--2);
     font-size: 1rem;
     font-weight: 500;
 }
+
 .toda{
     height: 3rem;
     display: flex;
@@ -132,6 +136,7 @@ footer{
     align-items: center;
     background-color: var(--8);
 }
+
 .toda h1{
     color: var(--1);
     font-size: 1rem;
