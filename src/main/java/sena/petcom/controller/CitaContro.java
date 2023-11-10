@@ -2,7 +2,6 @@ package sena.petcom.controller;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.io.ByteArrayOutputStream;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -122,6 +121,5 @@ public class ReporteCitaController {
         return byteArrayOutputStream.toByteArray();
     }
 }
-
 
 }

@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sena.petcom.model.Cliente.Cliente;
@@ -24,6 +25,7 @@ import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name="Mascota")
 public class Mascota {

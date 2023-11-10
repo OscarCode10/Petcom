@@ -58,7 +58,7 @@
 
       <input type="email" id="email" th:field="*{correoUsu}" value="${usuario.correoUsu}" placeholder="Email" required><br>
 
-      <input type="text" id="clave" th:field="*{claveUsu}" value="${usuario.claveUsu}" placeholder="Clave"><br>
+      <input type="text" id="clave" th:field="*{claveUsu}" value="${usuario.claveUsu}" placeholder="Clave" required><br>
 
       <select id="rol" name="rol" th:field="*{estadoUsu}" value="${usuario.estadoUsu}">
         <option value="">estado</option>

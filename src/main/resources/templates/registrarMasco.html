@@ -49,15 +49,17 @@
 
       <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" required><br><br>
 
-      <input type="text" id="genero" th:field="*{genero}" placeholder="Genero" required><br><br>
-
+      <select id="" name="" th:field="*{genero}">
+        <option value="">Genero</option>
+        <option value="M">Macho</option>
+        <option value="F">Hembra</option>
+      </select><br><br>
 
       <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}">
-        <option value="">estado</option>
+        <option value="">Estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
       </select><br><br>
-
       
       <input type="submit" class="regis" value="Registrar">
     </form>
