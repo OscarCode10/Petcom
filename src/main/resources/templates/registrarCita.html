@@ -9,60 +9,53 @@
     <link rel="stylesheet" th:href="@{/css/registers.css}">
 </head>
 <body>
-  <nav>
-    <img th:src="@{img/logo.png}" class="logo">
-    <div class="btns">
-        <div class="btn">
-            <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
+    <nav>
+        <img th:src="@{img/logo.png}" class="logo">
+        <div class="btns">
+            <div class="btn">
+                <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
         </div>
-        <div class="btn">
-            <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
-        </div>
-        <div class="btn">
-            <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
-        </div>
-        <div class="btn">
-            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
-        </div>
-        <div class="cerrar">
-            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
-        </div>
-    </div>
-  </nav>
-    <main><!-- <label for="idCita">ID de Cita:</label>
-        <input type="text" id="" th:field="*{idCita}" placeholder="ID de Cita" required><br><br>
-  
-        <label for="idAgenda">ID de Agenda:</label>
-        <input type="text" id="" th:field="*{idAgenda}" placeholder="ID de Agenda" required><br><br>
-
-
-        <label for="idClienteCita">ID de Cliente de Cita:</label>
-        <input type="text" id="" th:field="*{idClienteCita}" placeholder="ID de Cliente de Cita" required><br><br>
-       -->
-       <form th:action="@{/registrarCita}" th:object="${cita}" method="post">
-        <h2>Registrar Cita</h2>
-    
-        <label for="motivoConsulta">Motivo de Consulta:</label>
-        <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" required><br><br>
-    
-        <label for="estadoCita">Estado de Cita:</label>
-        <select id="" th:field="*{estadoCita}">
-            <option th:value="true">Confirmada</option>
-            <option th:value="false">Pendiente</option>
-        </select><br><br>
-  
-        <input type="submit" class="regis" value="Registrar">
-    </form>
-    
+    </nav>
+    <main>
+        <form th:action="@{/registrarCita}" th:object="${cita}" method="post">
+            <h2>Registrar<br> Cita</h2>
+           
+            <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" required><br><br>
+            
+            <select id="" name="" th:field="*{estadoCita}">
+                <option value="">Estado</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+            </select><br><br>
+      
+            <input type="number" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda" required><br><br>
+      
+            <input type="number" id="" th:field="*{FkC.idCliente}" placeholder="Id Cliente" required><br><br>
+                  
+            <input type="submit" class="regis" value="Registrar">
+        </form>
       </main>
 
       <footer>
@@ -82,7 +75,5 @@
             <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
         </div>
       </footer>
-
-
 </body>
 </html>

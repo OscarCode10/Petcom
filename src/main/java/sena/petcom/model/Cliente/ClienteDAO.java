@@ -16,19 +16,19 @@ public class ClienteDAO implements ICliente{
     @Override
     public void delete(Integer idCliente) {
         // TODO Auto-generated method stub
-        
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+    @Transactional
+    @Override    
     public List<Cliente> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return em.createQuery("from Cliente").getResultList();
     }
 
+    @Transactional
     @Override
-    public Cliente findOne(Integer idCliente) {
-        // TODO Auto-generated method stub
-        return null;
+    public Cliente findOne(Integer idCliente) { 
+        return em.find(Cliente.class, idCliente);
     }
 
     @Transactional

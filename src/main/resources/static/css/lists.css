@@ -39,12 +39,12 @@
 }
 
 .all {
-    width: calc(100% - 400px); 
-    height: 469px;
+    width: calc(100% - 400px);
     flex-shrink: 0;
     margin: 0 200px; 
     font-family: Poppins;
 }
+
 .all h1{
     margin-top: 6rem;
 }
@@ -86,10 +86,7 @@ td h2{
     top: 50%; 
     transform: translate(50%, -50%); 
 }
-.cell-with-button {
-    position: relative; 
-    text-align: center; 
-}
+
 .cell-with-button {
     position: relative; 
     text-align: center; 

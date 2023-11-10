@@ -32,7 +32,7 @@ public class Cliente {
 
     @NotNull
     @Column
-    private String tipoDocumentoCliente;
+    private String tipoDocCliente;
 
     @NotNull
     @Column(unique=true)
@@ -54,7 +54,7 @@ public class Cliente {
     @Column
     private Boolean estadoCliente;
 
-    @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="FkC", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<Cita> idCitaFK;
 
     @OneToMany(mappedBy="FK", fetch=FetchType.LAZY, cascade=CascadeType.ALL)

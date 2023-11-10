@@ -23,7 +23,7 @@
             <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
         </div>
         <div class="btn">
-            <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+            <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
         </div>
         <div class="btn">
             <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -35,7 +35,7 @@
             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
         </div>
     </div>
-  </nav>
+</nav>
   <main>
     <form th:action="@{/modificarMasco}" th:object="${mascota}" method="post">
       <h2>Registrar<br> Mascota</h2>

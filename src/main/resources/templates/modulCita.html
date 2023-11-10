@@ -26,7 +26,7 @@
                 <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
             </div>
             <div class="btn">
-                <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -43,7 +43,7 @@
     <div id="all">
         <h1>CITAS</h1>
         <div class="cont">
-            <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Cita:</h2>
+            <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Cita: </h2>
             <div class="bot">
                 <a th:href="@{registrarCitaV}"><input type="submit" value="REGISTRAR"></a>
                 <a th:href="@{/listCita}"><input type="submit" value="VER"></a>
@@ -61,7 +61,7 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img src="logo.png" class="log">
+                <img th:src="@{/img/logo.png}" class="log">
             </div>
         </div>
         <div class="toda">

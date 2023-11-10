@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" th:href="@{css/registers.css}">
   <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
-  <title>RegistrarUsu</title>
+  <title>Registrar Historia Clínica</title>
 </head>
 <body>
   <nav>
@@ -36,27 +36,23 @@
     </div>
   </nav>
   <main>
-    <form th:action="@{/regisMasco}" th:object="${masco}" method="post">
-      <h2>Registrar<br> Mascota</h2>
+    <form th:action="@{/regisHisto}" th:object="${histo}" method="post">
+      <h2>Registrar<br> Historia Clínica</h2>
      
-      <input type="text" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" required value="1"><br><br>
+      <input type="text" id="idmas" th:field="*{FK.idMascota}" placeholder="id MASCOTAS" required value="1"><br><br>
 
-      <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota" required><br><br>
+      <input type="number" id="peso" th:field="*{peso}" placeholder="Peso" required><br><br>
 
-      <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota" required><br><br>
+      <input type="number" id="tamaño" th:field="*{tamaño}" placeholder="Tamaño" required><br><br>
 
-      <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento" required><br><br>
+      <input type="text" id="enfermedades" th:field="*{enfermedades}" placeholder="Enfermedades" required><br><br>
 
-      <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" required><br><br>
+      <input type="text" id="antecedentes" th:field="*{antecedentes}" placeholder="Antecedentes" required><br><br>
 
-      <input type="text" id="genero" th:field="*{genero}" placeholder="Genero" required><br><br>
+      <input type="text" id="diagnosticoHistoria" th:field="*{diagnosticoHistoria}" placeholder="Diagnostico Historia" required><br><br>
 
 
-      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}">
-        <option value="">estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select><br><br>
+      <br><br>
 
       
       <input type="submit" class="regis" value="Registrar">

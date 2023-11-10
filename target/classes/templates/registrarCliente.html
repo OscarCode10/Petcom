@@ -2,8 +2,8 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
 
 <head>
-  <link rel="stylesheet" href="../static/css/registers.css">
-  <link rel="stylesheet" href="../static/css/dashAndFoot.css">
+  <link rel="stylesheet" th:href="@{/css/registers.css}">
+  <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
   <title>Registrar Cliente</title>
 </head>
 
@@ -24,7 +24,7 @@
             <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
         </div>
         <div class="btn">
-            <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+            <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
         </div>
         <div class="btn">
             <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -36,11 +36,11 @@
             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
         </div>
     </div>
-</nav>
+  </nav>
   <main>
-    <form th:action="@{/registrarCli}" th:object="${cliente}" method="post">
+    <form th:action="@{/registrarCliente}" th:object="${cliente}" method="post">
       <h2>Registrar<br> Cliente</h2>
-      <select id="" name="" th:field="*{tipoDocumentoCli}">
+      <select id="" name="" th:field="*{tipoDocCliente}">
         <option value="">Tipo Documento</option>
         <option value="C.C.">C.C.</option>
         <option value="T.I.">T.I.</option>
@@ -48,26 +48,19 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" id="numerodocumento" th:field="*{numDocumentoCli}" placeholder="Numero Documento"
-        required><br><br>
+      <input type="number" id="" th:field="*{numDocCliente}" placeholder="Número Documento" required><br><br>
 
-      <input type="text" id="nombre" th:field="*{nombreCli}" placeholder="Nombre" required><br><br>
+      <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre Completo" required><br><br>
 
-      <input type="text" id="apellido" th:field="*{apellidoCli}" placeholder="Apellido" required><br><br>
+      <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Teléfono" required><br><br>
 
-      <input type="number" id="telefono" th:field="*{telefonoCli}" placeholder="Telefono" required><br><br>
+      <input type="email" id="" th:field="*{correoCliente}" placeholder="Correo" required><br><br>
 
-      <input type="email" id="email" th:field="*{correoCli}" placeholder="Email" required><br><br>
-
-      <input type="password" id="clave" th:field="*{claveCli}" placeholder="Clave"><br><br>
-
-      <select id="estadoCita" name="estadoCita" th:field="*{estadoCita}">
-        <option value="">Estado de Cita</option>
-        <option value="pendiente">Pendiente</option>
-        <option value="confirmada">Confirmada</option>
-        <option value="cancelada">Cancelada</option>
+      <select id="" name="" th:field="*{estadoCliente}">
+        <option value="">Estado</option>
+        <option value="1">Activo</option>
+        <option value="0">Inactivo</option>
     </select><br><br>
-
 
       <input type="submit" class="regis" value="Registrar">
     </form>

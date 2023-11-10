@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/registers.css">
-
-    
-    <title>Doctor-Historia-Clínica</title>
+    <link rel="stylesheet" th:href="@{/css/registers.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+    <title>Modificar Cliente</title>
 </head>
 <body>
     <nav>
-        <img th:src="@{img/logo.png}" class="logo">
+        <img th:src="@{/img/logo.png}" class="logo">
         <div class="btns">
             <div class="btn">
                 <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
@@ -25,7 +24,7 @@
                 <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
             </div>
             <div class="btn">
-                <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -38,41 +37,39 @@
             </div>
         </div>
     </nav>
-    <div id="all">
-        <div class="cont">
-            <form  th:object="${cliente}" action="post">
-                    <h1 id="h1">MODIFICAR CLIENTES</h1>
-                <div class="bot">
-                    <h2>Nombre del cliente</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Tipo de documento</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Numero de documento</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Telefono</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Correo</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="bot">
-                    <h2>Estado</h2>
-                    <input type="text" value="">
-                </div>
-                <div class="buttons">
-                    <input type="button" id="btn1" value="MODIFICAR">
-                    <a th:href="@{/listCli}"><input type="button" id="btn2" value="VOLVER"></a>
-                </div>
-            </form>
-        </div>
-    </div>
+
+    <main>
+        <form th:action="@{/modificarCliente}" th:object="${cliente}" method="post">
+            <h2>Actualizar<br> Cliente</h2>
+            <input type="number" id="" th:field="*{idCliente}" placeholder="Numero Documento" value="${cliente.idCliente}" readonly><br>
+    
+            <select id="" name="" th:field="*{tipoDocCliente}" value="${cliente.tipoDocCliente}">
+              <option value="">Tipo Documento</option>
+              <option value="C.C.">C.C.</option>
+              <option value="T.I.">T.I.</option>
+              <option value="C.E.">C.E.</option>
+              <option value="DNI" >DNI</option>
+            </select><br>
+      
+            <input type="number" id="" th:field="*{numDocCliente}" placeholder="Numero Documento" value="${cliente.numDocCliente}" required><br>
+      
+            <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre" value="${cliente.nombreCliente}" required><br>
+      
+            <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Telefono" value="${cliente.telefonoCliente}" required><br>
+      
+            <input type="email" id="" th:field="*{correoCliente}" placeholder="Email" value="${cliente.correoCliente}" required><br>
+      
+            <select id="" th:field="*{estadoCliente}" value="${cliente.estadoUsu}">
+              <option value="">Estado</option>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select><br>
+      
+            <input type="submit" class="regis" value="Modificar">
+    
+          </form>
+    </main>
+
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>

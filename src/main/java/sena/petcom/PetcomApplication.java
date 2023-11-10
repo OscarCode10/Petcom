@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import sena.petcom.model.Agenda.IAgenda;
 import sena.petcom.model.Cliente.Cliente;
 import sena.petcom.model.Cliente.ICliente;
 import sena.petcom.model.Rol.IRol;
@@ -28,6 +29,9 @@ public class PetcomApplication {
 
 	@Autowired
 	ICliente icliente;
+
+	@Autowired
+	IAgenda iagenda;
 
 	@Bean
 	CommandLineRunner init(){
@@ -73,7 +77,7 @@ public class PetcomApplication {
 
 
 			Cliente cliente=Cliente.builder()
-				.tipoDocumentoCliente("C.C.")
+				.tipoDocCliente("C.C.")
 				.numDocCliente(1019019842)
 				.nombreCliente("Oscar Ortiz")
 				.telefonoCliente(322349683)

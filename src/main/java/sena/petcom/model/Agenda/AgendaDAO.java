@@ -1,5 +1,8 @@
 package sena.petcom.model.Agenda;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -35,5 +38,29 @@ public class AgendaDAO implements IAgenda{
     @Override
     public Agenda findOne(Integer idAgenda) {
         return em.find(Agenda.class, idAgenda);
+    }
+
+    @Override
+    public Date parseDate(String date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return sdf.parse(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Time parseHour(String time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        Date date;
+        try {
+            date = sdf.parse(time);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return new Time(date.getTime());
     }
 }

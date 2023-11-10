@@ -44,7 +44,7 @@ public class Cita {
     private Agenda FK;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    private Cliente Fk;
+    private Cliente FkC;
 
     @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<DetallesHistoria> idDetallesHistoriaFK;

@@ -22,7 +22,7 @@
             <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
         </div>
         <div class="btn">
-            <a href="oscar.html"><input type="submit" value="CLIENTES"></a>
+            <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
         </div>
         <div class="btn">
             <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -34,11 +34,16 @@
             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
         </div>
     </div>
-  </nav>
+</nav>
   <main>
     <form th:action="@{/registrarAgenda}" th:object="${agenda}" method="post">
       <h2>Registrar<br> Agenda</h2>
-     
+      <select>
+        <th:block th:each="c : ${usuarios}">
+        <option th:if="${c.FK.idRol == 3 or c.FK.idRol == 4}" th:value="${c.idUsuario}" th:text="${c.nombreUsu}"></option>
+        </th:block>
+      </select>
+
       <input type="date" id="" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required step="1"><br><br>
 
       <input type="date" id="" th:field="*{fechaFin}" placeholder="Fecha de fin" required step="1"><br><br>

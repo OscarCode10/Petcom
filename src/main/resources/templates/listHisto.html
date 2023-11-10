@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/registers.css}">
+    <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Modificar Cliente</title>
+    <title>Registrar un usuario</title>
 </head>
 <body>
     <nav>
-        <img th:src="@{/img/logo.png}" class="logo">
+        <img th:src="@{img/logo.png}" class="logo">
         <div class="btns">
             <div class="btn">
                 <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
@@ -38,38 +38,36 @@
         </div>
     </nav>
 
-    <main>
-        <form th:action="@{/modificarCliente}" th:object="${cliente}" method="post">
-            <h2>Actualizar<br> Cliente</h2>
-            <input type="number" id="" th:field="*{idCliente}" placeholder="Numero Documento" value="${cliente.idCliente}" readonly><br>
-    
-            <select id="" name="" th:field="*{tipoDocCliente}" value="${cliente.tipoDocCliente}">
-              <option value="">Tipo Documento</option>
-              <option value="C.C.">C.C.</option>
-              <option value="T.I.">T.I.</option>
-              <option value="C.E.">C.E.</option>
-              <option value="DNI" >DNI</option>
-            </select><br>
-      
-            <input type="number" id="" th:field="*{numDocCliente}" placeholder="Numero Documento" value="${cliente.numDocCliente}" required><br>
-      
-            <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre" value="${cliente.nombreCliente}" required><br>
-      
-            <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Telefono" value="${cliente.telefonoCliente}" required><br>
-      
-            <input type="email" id="" th:field="*{correoCliente}" placeholder="Email" value="${cliente.correoCliente}" required><br>
-      
-            <select id="" th:field="*{estadoCliente}" value="${cliente.estadoUsu}">
-              <option value="">Estado</option>
-              <option value="1">Activo</option>
-              <option value="0">Inactivo</option>
-            </select><br>
-      
-            <input type="submit" class="regis" value="Modificar">
-    
-          </form>
-    </main>
-
+    <div class="all">
+        
+        <center><h1 class="List">LISTADO DE MASCOTAS </h1></center>
+        <br>
+        <table class="tabla-colores">
+            <tr>
+                <th>Id </th>
+                <th>Id Mascota</th>
+                <th>Peso</th>
+                <th>Tamaño</th>
+                <th>Enfermedades</th>
+                <th>Antecedentes</th>
+                <th>Diagnostico</th>
+                
+            </tr>
+            <tr th:if="${historias.size()>0}" th:each="c:${historia}">
+                <td th:text="${c.idHistoriaClinica}"></td>
+                <td th:text="${c.FK.idMascota}"></td>
+                <td th:text="${c.peso}"></td>
+                <td th:text="${c.tamaño}"></td>
+                <td th:text="${c.enfermedades}"></td>
+                <td th:text="${c.antecedentes}"></td>
+                <td th:text="${c.diagnosticoHistoria}"></td>
+               
+                <td class="cell-with-button">
+                    <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button class="btnM">Modificar</button></a>
+                </td>
+            </tr>
+        </table> 
+    </div>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
@@ -89,3 +87,4 @@
     </footer>
 </body>
 </html>
+
