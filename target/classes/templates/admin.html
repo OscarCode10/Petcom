@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,25 @@
     <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
     <title>Admistrador</title>
 </head>
+
 <body>
     <nav>
         <img th:src="@{img/logo.png}" class="logo">
         <div class="btns">
             <div class="btn">
-                <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
+                <a th:href="@{/usu}"><input type="submit" value="USUARIO"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
+                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
+                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -41,7 +43,7 @@
     <div class="all">
         <div class="contH">
             <h1>BIENVENIDO ADMINISTRADOR
-             OSCAR ORTIZ</h1>
+                OSCAR ORTIZ</h1>
         </div>
         <div class="contR">
             <div class="citas">
@@ -67,8 +69,9 @@
             </div>
         </div>
         <div class="toda">
-            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
+            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
         </div>
     </footer>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,25 @@
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
     <title>Registrar un usuario</title>
 </head>
+
 <body>
     <nav>
         <img th:src="@{img/logo.png}" class="logo">
         <div class="btns">
             <div class="btn">
-                <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
+                <a th:href="@{/usu}"><input type="submit" value="USUARIO"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
+                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
+                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
@@ -39,13 +41,16 @@
     </nav>
 
     <div class="all">
-        <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
+        <center>
+            <h1 class="List">LISTADO DE AGENDAS </h1>
+        </center>
         <br>
         <div th:if="${agenda.size()>0}" th:each="c:${agenda}">
             <br>
             <h1></h1>
             <table class="tabla-colores">
                 <tr class="indice">
+                    <th>Hora</th>
                     <th>Lunes</th>
                     <th>Martes</th>
                     <th>Miercoles</th>
@@ -55,166 +60,184 @@
                     <th>Domingo</th>
                 </tr>
                 <tr>
-                    <th>9:30</th>
-                    <th>9:30</th>
-                    <th>9:30</th>
-                    <th>9:30</th>
-                    <th>9:30</th>
-                    <th>9:30</th>
-                    <th>9:30</th>
+                    <th class="hour">9:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>10:00</th>
-                    <th>10:00</th>
-                    <th>10:00</th>
-                    <th>10:00</th>
-                    <th>10:00</th>
-                    <th>10:00</th>
-                    <th>10:00</th>
+                    <th class="hour">10:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>10:30</th>
-                    <th>10:30</th>
-                    <th>10:30</th>
-                    <th>10:30</th>
-                    <th>10:30</th>
-                    <th>10:30</th>
-                    <th>10:30</th>
+                    <th class="hour">10:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>11:00</th>
-                    <th>11:00</th>
-                    <th>11:00</th>
-                    <th>11:00</th>
-                    <th>11:00</th>
-                    <th>11:00</th>
-                    <th>11:00</th>
+                    <th class="hour">11:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>11:30</th>
-                    <th>11:30</th>
-                    <th>11:30</th>
-                    <th>11:30</th>
-                    <th>11:30</th>
-                    <th>11:30</th>
-                    <th>11:30</th>
+                    <th class="hour">11:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>12:00</th>
-                    <th>12:00</th>
-                    <th>12:00</th>
-                    <th>12:00</th>
-                    <th>12:00</th>
-                    <th>12:00</th>
-                    <th>12:00</th>
+                    <th class="hour">12:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>12:30</th>
-                    <th>12:30</th>
-                    <th>12:30</th>
-                    <th>12:30</th>
-                    <th>12:30</th>
-                    <th>12:30</th>
-                    <th>12:30</th>
+                    <th class="hour">12:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>1:00</th>
-                    <th>1:00</th>
-                    <th>1:00</th>
-                    <th>1:00</th>
-                    <th>1:00</th>
-                    <th>1:00</th>
-                    <th>1:00</th>
+                    <th class="hour">1:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>1:30</th>
-                    <th>1:30</th>
-                    <th>1:30</th>
-                    <th>1:30</th>
-                    <th>1:30</th>
-                    <th>1:30</th>
-                    <th>1:30</th>
+                    <th class="hour">1:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>2:00</th>
-                    <th>2:00</th>
-                    <th>2:00</th>
-                    <th>2:00</th>
-                    <th>2:00</th>
-                    <th>2:00</th>
-                    <th>2:00</th>
+                    <th class="hour">2:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>2:30</th>
-                    <th>2:30</th>
-                    <th>2:30</th>
-                    <th>2:30</th>
-                    <th>2:30</th>
-                    <th>2:30</th>
-                    <th>2:30</th>
+                    <th class="hour">2:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>3:00</th>
-                    <th>3:00</th>
-                    <th>3:00</th>
-                    <th>3:00</th>
-                    <th>3:00</th>
-                    <th>3:00</th>
-                    <th>3:00</th>
+                    <th class="hour">3:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>3:30</th>
-                    <th>3:30</th>
-                    <th>3:30</th>
-                    <th>3:30</th>
-                    <th>3:30</th>
-                    <th>3:30</th>
-                    <th>3:30</th>
+                    <th class="hour">3:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>4:00</th>
-                    <th>4:00</th>
-                    <th>4:00</th>
-                    <th>4:00</th>
-                    <th>4:00</th>
-                    <th>4:00</th>
-                    <th>4:00</th>
+                    <th class="hour">4:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>4:30</th>
-                    <th>4:30</th>
-                    <th>4:30</th>
-                    <th>4:30</th>
-                    <th>4:30</th>
-                    <th>4:30</th>
-                    <th>4:30</th>
+                    <th class="hour">4:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>5:00</th>
-                    <th>5:00</th>
-                    <th>5:00</th>
-                    <th>5:00</th>
-                    <th>5:00</th>
-                    <th>5:00</th>
-                    <th>5:00</th>
+                    <th class="hour">5:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>5:30</th>
-                    <th>5:30</th>
-                    <th>5:30</th>
-                    <th>5:30</th>
-                    <th>5:30</th>
-                    <th>5:30</th>
-                    <th>5:30</th>
+                    <th class="hour">5:30</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <th>6:00</th>
-                    <th>6:00</th>
-                    <th>6:00</th>
-                    <th>6:00</th>
-                    <th>6:00</th>
-                    <th>6:00</th>
-                    <th>6:00</th>
+                    <th class="hour">6:00</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </table>
         </div>
@@ -230,12 +253,13 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img th:src="@{/img/logo.png}" class="log">
+                <img th:src="@{img/logo.png}" class="log">
             </div>
         </div>
         <div class="toda">
-            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM  ©.</h1>
+            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
         </div>
     </footer>
 </body>
+
 </html>

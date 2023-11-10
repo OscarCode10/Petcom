@@ -40,7 +40,7 @@
 
 .tabla-colores .indice{
     background-color: #8EA0BC;
-    color: #fcfcfc; 
+    color: #fcfcfc;
     font-family: Poppins;
 }
 
@@ -62,4 +62,9 @@ td h2{
     right: 50%; 
     top: 50%; 
     transform: translate(50%, -50%); 
+}
+
+.tabla-colores .hour{
+    background-color: #8EA0BC;
+    color: #fcfcfc;
 }

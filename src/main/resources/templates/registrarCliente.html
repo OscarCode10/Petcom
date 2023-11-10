@@ -11,30 +11,30 @@
   <nav>
     <img th:src="@{img/logo.png}" class="logo">
     <div class="btns">
-        <div class="btn">
-            <a th:href="@{/usu}"><input type="submit" value="USUARIOS"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulCita}"><input type="submit" value="CITAS"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTAS"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTES"></a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
-        </div>
-        <div class="btn">
-            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
-        </div>
-        <div class="cerrar">
-            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
-        </div>
+      <div class="btn">
+        <a th:href="@{/usu}"><input type="submit" value="USUARIO"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+      </div>
+      <div class="btn">
+        <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+      </div>
+      <div class="cerrar">
+        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+      </div>
     </div>
   </nav>
   <main>
@@ -48,11 +48,11 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" id="" th:field="*{numDocCliente}" placeholder="Número Documento" required><br><br>
+      <input type="number" id="" th:field="*{numDocCliente}" placeholder="Número Documento" required><br><br>x
 
       <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre Completo" required><br><br>
 
-      <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Teléfono" required><br><br>
+      <input type="number" id="" value="" th:field="*{telefonoCliente}" placeholder="Teléfono" required><br><br>
 
       <input type="email" id="" th:field="*{correoCliente}" placeholder="Correo" required><br><br>
 
@@ -60,7 +60,7 @@
         <option value="">Estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
-    </select><br><br>
+      </select><br><br>
 
       <input type="submit" class="regis" value="Registrar">
     </form>
@@ -82,7 +82,6 @@
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
   </footer>
-
 </body>
 
 </html>
