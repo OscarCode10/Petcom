@@ -54,7 +54,7 @@ public class Usuario {
 
     @NotNull
     @Column(name="telefonoUsu", unique=true)
-    private Integer telefonoUsu;
+    private Long telefonoUsu;
 
     @NotEmpty
     @NotNull

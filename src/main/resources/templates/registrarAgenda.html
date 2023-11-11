@@ -40,12 +40,12 @@
   <main>
     <form th:action="@{/registrarAgenda}" th:object="${agenda}" method="post">
       <h2>Registrar<br> Agenda</h2>
-      <select th:field="*{FK.idUsuario}" th:object="${usuario}">
+      <select name="idUsuario">
         <option value="">Peluqueros/Doctores</option>
         <th:block th:each="c : ${usuarios}">
-          <option th:if="${c.FK.idRol == 3 or c.FK.idRol == 4}" value="${c.idUsuario}" th:text="${c.nombreUsu}"></option>
+          <option th:if="${c.FK.idRol == 3 or c.FK.idRol == 4}" th:value="${c.idUsuario}" th:text="${c.nombreUsu}"></option>
         </th:block>
-      </select>
+      </select><br><br>
 
       <input type="date" id="" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required step="1"><br><br>
 

@@ -62,10 +62,10 @@
                 <td th:text="${c.fechaNacimiento}"></td>
                 <td th:text="${c.raza}"></td>
                 <td th:text="${c.genero}"></td>
-                <td th:if="${c.estadoMascota==true}">
+                <td th:if="${c.estadoMascota == true}">
                     <h2>Activo</h2>
                 </td>
-                <td th:if="${c.estadoMascota==false}">
+                <td th:if="${c.estadoMascota == false}">
                     <h2>Inactivo</h2>
                 </td>
                 <td class="cell-with-button">

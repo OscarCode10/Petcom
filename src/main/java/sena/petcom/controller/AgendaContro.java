@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 import sena.petcom.model.Agenda.Agenda;
@@ -40,14 +41,14 @@ public class AgendaContro {
     }
 
     @PostMapping("/registrarAgenda")
-    public String registrarAgenda(@Validated Agenda agenda, @PathVariable Integer idUsuario, BindingResult res, SessionStatus status){
+    public String registrarAgenda(@Validated Agenda agenda, @RequestParam String idUsuario, BindingResult res, SessionStatus status){
         if (res.hasErrors()) {
             return "redirect:/registrarAgendaV";
         } else{
-            if (idUsuario > 0) {
+            if (Integer.parseInt(idUsuario) > 0) {
                 iAgenda.save(agenda);
                 status.setComplete();
-                Usuario usu = iUsuario.findOne(idUsuario);
+                Usuario usu = iUsuario.findOne(Integer.parseInt(idUsuario));
                 String tipoCita;
 
                 if (usu.getFK().getIdRol() == 3) {
@@ -64,7 +65,7 @@ public class AgendaContro {
 
                 iagendaUsuario.save(agenUsu);
                 
-                return "redirect:/registrarAgendaV";
+                return "redirect:/modulAgenda";
             }
             else{
                 return "redirect:/registrarAgendaV";

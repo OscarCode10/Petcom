@@ -20,6 +20,7 @@ main{
   justify-content: center;
   align-items: center;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -32,16 +33,20 @@ form {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
+
 form h2{
   display: flex;
   justify-content: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
 input[type="text"],
 input[type="number"],
 input[type="email"],
-input[type="password"]{
+input[type="password"],
+input[type="date"],
+input[type="time"]{
   position: relative;
   left: 50px;
   height: auto;
@@ -50,6 +55,7 @@ input[type="password"]{
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
 select{
   position: relative;
   left: 50px;

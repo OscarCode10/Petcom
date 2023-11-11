@@ -73,10 +73,10 @@ public class PetcomApplication {
 
 			Usuario usuario = Usuario.builder()
 				.tipoDocumentoUsu("C.C.")
-				.numDocumentoUsu(12312312)
+				.numDocumentoUsu(1019019842)
 				.nombreUsu("Oscar")
 				.apellidoUsu("Ortiz")
-				.telefonoUsu(1231231)
+				.telefonoUsu(3223496849L)
 				.correoUsu("osca@a.a")
 				.claveUsu("123")
 				.estadoUsu(true)
