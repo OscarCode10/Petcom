@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import sena.petcom.model.Usuario.IUsuario;
 import sena.petcom.model.Usuario.Usuario;
 
@@ -27,10 +29,12 @@ public class UsuarioContro {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu){
+    public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu, HttpServletRequest req, Model m){
         if (correoUsu!=null && claveUsu!=null) {
-            Boolean session=user.login(correoUsu, claveUsu);
-            if (session==true) {
+            Integer idUsuario = user.login(correoUsu, claveUsu);
+            if (idUsuario != null) {
+                HttpSession session = req.getSession();
+                session.setAttribute("userDetails", user.findOne(idUsuario));
                 return "admin";
             }else{  
                 return "redirect:/index";
@@ -92,7 +96,8 @@ public class UsuarioContro {
     }
 
     @GetMapping("/cerrar")
-    public String cerrar(Model m){
+    public String cerrar(Model m, HttpServletRequest req){
+        req.getSession().invalidate();
         return "redirect:/index";
     }
     

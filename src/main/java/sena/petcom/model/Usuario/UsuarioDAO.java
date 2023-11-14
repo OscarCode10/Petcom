@@ -45,19 +45,19 @@ public class UsuarioDAO implements IUsuario{
     }
 
     @Override
-    public Boolean login(String correoUsuContro, String claveUsuContro) {
+    public Integer login(String correoUsuContro, String claveUsuContro) {
         TypedQuery<Usuario> query=em.createQuery("select u from Usuario u where u.correoUsu=:correo", Usuario.class);
         query.setParameter("correo", correoUsuContro);
         List<Usuario> resultados=query.getResultList();
         if (!resultados.isEmpty()) {
             Usuario userFound=resultados.get(0);
             if (userFound.getClaveUsu().equals(claveUsuContro)) {
-                return true;
+                return userFound.getIdUsuario();
             }else{
-                return false;
+                return null;
             }
         } else {
-            return false;
+            return null;
         }
     }
 }

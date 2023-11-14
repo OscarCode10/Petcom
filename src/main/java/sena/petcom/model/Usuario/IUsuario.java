@@ -10,5 +10,5 @@ public interface IUsuario {
     public Usuario findOne(Integer idUsuario);
     public void delete(Integer idUsuario);
     @Query("select u from Usuario u where correoUsu=?1")
-    public Boolean login(String correoUsuContro, String claveUsuContro);
+    public Integer login(String correoUsuContro, String claveUsuContro);
 }
