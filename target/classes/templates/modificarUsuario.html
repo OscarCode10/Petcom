@@ -61,9 +61,9 @@
       <input type="text" id="clave" th:field="*{claveUsu}" value="${usuario.claveUsu}" placeholder="Clave" required><br>
 
       <select id="rol" name="rol" th:field="*{estadoUsu}" value="${usuario.estadoUsu}">
-        <option value="">estado</option>
-        <option value="0">Activo</option>
-        <option value="1">Inactivo</option>
+        <option value="">Estado</option>
+        <option value="1">Activo</option>
+        <option value="0">Inactivo</option>
       </select><br>
 
       <select id="rol" name="rol" th:field="*{FK.idRol}" value="${usuario.FK.idRol}">

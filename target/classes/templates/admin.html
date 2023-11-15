@@ -41,8 +41,8 @@
     </nav>
 
     <div class="all">
-        <div class="contH">
-            <h1>Casa</h1>
+        <div class="contH" th:if="${session.userDetails}">
+            <h1>Bienvenido Administrador <span th:text="${session.userDetails.nombreUsu}"></span> <span th:text="${session.userDetails.apellidoUsu}"></span></h1>
         </div>
         <div class="contR">
             <div class="citas">
