@@ -33,7 +33,7 @@ public class UsuarioContro {
         if (correoUsu!=null && claveUsu!=null) {
             Integer idUsuario = user.login(correoUsu, claveUsu);
             if (idUsuario != null) {
-                HttpSession session = req.getSession();
+                HttpSession session = req.getSession(true);
                 session.setAttribute("userDetails", user.findOne(idUsuario));
                 return "admin";
             }else{  
@@ -97,7 +97,9 @@ public class UsuarioContro {
 
     @GetMapping("/cerrar")
     public String cerrar(Model m, HttpServletRequest req){
-        req.getSession().invalidate();
+        HttpSession findSession = req.getSession();
+        findSession.removeAttribute("userDetails");
+        findSession.invalidate();
         return "redirect:/index";
     }
     
