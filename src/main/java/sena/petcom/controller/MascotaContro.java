@@ -44,7 +44,7 @@ public class MascotaContro {
     
     @GetMapping("/listMasco")
     public String verMasco(Model m){
-        m.addAttribute("mascotas",iMascota.findAll());
+        m.addAttribute("mascotas", iMascota.findAll());
         return "listMasco";
     }
 

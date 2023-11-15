@@ -17,6 +17,7 @@ public class HistoriaClinicaContro {
     @Autowired
     private IHistoriaClinica iHistoriaClinica;
 
+    
 
      @GetMapping("/modulHisto")
     public String modulHisto(){
@@ -28,17 +29,18 @@ public class HistoriaClinicaContro {
         m.addAttribute("histo", new HistoriaClinica());
         return "registrarHisto";
     }
-    
+
     @PostMapping("/regisHisto")
     public String regisHisto(@Validated HistoriaClinica histo, BindingResult result){
         if(result.hasErrors()){
             return "redirect:/regisHistoV";
-        }
-        else{
+        } else {
             iHistoriaClinica.save(histo);
             return "redirect:/modulHisto";
         }
     }
+
+
 
     @GetMapping("/listHisto")
     public String verHisto(Model m){

@@ -20,7 +20,7 @@ public class HistoriaClinicaDAO implements IHistoriaClinica{
     }
 
     @SuppressWarnings("unchecked")
-    @Transactional
+    @Transactional()
     @Override
     public List<HistoriaClinica> findAll() {
         
@@ -32,16 +32,17 @@ public class HistoriaClinicaDAO implements IHistoriaClinica{
         return em.find(HistoriaClinica.class, idHistoriaClinica);
 
     }
+   
+    @Transactional
     @Override
     public void save(HistoriaClinica histo) {
-        if(histo.getIdHistoriaClinica()!=null && histo.getIdHistoriaClinica()>0){
+        if(histo.getIdHistoriaClinica() != null && histo.getIdHistoriaClinica() > 0){
             em.merge(histo);
-        }
-        else{
+        } else {
             em.persist(histo);
         }
-        
     }
+
 
 
 }
