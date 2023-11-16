@@ -38,9 +38,9 @@
     </div>
   </nav>
   <main>
-    <form th:action="@{/registrarUsu}" th:object="${usuario}" method="post">
+    <form th:action="@{/registrarUsu}" th:object="${usuario}" method="post" >
       <h2>Registrar<br> Usuario</h2>
-      <select id="" name="" th:field="*{tipoDocumentoUsu}">
+      <select id="tipoDocumentoUsu" name="" th:field="*{tipoDocumentoUsu}">
         <option value="">Tipo Documento</option>
         <option value="C.C.">C.C.</option>
         <option value="T.I.">T.I.</option>
@@ -60,7 +60,7 @@
 
       <input type="password" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
 
-      <select id="rol" name="rol" th:field="*{estadoUsu}">
+      <select id="rolEstado" name="rol" th:field="*{estadoUsu}">
         <option value="">Estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
@@ -73,7 +73,7 @@
         <option value="3">Doctor</option>
         <option value="4">Peluquero</option>
       </select><br><br>
-      <input type="submit" class="regis" value="Registrar">
+      <input type="submit" class="regis" value="Registrar" onclick="return validarFormulario()">
     </form>
   </main>
   <footer>
@@ -93,6 +93,8 @@
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
   </footer>
+
+  <script th:src="@{js/usuario/usuarios.js}"></script>
 </body>
 
 </html>
