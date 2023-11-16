@@ -33,12 +33,6 @@ public class UsuarioDAO implements IUsuario{
     }
 
     @Override
-    public void delete(Integer idUsuario) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
     @Transactional
     public Usuario findOne(Integer idUsuario) {
         return em.find(Usuario.class, idUsuario);

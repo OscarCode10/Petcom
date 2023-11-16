@@ -12,12 +12,7 @@ import jakarta.transaction.Transactional;
 public class ClienteDAO implements ICliente{
     @PersistenceContext
     private EntityManager em;
-
-    @Override
-    public void delete(Integer idCliente) {
-        // TODO Auto-generated method stub
-    }
-
+    
     @SuppressWarnings("unchecked")
     @Transactional
     @Override    

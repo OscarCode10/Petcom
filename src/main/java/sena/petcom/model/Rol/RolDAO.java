@@ -13,20 +13,6 @@ public class RolDAO implements IRol{
     @PersistenceContext
     private EntityManager em;
 
-    @Override
-    public void delete(Integer idRol) {
-    }
-
-    @Override
-    public List<Rol> findAll() {
-        return null;
-    }
-
-    @Override
-    public Rol findOne(Integer idRol) {
-        return null;
-    }
-
     @Transactional
     @Override
     public void save(Rol rol) {

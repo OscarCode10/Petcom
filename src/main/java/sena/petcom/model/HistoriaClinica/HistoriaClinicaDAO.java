@@ -13,12 +13,6 @@ public class HistoriaClinicaDAO implements IHistoriaClinica{
     @PersistenceContext
     private EntityManager em;
 
-    @Override
-    public void delete(Integer idHistoriaClinica) {
-        
-        
-    }
-
     @SuppressWarnings("unchecked")
     @Transactional()
     @Override

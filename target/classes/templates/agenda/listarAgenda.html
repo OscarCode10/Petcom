@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/agenda.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+    <title>Registrar un usuario</title>
+</head>
+
+<body>
+    <nav>
+        <img th:src="@{img/logo.png}" class="logo">
+        <!-- Administrador -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
+            <div class="btn">
+                <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+        <!-- Recepcionista -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
+            <div class="btn">
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+        <!-- Doctor -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
+            <div class="btn">
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="all">
+        <center>
+            <h1 class="List">LISTADO DE AGENDAS </h1>
+        </center>
+        <br>
+        <div th:if="${agenda.size()>0}" th:each="c:${agenda}">
+            <br>
+            <h1></h1>
+            <table class="tabla-colores">
+                <tr class="indice">
+                    <th>Hora</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miercoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sabado</th>
+                    <th>Domingo</th>
+                </tr>
+                <tr>
+                    <th class="hour">9:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">10:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">10:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">11:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">11:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">12:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">12:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">1:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">1:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">2:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">2:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">3:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">3:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">4:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">4:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">5:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">5:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+                <tr>
+                    <th class="hour">6:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="vete">
+            <h1>Veterinaria Boss Bunny</h1>
+        </div>
+        <div class="contac">
+            <div class="text">
+                <h1>CONTACTO</h1>
+                <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+            </div>
+            <div class="img">
+                <img th:src="@{img/logo.png}" class="log">
+            </div>
+        </div>
+        <div class="toda">
+            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
+        </div>
+    </footer>
+</body>
+
+</html>

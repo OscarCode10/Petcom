@@ -13,12 +13,6 @@
         @PersistenceContext
         private EntityManager em;
 
-        @Override
-        public void delete(Integer idMascota) {
-            // TODO Auto-generated method stub
-            
-        }
-
         @SuppressWarnings("unchecked")
         @Transactional()
         @Override

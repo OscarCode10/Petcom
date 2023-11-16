@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/registers.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+    <title>Modificar Cliente</title>
+</head>
+
+<body>
+    <nav>
+        <img th:src="@{img/logo.png}" class="logo">
+        <!-- Administrador -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
+            <div class="btn">
+                <a th:href="@{/usu}"><input type="submit" value="USUARIO"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+        <!-- Recepcionista -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
+            <div class="btn">
+                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+        <!-- Doctor -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
+            <div class="btn">
+                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <form th:action="@{/modificarCliente}" th:object="${cliente}" method="post">
+            <h2>Actualizar<br> Cliente</h2>
+            <input type="number" id="" th:field="*{idCliente}" placeholder="Numero Documento"
+                value="${cliente.idCliente}" readonly><br>
+
+            <select id="" name="" th:field="*{tipoDocCliente}" value="${cliente.tipoDocCliente}">
+                <option value="">Tipo Documento</option>
+                <option value="C.C.">C.C.</option>
+                <option value="T.I.">T.I.</option>
+                <option value="C.E.">C.E.</option>
+                <option value="DNI">DNI</option>
+            </select><br>
+
+            <input type="number" id="" th:field="*{numDocCliente}" placeholder="Numero Documento"
+                value="${cliente.numDocCliente}" required><br>
+
+            <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre" value="${cliente.nombreCliente}"
+                required><br>
+
+            <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Telefono"
+                value="${cliente.telefonoCliente}" required><br>
+
+            <input type="email" id="" th:field="*{correoCliente}" placeholder="Email" value="${cliente.correoCliente}"
+                required><br>
+
+            <select id="" th:field="*{estadoCliente}" value="${cliente.estadoUsu}">
+                <option value="">Estado</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+            </select><br>
+
+            <input type="submit" class="regis" value="Modificar">
+
+        </form>
+    </main>
+
+    <footer>
+        <div class="vete">
+            <h1>Veterinaria Boss Bunny</h1>
+        </div>
+        <div class="contac">
+            <div class="text">
+                <h1>CONTACTO</h1>
+                <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+            </div>
+            <div class="img">
+                <img th:src="@{img/logo.png}" class="log">
+            </div>
+        </div>
+        <div class="toda">
+            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
+        </div>
+    </footer>
+</body>
+
+</html>
