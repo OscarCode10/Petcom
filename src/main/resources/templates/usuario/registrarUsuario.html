@@ -61,7 +61,7 @@
             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
         </div>
     </div>
-    <!-- Doctor -->
+    <!-- Doctor/Peluquero -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
         <div class="btn">
             <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
