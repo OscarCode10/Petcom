@@ -12,74 +12,74 @@
     <img th:src="@{img/logo.png}" class="logo">
     <!-- Administrador -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
-      <div class="btn">
-        <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
-      </div>
-      <div class="btn">
-        <a href="oscar.html"><input type="submit" value="PERFIL"></a>
-      </div>
-      <div class="cerrar">
-        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
-      </div>
+        <div class="btn">
+            <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
     </div>
     <!-- Recepcionista -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
-      <div class="btn">
-        <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
-      </div>
-      <div class="btn">
-        <a href="oscar.html"><input type="submit" value="PERFIL"></a>
-      </div>
-      <div class="cerrar">
-        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
-      </div>
+        <div class="btn">
+            <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
     </div>
-    <!-- Doctor -->
+    <!-- Doctor/Peluquero -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
-      <div class="btn">
-        <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
-      </div>
-      <div class="btn">
-        <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
-      </div>
-      <div class="btn">
-        <a href="oscar.html"><input type="submit" value="PERFIL"></a>
-      </div>
-      <div class="cerrar">
-        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
-      </div>
+        <div class="btn">
+            <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
     </div>
-  </nav>
+</nav>
   <main>
     <form th:action="@{/registrarUsuario}" th:object="${usuario}" method="post">
       <h2>Registrar<br> Usuario</h2>
@@ -91,8 +91,7 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
-        required><br><br>
+      <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" required><br><br>
 
       <input type="text" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" required><br><br>
 
