@@ -21,7 +21,7 @@ public class ClienteControlador {
 
     @GetMapping("/moduloCliente")
     public String moduloCliente(Model m){
-        return "moduloCliente";
+        return "cliente/moduloCliente";
     }
 
     @GetMapping("/registrarClienteV")
