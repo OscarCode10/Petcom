@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" th:href="@{css/registers.css}">
   <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
+  <link rel="stylesheet" th:href="@{css/validar.css}">
   <title>Registrar Usuario</title>
 </head>
 
@@ -81,9 +82,9 @@
     </div>
 </nav>
   <main>
-    <form th:action="@{/registrarUsuario}" th:object="${usuario}" method="post">
+    <form th:action="@{/registrarUsuario}" th:object="${usuario}" method="post" id="form">
       <h2>Registrar<br> Usuario</h2>
-      <select id="" name="" th:field="*{tipoDocumentoUsu}">
+      <select th:field="*{tipoDocumentoUsu}">
         <option value="">Tipo Documento</option>
         <option value="C.C.">C.C.</option>
         <option value="T.I.">T.I.</option>
@@ -91,25 +92,25 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" required><br><br>
+      <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" required><br><br>
 
-      <input type="text" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" required><br><br>
+      <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" required><br><br>
 
-      <input type="text" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" required><br><br>
+      <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" required><br><br>
 
-      <input type="number" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" required><br><br>
+      <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" required><br><br>
 
-      <input type="email" id="email" th:field="*{correoUsu}" placeholder="Email" required><br><br>
+      <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email" required><br><br>
 
-      <input type="password" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
+      <input type="password" name="pswd" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
 
-      <select id="rol" name="rol" th:field="*{estadoUsu}">
+      <select id="" name="rol" th:field="*{estadoUsu}">
         <option value="">Estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>
       </select><br><br>
 
-      <select id="rol" name="rol" th:field="*{FK.idRol}">
+      <select id="" name="rol" th:field="*{FK.idRol}">
         <option value="">Rol</option>
         <option value="1">Administrador</option>
         <option value="2">Secretario</option>
@@ -135,6 +136,7 @@
     <div class="toda">
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
+    <script th:src="@{js/validaciones.js}"></script>
   </footer>
 </body>
 

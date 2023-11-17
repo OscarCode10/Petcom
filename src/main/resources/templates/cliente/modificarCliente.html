@@ -11,26 +11,26 @@
 
 <body>
     <nav>
-        <img th:src="@{img/logo.png}" class="logo">
+        <img th:src="@{/img/logo.png}" class="logo">
         <!-- Administrador -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
             <div class="btn">
-                <a th:href="@{/usu}"><input type="submit" value="USUARIO"></a>
+                <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
+                <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
             </div>
             <div class="btn">
                 <a href="oscar.html"><input type="submit" value="PERFIL"></a>
@@ -42,19 +42,19 @@
         <!-- Recepcionista -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
             <div class="btn">
-                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulMasco}"><input type="submit" value="MASCOTA"></a>
+                <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulCliente}"><input type="submit" value="CLIENTE"></a>
+                <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
             </div>
             <div class="btn">
                 <a href="oscar.html"><input type="submit" value="PERFIL"></a>
@@ -66,13 +66,13 @@
         <!-- Doctor -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
             <div class="btn">
-                <a th:href="@{/modulCita}"><input type="submit" value="CITA"></a>
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulAgenda}"><input type="submit" value="AGENDA"></a>
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
             </div>
             <div class="btn">
-                <a th:href="@{/modulHisto}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
             </div>
             <div class="btn">
                 <a href="oscar.html"><input type="submit" value="PERFIL"></a>

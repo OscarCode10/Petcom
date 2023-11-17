@@ -20,7 +20,7 @@ import sena.petcom.model.Usuario.Usuario;
 public class UsuarioControlador {
 
     @Autowired
-    private IUsuario user;
+    private IUsuario iUsuario;
 
     @GetMapping(path = {"/", "/index", "/home"})
     public String index(Model m){
@@ -31,10 +31,10 @@ public class UsuarioControlador {
     @PostMapping("/login")
     public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu, HttpServletRequest req, Model m){
         if (correoUsu!=null && claveUsu!=null) {
-            Integer idUsuario = user.login(correoUsu, claveUsu);
+            Integer idUsuario = iUsuario.login(correoUsu, claveUsu);
             if (idUsuario != null) {
                 HttpSession session = req.getSession(true);
-                session.setAttribute("userDetails", user.findOne(idUsuario));
+                session.setAttribute("userDetails", iUsuario.findOne(idUsuario));
                 return "usuario/dashUsuario";
             }else{  
                 return "redirect:/index";
@@ -60,7 +60,7 @@ public class UsuarioControlador {
         if (res.hasErrors()) {
             return "redirect:/registrarUsuarioV";
         }else{
-            user.save(usuario);
+            iUsuario.save(usuario);
             status.setComplete();
             return "redirect:/moduloUsuario";
         }
@@ -68,7 +68,7 @@ public class UsuarioControlador {
 
     @GetMapping("/listarUsuario")
     public String listarUsuario(Model m) {
-        m.addAttribute("usuarios", user.findAll());
+        m.addAttribute("usuarios", iUsuario.findAll());
         return "usuario/listarUsuario";
     }
 
@@ -76,7 +76,7 @@ public class UsuarioControlador {
     public String modificarUsuarioV(@PathVariable Integer idUsuario, Model m){
         Usuario usuario=null;
         if(idUsuario>0){
-            usuario=user.findOne(idUsuario);
+            usuario=iUsuario.findOne(idUsuario);
             m.addAttribute("usuario",usuario);
             return "usuario/modificarUsuario";
         }else{
@@ -89,7 +89,7 @@ public class UsuarioControlador {
         if (res.hasErrors()) {
             return "redirect:/modificarUsuarioV/{idUsuario}";
         }else{
-            user.save(usuario);
+            iUsuario.save(usuario);
             status.setComplete();
             return "redirect:/listarUsuario";
         }

@@ -9,7 +9,7 @@
 
 <body>
   <nav>
-    <img th:src="@{img/logo.png}" class="logo">
+    <img th:src="@{/img/logo.png}" class="logo">
     <!-- Administrador -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
       <div class="btn">
