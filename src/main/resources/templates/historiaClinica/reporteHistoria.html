@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/moduls.css}">
+    
+    <link rel="stylesheet" th:href="@{/css/reports.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Cliente</title>
+    <title>Reporte de mascota</title>
 </head>
 
 <body>
     <nav>
-        <img th:src="@{img/logo.png}" class="logo">
+        <img th:src="@{/img/logo.png}" class="logo">
         <!-- Administrador -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
             <div class="btn">
@@ -83,17 +81,48 @@
         </div>
     </nav>
 
-    <div id="all">
-        <h1>AGENDA</h1>
-        <div class="cont">
-            <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Agenda:</h2>
-            <div class="bot">
-                <a th:href="@{/registrarAgendaV}"><input type="submit" value="REGISTRAR"></a>
-                <a th:href="@{/listarAgenda}"><input type="submit" value="VER"></a>
-            </div>
-        </div>
-    </div>
+    <div class="all">
 
+        <center>
+            <h1 class="List">LISTADO DE HISTORIAS CLINICAS</h1>
+        </center>
+        <br>
+        </table>
+        <form th:object="${historia}" method="post">
+            <h2>Reporte<br> Historia clínica</h2>
+            
+            <p>
+                <span th:text="${historia.idHistoriaClinica}"></span><br><br>
+            </p>        
+            
+            
+            <p>
+                <span th:text="${mascota != null ? mascota.FK.idMascota : ''}"></span>
+            </p>
+      
+            <p>
+                <span th:text="${historia.peso + ' Kg'}"></span><br><br>
+            </p>
+
+            <p>
+                <span th:text="${historia.tamano + ' Cm'}"></span><br><br>
+            </p>
+      
+            <p>
+                <span th:text="${historia.enfermedades}"></span><br><br>
+            </p>
+      
+            <p>
+                <span th:text="${historia.antecedentes}"></span><br><br>
+            </p>
+        
+            <p>
+                <span th:text="${historia.diagnosticoHistoria}"></span><br><br>
+            </p>
+
+            <input type="button" class="regis" value="Descargar PDF" onclick="descargarPDF()">
+          </form>
+    </div>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
@@ -111,6 +140,7 @@
             <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
         </div>
     </footer>
+    
 </body>
 
 </html>
