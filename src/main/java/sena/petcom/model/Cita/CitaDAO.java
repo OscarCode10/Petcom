@@ -24,7 +24,6 @@ public class CitaDAO implements ICita {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Transactional
     @Override
     public List<Cita> findAll() {

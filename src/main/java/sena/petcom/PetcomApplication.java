@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 
 import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
+import sena.petcom.model.Cita.Cita;
+import sena.petcom.model.Cita.ICita;
 import sena.petcom.model.Cliente.Cliente;
 import sena.petcom.model.Cliente.ICliente;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
@@ -35,25 +37,28 @@ public class PetcomApplication {
 	}
 
 	@Autowired
-	IUsuario iusuario;
+	IUsuario iUsuario;
 
 	@Autowired
-	IRol irol;
+	IRol iRol;
 
 	@Autowired
-	ICliente icliente;
+	ICliente iCliente;
 
 	@Autowired
 	IMascota iMascota;
 
 	@Autowired
-	IAgenda iagenda;
+	IAgenda iAgenda;
 	
 	@Autowired
-	IAgendaUsuario iagendaUsuario;
+	IAgendaUsuario iAgendaUsuario;
 
 	@Autowired
 	IHistoriaClinica iHistoriaClinica;
+
+	@Autowired
+	ICita iCita;
 
 	@Bean
 	CommandLineRunner init(){
@@ -78,10 +83,10 @@ public class PetcomApplication {
 				.estadoRol(true)
 				.build();
 
-			irol.save(rol);
-			irol.save(rol1);
-			irol.save(rol2);
-			irol.save(rol3);
+			iRol.save(rol);
+			iRol.save(rol1);
+			iRol.save(rol2);
+			iRol.save(rol3);
 
 			Usuario admin = Usuario.builder()
 				.tipoDocumentoUsu("C.C.")
@@ -95,7 +100,7 @@ public class PetcomApplication {
 				.FK(rol)
 				.build();
 
-			iusuario.save(admin);
+			iUsuario.save(admin);
 
 			Usuario doctor = Usuario.builder()
 				.tipoDocumentoUsu("C.C.")
@@ -109,7 +114,7 @@ public class PetcomApplication {
 				.FK(rol2)
 				.build();
 
-			iusuario.save(doctor);
+			iUsuario.save(doctor);
 
 			Cliente cliente = Cliente.builder()
 				.tipoDocCliente("C.C.")
@@ -120,7 +125,7 @@ public class PetcomApplication {
 				.estadoCliente(true)
 				.build();
 
-			icliente.save(cliente);
+			iCliente.save(cliente);
 			
 			Mascota mascota = Mascota.builder()
 				.nombreMascota("Nekko")
@@ -142,7 +147,7 @@ public class PetcomApplication {
 				.estadoAgenda(true)
 				.build();
 
-			iagenda.save(agenda);
+			iAgenda.save(agenda);
 
 			AgendaUsuario agendausuario = AgendaUsuario.builder()
 				.tipoCita("Médica")
@@ -150,7 +155,18 @@ public class PetcomApplication {
 				.FkA(agenda)
 				.build();
 
-			iagendaUsuario.save(agendausuario);
+			iAgendaUsuario.save(agendausuario);
+
+			Cita cita = Cita.builder()
+				.motivoConsulta("Vacuna")
+				.fechaCita(Date.valueOf(LocalDate.of(2023, 11, 20)))
+				.horaCita(Time.valueOf("09:17:00"))
+				.estadoCita(true)
+				.FK(agenda)
+				.FkC(cliente)
+				.build();
+
+			iCita.save(cita);
 			
 			HistoriaClinica historiaClinica = HistoriaClinica.builder()
 				.peso(5)

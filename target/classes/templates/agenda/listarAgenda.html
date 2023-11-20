@@ -84,87 +84,88 @@
     </nav>
 
     <div class="all">
-        <center>
-            <h1 class="List">LISTADO DE AGENDAS </h1>
-        </center>
-        <div th:each="a:${agenda}" class="agen">
-            <div th:each="u:${agendaUsuario}">
-                <div th:each="c:${cita}">
-                    <th:block th:if="${u.FkA.getIdAgenda == a.idAgenda}">
+        <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
+        <div th:if="${agenda.size() > 0}" th:each="a:${agenda}" class="agen">
+            <div th:if="${agendaUsuario.size() > 0}" th:each="u:${agendaUsuario}">
+                <div tj:if="${cita.size() > 0}" th:each="c:${cita}">
+                    <th:block th:if="${u.FkA != null && a.idAgenda == u.FkA.idAgenda}">
+                        
                         <h1 th:text="${'Agenda de ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
                     </th:block>
-                </div>
-                <div th:if="${a.idAgenda == c.FK.idAgenda}">
-                    <table class="tabla-colores">
-                        <tr class="indice">
-                            <th class="indi">Hora</th>
-                            <th class="indi">Lunes</th>
-                            <th class="indi">Martes</th>
-                            <th class="indi">Miercoles</th>
-                            <th class="indi">Jueves</th>
-                            <th class="indi">Viernes</th>
-                            <th class="indi">Sabado</th>
-                            <th class="indi">Domingo</th>
-                        </tr>
-                        <tr>
-                            <th class="indi">9:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">10:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">10:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">11:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">11:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">12:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">12:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">1:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">1:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">2:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">2:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">3:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">3:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">4:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">4:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">5:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">5:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                        <tr>
-                            <th class="indi">6:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        </tr>
-                    </table>
-                    </th:block>
+                    <div th:if="${c.FK != null && a.idAgenda == c.FK.idAgenda}">
+                        <h1 th:text="${a.fechaInicio}"></h1>
+                        <h1 th:text="${a.fechaFin}"></h1>
+                        <table class="tabla-colores">
+                            <tr class="indice">
+                                <th class="indi">Hora</th>
+                                <th class="indi">Lunes</th>
+                                <th class="indi">Martes</th>
+                                <th class="indi">Miercoles</th>
+                                <th class="indi">Jueves</th>
+                                <th class="indi">Viernes</th>
+                                <th class="indi">Sabado</th>
+                                <th class="indi">Domingo</th>
+                            </tr>
+                            <tr>
+                                <th class="indi">9:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">10:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">10:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">11:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">11:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">12:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">12:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">1:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">1:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">2:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">2:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">3:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">3:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">4:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">4:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">5:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">5:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                            <tr>
+                                <th class="indi">6:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
