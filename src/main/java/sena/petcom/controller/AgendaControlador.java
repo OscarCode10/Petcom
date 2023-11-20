@@ -13,19 +13,25 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
+import sena.petcom.model.Cita.ICita;
 import sena.petcom.model.Usuario.IUsuario;
 import sena.petcom.model.Usuario.Usuario;
-import sena.petcom.model.agendaUsuario.IagendaUsuario;
-import sena.petcom.model.agendaUsuario.agendaUsuario;
+import sena.petcom.model.agendaUsuario.IAgendaUsuario;
+import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @Controller
 public class AgendaControlador {
     @Autowired
     private IAgenda iAgenda;
 
-    @Autowired IUsuario iUsuario;
+    @Autowired 
+    IUsuario iUsuario;
 
-    @Autowired IagendaUsuario iagendaUsuario;
+    @Autowired 
+    IAgendaUsuario iAgendaUsuario;
+
+    @Autowired
+    ICita iCita;
 
     @GetMapping("/moduloAgenda")
     public String modulAgenda(){
@@ -57,13 +63,13 @@ public class AgendaControlador {
                     tipoCita = "Estética";
                 }
 
-                agendaUsuario agenUsu = agendaUsuario.builder()
+                AgendaUsuario agenUsu = AgendaUsuario.builder()
                     .tipoCita(tipoCita)
                     .FK(usu)
                     .FkA(agenda)
                     .build();
 
-                iagendaUsuario.save(agenUsu);
+                iAgendaUsuario.save(agenUsu);
                 
                 return "redirect:/moduloAgenda";
             }
@@ -76,6 +82,8 @@ public class AgendaControlador {
     @GetMapping("/listarAgenda")
     public String listarAgenda(Model m){
         m.addAttribute("agenda", iAgenda.findAll());
+        m.addAttribute("agendaUsuario", iAgendaUsuario.findAll());
+        m.addAttribute("cita", iCita.findAll());
         return "agenda/listarAgenda";
     }
 

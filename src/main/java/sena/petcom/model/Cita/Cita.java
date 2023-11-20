@@ -1,5 +1,7 @@
 package sena.petcom.model.Cita;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -38,6 +40,14 @@ public class Cita {
 
     @NotNull
     @Column
+    private Date fechaCita;
+
+    @NotNull
+    @Column
+    private Time horaCita;
+
+    @NotNull
+    @Column
     private Boolean estadoCita;
 
     @ManyToOne(fetch=FetchType.LAZY)
@@ -46,6 +56,6 @@ public class Cita {
     @ManyToOne(fetch=FetchType.LAZY)
     private Cliente FkC;
 
-    @OneToMany(mappedBy="Fk", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="FkC", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<DetallesHistoria> idDetallesHistoriaFK;
 }

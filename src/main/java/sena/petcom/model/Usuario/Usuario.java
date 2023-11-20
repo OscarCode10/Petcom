@@ -19,7 +19,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sena.petcom.model.Rol.Rol;
-import sena.petcom.model.agendaUsuario.agendaUsuario;
+import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @Data
 @AllArgsConstructor
@@ -74,5 +74,5 @@ public class Usuario {
     private Rol FK;
 
     @OneToMany(mappedBy="FK", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-    private List<agendaUsuario> idAgendaUsuarioFK;
+    private List<AgendaUsuario> idAgendaUsuarioFK;
 }

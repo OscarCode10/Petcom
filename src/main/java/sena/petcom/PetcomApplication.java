@@ -15,12 +15,16 @@ import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
 import sena.petcom.model.Cliente.Cliente;
 import sena.petcom.model.Cliente.ICliente;
+import sena.petcom.model.HistoriaClinica.HistoriaClinica;
+import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
 import sena.petcom.model.Mascota.IMascota;
 import sena.petcom.model.Mascota.Mascota;
 import sena.petcom.model.Rol.IRol;
 import sena.petcom.model.Rol.Rol;
 import sena.petcom.model.Usuario.IUsuario;
 import sena.petcom.model.Usuario.Usuario;
+import sena.petcom.model.agendaUsuario.IAgendaUsuario;
+import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @SpringBootApplication
 @ServletComponentScan
@@ -44,6 +48,12 @@ public class PetcomApplication {
 
 	@Autowired
 	IAgenda iagenda;
+	
+	@Autowired
+	IAgendaUsuario iagendaUsuario;
+
+	@Autowired
+	IHistoriaClinica iHistoriaClinica;
 
 	@Bean
 	CommandLineRunner init(){
@@ -73,7 +83,7 @@ public class PetcomApplication {
 			irol.save(rol2);
 			irol.save(rol3);
 
-			Usuario usuario = Usuario.builder()
+			Usuario admin = Usuario.builder()
 				.tipoDocumentoUsu("C.C.")
 				.numDocumentoUsu(1019019842)
 				.nombreUsu("Oscar")
@@ -85,7 +95,21 @@ public class PetcomApplication {
 				.FK(rol)
 				.build();
 
-			iusuario.save(usuario);
+			iusuario.save(admin);
+
+			Usuario doctor = Usuario.builder()
+				.tipoDocumentoUsu("C.C.")
+				.numDocumentoUsu(1031647371)
+				.nombreUsu("Samuel")
+				.apellidoUsu("Cano")
+				.telefonoUsu(3027834956L)
+				.correoUsu("samuel@a.a")
+				.claveUsu("123")
+				.estadoUsu(true)
+				.FK(rol2)
+				.build();
+
+			iusuario.save(doctor);
 
 			Cliente cliente = Cliente.builder()
 				.tipoDocCliente("C.C.")
@@ -119,6 +143,25 @@ public class PetcomApplication {
 				.build();
 
 			iagenda.save(agenda);
+
+			AgendaUsuario agendausuario = AgendaUsuario.builder()
+				.tipoCita("Médica")
+				.FK(doctor)
+				.FkA(agenda)
+				.build();
+
+			iagendaUsuario.save(agendausuario);
+			
+			HistoriaClinica historiaClinica = HistoriaClinica.builder()
+				.peso(5)
+				.tamano(40)
+				.enfermedades("Ninguna")
+				.antecedentes("Inyecciónes completas")
+				.diagnosticoHistoria("El gato se encuentra en buen estado")
+				.FK(mascota)
+				.build();
+
+			iHistoriaClinica.save(historiaClinica);
 		};
 	}
 }

@@ -54,5 +54,5 @@ public class DetallesHistoria {
     private HistoriaClinica FK;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    private Cita Fk;
+    private Cita FkC;
 }

@@ -1,8 +1,6 @@
 package sena.petcom.controller;
 
-import org.apache.tomcat.util.file.ConfigurationSource.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,8 +8,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.lowagie.text.List;
 
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
@@ -44,7 +40,7 @@ public class HistoriaClinicaControlador {
     }
 
     @GetMapping("/listarHistoria")
-    public String listarHisto(Model m){
+    public String listarHistoria(Model m){
         m.addAttribute("historias", iHistoriaClinica.findAll());
         return "historiaClinica/listarHistoria";
     }

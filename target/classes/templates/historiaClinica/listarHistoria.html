@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/lists.css}">
+    <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+    <title>Ver listado de historias clínicas</title>
+</head>
+
+<body>
+    <nav>
+        <img th:src="@{img/logo.png}" class="logo">
+        <!-- Administrador -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
+            <div class="btn">
+                <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+        <!-- Recepcionista -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
+            <div class="btn">
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+        <!-- Doctor -->
+        <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
+            <div class="btn">
+                <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+            </div>
+            <div class="btn">
+                <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+            </div>
+            <div class="btn">
+                <a href="oscar.html"><input type="submit" value="PERFIL"></a>
+            </div>
+            <div class="cerrar">
+                <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="all">
+
+        <center>
+            <h1 class="List">LISTADO DE HISTORIAS CLINICAS</h1>
+        </center>
+        <br>
+        <table class="tabla-colores">
+            <tr>
+                <th>Id </th>
+                <th>Id Mascota</th>
+                <th>Peso</th>
+                <th>Tamaño</th>
+                <th>Enfermedades</th>
+                <th>Antecedentes</th>
+                <th>Diagnostico</th>
+                <th>Agregar Detalle</th>
+                <th>Reporte</th>
+
+            </tr>
+            <tr th:if="${historias.size()>0}" th:each="c:${historias}">
+                <td th:text="${c.idHistoriaClinica}"></td>
+                <td th:text="${c.FK.idMascota}"></td>
+                <td th:text="${c.peso + ' Kg'}"></td>
+                <td th:text="${c.tamano + ' Cm'}"></td>
+                <td th:text="${c.enfermedades}"></td>
+                <td th:text="${c.antecedentes}"></td>
+                <td th:text="${c.diagnosticoHistoria}"></td>
+
+                <td class="cell-with-button">
+                    <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button
+                            class="btnM">Agregar Detalle</button></a>
+                </td>
+                <td class="cell-with-button">
+                    <a th:href="@{/reporteHistoriaV/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}" target="_blank"><button
+                            class="btnM">Reporte</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <div class="vete">
+            <h1>Veterinaria Boss Bunny</h1>
+        </div>
+        <div class="contac">
+            <div class="text">
+                <h1>CONTACTO</h1>
+                <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+            </div>
+            <div class="img">
+                <img th:src="@{img/logo.png}" class="log">
+            </div>
+        </div>
+        <div class="toda">
+            <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
+        </div>
+    </footer>
+</body>
+
+</html>

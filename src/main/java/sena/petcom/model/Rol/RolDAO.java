@@ -1,7 +1,5 @@
 package sena.petcom.model.Rol;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.EntityManager;

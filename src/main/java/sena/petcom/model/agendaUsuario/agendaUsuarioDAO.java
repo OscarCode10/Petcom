@@ -9,14 +9,13 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @Repository
-public class agendaUsuarioDAO implements IagendaUsuario {
+public class AgendaUsuarioDAO implements IAgendaUsuario {
     @PersistenceContext
     private EntityManager em;
 
-
     @Transactional()
     @Override
-    public void save(agendaUsuario agendaUsu) {
+    public void save(AgendaUsuario agendaUsu) {
         if (agendaUsu.getIdAgendaUsuario() != null && agendaUsu.getIdAgendaUsuario()>0){
             em.merge(agendaUsu);
         } else {
@@ -27,13 +26,13 @@ public class agendaUsuarioDAO implements IagendaUsuario {
     @SuppressWarnings("unchecked")
     @Transactional
     @Override
-    public List<agendaUsuario> findAll() {
+    public List<AgendaUsuario> findAll() {
         return em.createQuery("from AgendaUsuario").getResultList();
     }
 
     @Override
-    public agendaUsuario findOne(Integer idAgendaUsuario) {
-        return em.find(agendaUsuario.class, idAgendaUsuario);
+    public AgendaUsuario findOne(Integer idAgendaUsuario) {
+        return em.find(AgendaUsuario.class, idAgendaUsuario);
     }
     
 }
