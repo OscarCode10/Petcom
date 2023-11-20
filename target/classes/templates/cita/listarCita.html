@@ -94,6 +94,8 @@
             <tr>
                 <th>Id</th>
                 <th>Motivo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
                 <th>Estado</th>
                 <th>FK Agenda</th>
                 <th>FK Cliente</th>
@@ -102,6 +104,8 @@
             <tr th:if="${citas.size()>0}" th:each="c:${citas}">
                 <td th:text="${c.idCita}"></td>
                 <td th:text="${c.motivoConsulta}"></td>
+                <td th:text="${c.fechaCita}"></td>
+                <td th:text="${c.horaCita}"></td>
                 <td th:if="${c.estadoCita==true}">
                     <h2>Activo</h2>
                 </td>

@@ -19,7 +19,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sena.petcom.model.Cita.Cita;
-import sena.petcom.model.agendaUsuario.agendaUsuario;
+import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @Data
 @AllArgsConstructor
@@ -53,7 +53,7 @@ public class Agenda {
     private Boolean estadoAgenda;
 
     @OneToMany(mappedBy="FkA", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-    private List<agendaUsuario> idAgendaUsuarioFK;
+    private List<AgendaUsuario> idAgendaUsuarioFK;
 
     @OneToMany(mappedBy="FK", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<Cita> idCitaFK;

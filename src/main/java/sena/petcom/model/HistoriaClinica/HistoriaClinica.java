@@ -28,15 +28,7 @@ import sena.petcom.model.Mascota.Mascota;
 @Entity
 @Table(name="HistoriaClinica")
 public class HistoriaClinica {
-    private Long idMascota;
-
-    public Long getIdMascota() {
-        return idMascota;
-    }
-
-    public void setIdMascota(Long idMascota) {
-        this.idMascota = idMascota;
-    }
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idHistoriaClinica;

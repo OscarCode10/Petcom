@@ -39,12 +39,13 @@ public class CitaControlador {
     }
     
     @PostMapping("/registrarCita")
-    public String registrarCita(@Validated Cita cita, BindingResult result){
+    public String registrarCita(@Validated Cita cita, BindingResult result, Model m, SessionStatus status){
         if(result.hasErrors()){
             return "redirect:/registrarCitaV";
         }
         else{
             iCita.save(cita);
+            status.setComplete();
             return "redirect:/moduloCita";
         }
     }

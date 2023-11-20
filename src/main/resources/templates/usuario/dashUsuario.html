@@ -84,11 +84,26 @@
     </nav>
 
     <div class="all">
-        <div class="contH" th:if="${session.userDetails}" >
-            <h1>Bienvenido Administrador <span th:text="${session.userDetails.nombreUsu}"></span> <span
+        <!-- Administrador -->
+        <div class="contH" th:if="${session.userDetails.FK.getIdRol == 1}" >
+            <h1>Bienvenido Administrador(a) <span th:text="${session.userDetails.nombreUsu}"></span> <span
                     th:text="${session.userDetails.apellidoUsu}"></span></h1>
         </div>
-        div
+        <!-- Recepcionista -->
+        <div class="contH" th:if="${session.userDetails.FK.getIdRol == 2}" >
+            <h1>Bienvenido Recepcionista <span th:text="${session.userDetails.nombreUsu}"></span> <span
+                    th:text="${session.userDetails.apellidoUsu}"></span></h1>
+        </div>
+        <!-- Doctor -->
+        <div class="contH" th:if="${session.userDetails.FK.getIdRol == 3}" >
+            <h1>Bienvenido Doctor(a) <span th:text="${session.userDetails.nombreUsu}"></span> <span
+                    th:text="${session.userDetails.apellidoUsu}"></span></h1>
+        </div>
+        <!-- Peluquero -->
+        <div class="contH" th:if="${session.userDetails.FK.getIdRol == 4}" >
+            <h1>Bienvenido Peluquero(a) <span th:text="${session.userDetails.nombreUsu}"></span> <span
+                    th:text="${session.userDetails.apellidoUsu}"></span></h1>
+        </div>
         <div class="contR">
             <div class="citas">
                 <input type="submit" id="btnCita" value="IR A CITA">

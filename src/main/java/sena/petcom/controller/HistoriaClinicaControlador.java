@@ -39,7 +39,7 @@ public class HistoriaClinicaControlador {
     }
 
     @GetMapping("/listarHistoria")
-    public String listarHisto(Model m){
+    public String listarHistoria(Model m){
         m.addAttribute("historias", iHistoriaClinica.findAll());
         return "historiaClinica/listarHistoria";
     }

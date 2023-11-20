@@ -22,8 +22,8 @@ import sena.petcom.model.Usuario.Usuario;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="agendaUsuario")
-public class agendaUsuario {
+@Table(name="AgendaUsuario")
+public class AgendaUsuario {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idAgendaUsuario;

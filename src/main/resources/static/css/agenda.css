@@ -13,6 +13,7 @@
     --5: #8EA0BC;
     --6: #D9D9D9;
     --7: #25407c;
+    --9: #b8c5de;
 }
 
 .tabla-colores {
@@ -35,7 +36,7 @@
 }
 
 .all h1{
-    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .tabla-colores .indice{
@@ -64,7 +65,17 @@ td h2{
     transform: translate(50%, -50%); 
 }
 
-.tabla-colores .hour{
+.tabla-colores .indi{
     background-color: #8EA0BC;
     color: #fcfcfc;
+}
+
+.tabla-colores th{
+    background-color: var(--1);
+}
+
+.agen{
+    padding: 1rem 4rem 4rem 4rem;
+    background-color: var(--9);
+    border-radius: 1rem;
 }
