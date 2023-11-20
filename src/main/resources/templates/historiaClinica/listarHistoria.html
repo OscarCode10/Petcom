@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Registrar un usuario</title>
+    <title>Ver listado de historias clínicas</title>
 </head>
 
 <body>
@@ -98,25 +98,25 @@
                 <th>Enfermedades</th>
                 <th>Antecedentes</th>
                 <th>Diagnostico</th>
-                <th>Modificar</th>
+                <th>Agregar Detalle</th>
                 <th>Reporte</th>
 
             </tr>
             <tr th:if="${historias.size()>0}" th:each="c:${historias}">
                 <td th:text="${c.idHistoriaClinica}"></td>
                 <td th:text="${c.FK.idMascota}"></td>
-                <td th:text="${c.peso}"></td>
-                <td th:text="${c.tamano}"></td>
+                <td th:text="${c.peso + ' Kg'}"></td>
+                <td th:text="${c.tamano + ' Cm'}"></td>
                 <td th:text="${c.enfermedades}"></td>
                 <td th:text="${c.antecedentes}"></td>
                 <td th:text="${c.diagnosticoHistoria}"></td>
 
                 <td class="cell-with-button">
                     <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button
-                            class="btnM">Modificar</button></a>
+                            class="btnM">Agregar Detalle</button></a>
                 </td>
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button
+                    <a th:href="@{/reporteHistoriaV/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}" target="_blank"><button
                             class="btnM">Reporte</button></a>
                 </td>
             </tr>

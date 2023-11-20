@@ -36,7 +36,7 @@ public class HistoriaClinicaDAO implements IHistoriaClinica{
             em.persist(histo);
         }
     }
-
-
+    
+    
 
 }
