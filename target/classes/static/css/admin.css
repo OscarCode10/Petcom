@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@200;300;400;600;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --1: #fff;
+    --2: #000;
+    --3: #1E509A;
+    --4: #123387;
+    --5: #8EA0BC;
+    --6: #D9D9D9;
+    --7: #25407c;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    font-family: 'Poppins';
+}
+
+.contH{
+    background-color: var(--6);
+    display: flex;
+    margin-top: 2rem;
+    height: 8rem;
+    width: 79rem;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contH h1{
+    font-size: 3.5rem;
+    color: var(--4);
+    font-weight: 300;
+}
+
+.contR{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#btnAgenda{
+    display: flex;
+    background-color: var(--3);
+    color: var(--1);
+    padding: 1rem;
+    border-radius: 3rem;
+    width: 11.3rem;
+    height: 1rem;
+    margin-left: 10rem;
+    border: none;
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18rem;
+}
+
+#btnCita{
+    display: flex;
+    background-color: var(--3);
+    color: var(--1);
+    padding: 1rem;
+    border-radius: 3rem;
+    width: 25rem;
+    height: 1rem;
+    margin-left: 10rem;
+    border: none;
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18rem;
+}
+
+.citas{
+    background-color: var(--6);
+    display: flex;
+    height: 22rem;
+    width: 45rem;
+    margin: 2rem;   
+    
+}
+
+
+.agenda{
+    background-color: var(--6);
+    display: flex;
+    height: 22rem;
+    width: 30rem;
+    margin: 2rem;   
+    
+}
