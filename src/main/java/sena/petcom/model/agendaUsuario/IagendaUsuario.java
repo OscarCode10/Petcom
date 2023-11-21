@@ -1,7 +1,6 @@
-package sena.petcom.model.agendaUsuario;
+package sena.petcom.model.AgendaUsuario;
 
 import java.util.List;
-
 
 public interface IAgendaUsuario {
     public void save (AgendaUsuario agendaUsu);

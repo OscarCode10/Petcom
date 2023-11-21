@@ -1,4 +1,4 @@
-package sena.petcom.model.agendaUsuario;
+package sena.petcom.model.AgendaUsuario;
 
 import java.util.List;
 

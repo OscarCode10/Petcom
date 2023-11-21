@@ -18,8 +18,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sena.petcom.model.AgendaUsuario.AgendaUsuario;
 import sena.petcom.model.Rol.Rol;
-import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @Data
 @AllArgsConstructor

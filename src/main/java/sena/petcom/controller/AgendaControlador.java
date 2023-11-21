@@ -17,11 +17,11 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
+import sena.petcom.model.AgendaUsuario.AgendaUsuario;
+import sena.petcom.model.AgendaUsuario.IAgendaUsuario;
 import sena.petcom.model.Cita.ICita;
 import sena.petcom.model.Usuario.IUsuario;
 import sena.petcom.model.Usuario.Usuario;
-import sena.petcom.model.agendaUsuario.IAgendaUsuario;
-import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @Controller
 public class AgendaControlador {

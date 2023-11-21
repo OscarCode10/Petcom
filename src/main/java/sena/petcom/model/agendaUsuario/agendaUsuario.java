@@ -1,4 +1,4 @@
-package sena.petcom.model.agendaUsuario;
+package sena.petcom.model.AgendaUsuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

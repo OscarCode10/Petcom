@@ -2,10 +2,7 @@ package sena.petcom.model.Agenda;
 
 import java.sql.Time;
 import java.time.LocalDate;
-import java.sql.Date;
 import java.util.List;
-
-import org.springframework.cglib.core.Local;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,8 +18,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sena.petcom.model.AgendaUsuario.AgendaUsuario;
 import sena.petcom.model.Cita.Cita;
-import sena.petcom.model.agendaUsuario.AgendaUsuario;
 
 @Data
 @AllArgsConstructor
