@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" th:href="@{/css/perfil.css}">
+    <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+<nav>
+    <img th:src="@{img/logo.png}" class="logo">
+   <!-- Administrador -->
+    <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
+        <div class="btn">
+            <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
+    </div>
+    <!-- Recepcionista -->
+    <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
+        <div class="btn">
+            <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
+    </div>
+
+<!-- Doctor/Peluquero -->
+    <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
+        <div class="btn">
+            <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+        </div>
+        <div class="cerrar">
+            <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+        </div>
+    </div>
+    
+
+</nav>
+   <!-- Administrador -->
+
+<div class="rol" th:if="${session.userDetails.FK.getIdRol == 1}">
+    <h1>ADMINISTRADOR</h1>
+</div>
+
+<!-- Recepcionista -->
+<div class="rol" th:if="${session.userDetails.FK.getIdRol == 2}">
+    <h1>RECEPCIONISTA</h1>
+</div>
+
+<!-- Doctor-->
+<div class="rol" th:if="${session.userDetails.FK.getIdRol == 3}">
+    <h1>DOCTOR</h1>
+</div>
+
+<!-- Peluquero -->
+
+<div class="rol" th:if="${session.userDetails.FK.getIdRol == 4}">
+    <h1>PELUQUERO</h1>
+</div>
+
+<i class="bi bi-person-circle custom-person-icon"></i>
+<div class="contenedor">
+    <div class="nombrePerfil">
+        <h2 th:text="${usuario.nombreUsu}" style="display: inline;"></h2>
+        <h2 th:text="${usuario.apellidoUsu}"style="display: inline;"></h2>
+    </div>
+    <br>
+    <div>
+        <label>Tipo de Documento:</label>
+        <span th:text="${usuario.tipoDocumentoUsu}"></span>
+    </div>
+
+    <div>
+        <label>Número de Documento:</label>
+        <span th:text="${usuario.numDocumentoUsu}"></span>
+    </div>
+
+    <div>
+        <label>Nombre:</label>
+        <span th:text="${usuario.nombreUsu}"></span>
+    </div>
+
+    <div>
+        <label>Apellido:</label>
+        <span th:text="${usuario.apellidoUsu}"></span>
+    </div>
+
+    <div>
+        <label>Teléfono:</label>
+        <span th:text="${usuario.telefonoUsu}"></span>
+    </div>
+
+    <div>
+        <label>Correo Electrónico:</label>
+        <span th:text="${usuario.correoUsu}"></span>
+    </div>
+</div>
+
+</body>
+</html>
