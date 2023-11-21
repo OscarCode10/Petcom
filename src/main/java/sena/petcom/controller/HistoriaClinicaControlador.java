@@ -1,5 +1,10 @@
 package sena.petcom.controller;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.lowagie.text.DocumentException;
+
+import jakarta.servlet.http.HttpServletResponse;
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
+import sena.petcom.model.HistoriaClinica.HistoriaClinicaPDF;
 
 @Controller
 public class HistoriaClinicaControlador {
@@ -45,18 +54,26 @@ public class HistoriaClinicaControlador {
         return "historiaClinica/listarHistoria";
     }
 
-    @GetMapping("/reporteHistoria")
-    public String reporteHistoria() {
+    @GetMapping("/reporteHistoriaV/{idHistoriaClinica}")
+    public String reporteHistoria(@PathVariable Integer idHistoriaClinica, Model m) {
+        m.addAttribute("historiaClinica", iHistoriaClinica.findOne(idHistoriaClinica));
         return "historiaClinica/reporteHistoria";
     }
 
-    @GetMapping("/reporteHistoriaV/{idHistoriaClinica}")
-    public String reporteHistoriaV(@PathVariable Integer idHistoriaClinica, Model m) {
+    @GetMapping("/generarPdf/{idHistoriaClinica}")
+    public String reporteHistoriaV(@PathVariable Integer idHistoriaClinica, Model m, HttpServletResponse resp) throws DocumentException, IOException {
         if (idHistoriaClinica > 0) {
-            m.addAttribute("historiaClinica", iHistoriaClinica.findOne(idHistoriaClinica));
-            return "HistoriaClinica/reporteHistoria";
+            HistoriaClinica historiaClinica = iHistoriaClinica.findOne(idHistoriaClinica);
+            resp.setContentType("application/pdf");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            String fechaActual = dateFormat.format(new Date());
+            String head = "Content-Disposition";
+            String value = "attachment; filename=Histora_Clinica" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActual;
+            resp.setHeader(head, value);
+            HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(historiaClinica);
+            historiaClinicaPDF.export(resp);
+            return "redirect:/reporteHistoria/{idHistoriaClinica}";
         }
         return "redirect:/listarHistoria";
     }
-
 }
