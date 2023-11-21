@@ -102,5 +102,19 @@ public class UsuarioControlador {
         findSession.invalidate();
         return "redirect:/index";
     }
+
+
+        @GetMapping("/verPerfil")
+        public String verPerfil(Model m, HttpServletRequest req) {
+            HttpSession session = req.getSession();
+            Usuario usuario = (Usuario) session.getAttribute("userDetails");
+
+            if (usuario != null) {
+                m.addAttribute("usuario", usuario);
+                return "usuario/verPerfil";
+            } else {
+                return "redirect:/login";
+            }
+        }
     
 }
