@@ -140,8 +140,8 @@ public class PetcomApplication {
 			iMascota.save(mascota);
 			
 			Agenda agenda = Agenda.builder()
-			 	.fechaInicio(Date.valueOf(LocalDate.of(2023, 11, 15)))
-			 	.fechaFin(Date.valueOf(LocalDate.of(2023, 11, 15)))
+			 	.fechaInicio(LocalDate.of(2023, 11, 20))
+				.fechaFin((LocalDate.of(2023, 11, 26)))
 			 	.horaInicio(Time.valueOf("10:00:00"))
 			 	.horaFin(Time.valueOf("11:00:00"))
 				.estadoAgenda(true)

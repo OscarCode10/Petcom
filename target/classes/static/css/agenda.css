@@ -19,6 +19,7 @@
 .tabla-colores {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 1rem;
 }
 
 .tabla-colores th,
@@ -78,4 +79,5 @@ td h2{
     padding: 1rem 4rem 4rem 4rem;
     background-color: var(--9);
     border-radius: 1rem;
+    margin-bottom: 1rem;
 }

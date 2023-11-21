@@ -1,8 +1,11 @@
 package sena.petcom.model.Agenda;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.sql.Date;
 import java.util.List;
+
+import org.springframework.cglib.core.Local;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -34,11 +37,11 @@ public class Agenda {
 
     @NotNull
     @Column
-    private Date fechaInicio;
+    private LocalDate fechaInicio;
 
     @NotNull
     @Column
-    private Date fechaFin;
+    private LocalDate fechaFin;
 
     @NotNull
     @Column

@@ -82,19 +82,19 @@
             </div>
         </div>
     </nav>
-
+    
+    
+    
     <div class="all">
         <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
-        <div th:if="${agenda.size() > 0}" th:each="a:${agenda}" class="agen">
+        <div th:if="${agenda.size() > 0}" th:each="a:${agenda}">
             <div th:if="${agendaUsuario.size() > 0}" th:each="u:${agendaUsuario}">
                 <div tj:if="${cita.size() > 0}" th:each="c:${cita}">
-                    <th:block th:if="${u.FkA != null && a.idAgenda == u.FkA.idAgenda}">
-                        
-                        <h1 th:text="${'Agenda de ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
-                    </th:block>
-                    <div th:if="${c.FK != null && a.idAgenda == c.FK.idAgenda}">
-                        <h1 th:text="${a.fechaInicio}"></h1>
-                        <h1 th:text="${a.fechaFin}"></h1>
+                    <div th:if="${c.FK != null && a.idAgenda == c.FK.idAgenda}" class="agen">
+                        <h1 th:if="${u.FK.FK.idRol == 3}" th:text="${'Agenda del Doctor ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
+                        <h1 th:if="${u.FK.FK.idRol == 4}" th:text="${'Agenda del Peluquero ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
+                        <h1 th:text="${a.fechaInicio + ' - ' + a.fechaFin}"></h1>
+                        <p>El día de la semana es: <span th:text="${#temporals.dayOfWeek(a.fechaInicio)}"></span></p>
                         <table class="tabla-colores">
                             <tr class="indice">
                                 <th class="indi">Hora</th>

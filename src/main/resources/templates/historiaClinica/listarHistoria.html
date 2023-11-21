@@ -110,14 +110,11 @@
                 <td th:text="${c.enfermedades}"></td>
                 <td th:text="${c.antecedentes}"></td>
                 <td th:text="${c.diagnosticoHistoria}"></td>
-
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarM/{idMascota}(idMascota=${c.idMascota})}"><button
-                            class="btnM">Agregar Detalle</button></a>
+                    <a><button class="btnM">Agregar Detalle</button></a>
                 </td>
                 <td class="cell-with-button">
-                    <a th:href="@{/reporteHistoriaV/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}" target="_blank"><button
-                            class="btnM">Reporte</button></a>
+                    <a th:href="@{/reporteHistoriaV/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}" target="_blank"><button class="btnM">Reporte</button></a>
                 </td>
             </tr>
         </table>

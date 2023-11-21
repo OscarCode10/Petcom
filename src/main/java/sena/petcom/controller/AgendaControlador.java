@@ -1,5 +1,7 @@
 package sena.petcom.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
-import sena.petcom.model.Cita.Cita;
 import sena.petcom.model.Cita.ICita;
 import sena.petcom.model.Usuario.IUsuario;
 import sena.petcom.model.Usuario.Usuario;

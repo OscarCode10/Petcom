@@ -14,24 +14,24 @@ import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 
 @Controller
 public class HistoriaClinicaControlador {
-    
+
     @Autowired
     private IHistoriaClinica iHistoriaClinica;
 
     @GetMapping("/moduloHistoria")
-    public String moduloHistoria(){
+    public String moduloHistoria() {
         return "historiaClinica/moduloHistoria";
     }
 
     @GetMapping("/registrarHistoriaV")
-    public String registrarHistoriaV(Model m){
+    public String registrarHistoriaV(Model m) {
         m.addAttribute("historia", new HistoriaClinica());
         return "historiaClinica/registrarHistoria";
     }
 
     @PostMapping("/registrarHistoria")
-    public String registrarHistoria(@Validated HistoriaClinica historia, BindingResult result){
-        if(result.hasErrors()){
+    public String registrarHistoria(@Validated HistoriaClinica historia, BindingResult result) {
+        if (result.hasErrors()) {
             return "redirect:/registrarHistoriaV";
         } else {
             iHistoriaClinica.save(historia);
@@ -40,28 +40,23 @@ public class HistoriaClinicaControlador {
     }
 
     @GetMapping("/listarHistoria")
-    public String listarHistoria(Model m){
+    public String listarHistoria(Model m) {
         m.addAttribute("historias", iHistoriaClinica.findAll());
         return "historiaClinica/listarHistoria";
     }
-    
+
     @GetMapping("/reporteHistoria")
-    public String reporteHistoria(){
+    public String reporteHistoria() {
         return "historiaClinica/reporteHistoria";
     }
-    
+
     @GetMapping("/reporteHistoriaV/{idHistoriaClinica}")
-    public String reporteHistoriaV(@PathVariable Integer idHistoriaClinica,Model m){
-        HistoriaClinica historia=null;
-        if (idHistoriaClinica>0) {
-            historia=iHistoriaClinica.findOne(idHistoriaClinica);
-            m.addAttribute("historia", historia );
+    public String reporteHistoriaV(@PathVariable Integer idHistoriaClinica, Model m) {
+        if (idHistoriaClinica > 0) {
+            m.addAttribute("historiaClinica", iHistoriaClinica.findOne(idHistoriaClinica));
             return "HistoriaClinica/reporteHistoria";
         }
         return "redirect:/listarHistoria";
     }
 
-    
-
-    
 }
