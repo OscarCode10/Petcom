@@ -9,7 +9,8 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @Repository
-public class AgendaUsuarioDAO implements IAgendaUsuario {
+public class AgendaUsuarioDAO implements IAgendaUsuario{
+
     @PersistenceContext
     private EntityManager em;
 

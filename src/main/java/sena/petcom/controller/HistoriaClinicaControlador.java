@@ -68,7 +68,7 @@ public class HistoriaClinicaControlador {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
             String fechaActual = dateFormat.format(new Date());
             String head = "Content-Disposition";
-            String value = "attachment; filename=Histora_Clinica" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActual;
+            String value = "attachment; filename=Histora_Clinica_" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActual + ".pdf";
             resp.setHeader(head, value);
             HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(historiaClinica);
             historiaClinicaPDF.export(resp);
