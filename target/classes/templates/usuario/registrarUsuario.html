@@ -92,15 +92,15 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" required><br><br>
+      <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" ><br><br>
+      <div id="g_nom" class="g_nom">
+      <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" ><br><br>
+      </div>
+      <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" ><br><br>
+      
+      <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" ><br><br>
 
-      <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" required><br><br>
-
-      <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" required><br><br>
-
-      <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" required><br><br>
-
-      <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email" required><br><br>
+      <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email" ><br><br>
 
       <input type="password" name="pswd" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
 
@@ -136,8 +136,64 @@
     <div class="toda">
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
-    <script th:src="@{js/validaciones.js}"></script>
+    
   </footer>
+  <script>
+    const loginForm = document.getElementById('form');
+    const inputs = document.querySelectorAll('#form input');
+
+    const expresiones = {
+        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
+        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+        password: /^.{4,12}$/,
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        telefono: /^\d{7,14}$/
+    }
+
+    const validarFormulario = (e) =>{
+        switch (e.target.name){
+
+            case "numDocumentoUsu":
+            console.log('se esta escribiendo un numero de documento de usuario')
+            
+            break;
+
+            case "nombreUsu":
+            console.log('se esta escribiendo un nombre de usuario')
+            if(expresiones.usuario.test(e.target.value)){
+              document.getElementById()
+            }else{
+              console.log('No debe de tener caracteres especiales')
+            }
+            
+            break;
+
+            case "apellidoUsu":
+            console.log('se esta escribiendo un apellido de usuario')
+            break;
+
+            case "telefonoUsu":
+            console.log('se esta escribiendo un telefono de usuario')
+            break;
+
+            case "correoUsu":
+            console.log('se esta escribiendo un correo de usuario')
+            break;
+
+            case "claveUsu":
+            console.log('se esta escribiendo una contraseña de usuario')
+            break;
+        }
+    }
+
+    inputs.forEach((input) =>{
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
+    });
+
+   
+
+</script>
 </body>
 
 </html>
