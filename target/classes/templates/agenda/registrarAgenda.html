@@ -98,7 +98,7 @@
 
       <input type="time" id="" th:field="*{horaFin}" placeholder="Hora de fin" required step="1"><br><br>
 
-      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoAgenda}" value="1">
+      <select th:field="*{estadoAgenda}" hidden>
         <option value="">Estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>

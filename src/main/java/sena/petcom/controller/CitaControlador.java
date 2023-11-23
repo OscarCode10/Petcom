@@ -34,7 +34,9 @@ public class CitaControlador {
     
    @GetMapping("/registrarCitaV")
     public String registrarCitaV(Model m){
-        m.addAttribute("cita", new Cita());
+        Cita cita = new Cita();
+        cita.setEstadoCita(true);
+        m.addAttribute("cita", cita);
         return "cita/registrarCita";
     }
     

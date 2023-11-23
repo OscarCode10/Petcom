@@ -18,7 +18,7 @@
             <h2 th:text="${'Tiene de enfermedades: ' + historiaClinica.enfermedades + '.'}"></h2>
             <h2 th:text="${'Tiene de antecendetes: ' + historiaClinica.antecedentes + '.'}"></h2>
             <h2 th:text="${'Y su diagnóstico es: ' + historiaClinica.diagnosticoHistoria + '.'}"></h2>
-            <a th:href="@{/generarPdf/{idHistoriaClinica}(idHistoriaClinica=${historiaClinica.idHistoriaClinica})}"><input type="submit" value="Generar"></a>
+            <a th:href="@{/generarHistoriaPdf/{idHistoriaClinica}(idHistoriaClinica=${historiaClinica.idHistoriaClinica})}"><input type="submit" value="Generar"></a>
         </div>
     </div>
 </body>

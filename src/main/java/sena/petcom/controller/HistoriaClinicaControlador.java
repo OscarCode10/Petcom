@@ -60,7 +60,7 @@ public class HistoriaClinicaControlador {
         return "historiaClinica/reporteHistoria";
     }
 
-    @GetMapping("/generarPdf/{idHistoriaClinica}")
+    @GetMapping("/generarHistoriaPdf/{idHistoriaClinica}")
     public String reporteHistoriaV(@PathVariable Integer idHistoriaClinica, Model m, HttpServletResponse resp) throws DocumentException, IOException {
         if (idHistoriaClinica > 0) {
             HistoriaClinica historiaClinica = iHistoriaClinica.findOne(idHistoriaClinica);
@@ -71,7 +71,7 @@ public class HistoriaClinicaControlador {
             String value = "attachment; filename=Histora_Clinica_" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActual + ".pdf";
             resp.setHeader(head, value);
             HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(historiaClinica);
-            historiaClinicaPDF.export(resp);
+            historiaClinicaPDF.exportHistoria(resp);
             return "redirect:/reporteHistoria/{idHistoriaClinica}";
         }
         return "redirect:/listarHistoria";

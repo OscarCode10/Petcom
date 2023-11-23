@@ -19,6 +19,8 @@ import sena.petcom.model.Cita.Cita;
 import sena.petcom.model.Cita.ICita;
 import sena.petcom.model.Cliente.Cliente;
 import sena.petcom.model.Cliente.ICliente;
+import sena.petcom.model.DetallesHistoria.DetallesHistoria;
+import sena.petcom.model.DetallesHistoria.IDetallesHistoria;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
 import sena.petcom.model.Mascota.IMascota;
@@ -59,6 +61,9 @@ public class PetcomApplication {
 
 	@Autowired
 	ICita iCita;
+
+	@Autowired
+	IDetallesHistoria iDetallesHistoria;
 
 	@Bean
 	CommandLineRunner init(){
@@ -178,6 +183,16 @@ public class PetcomApplication {
 				.build();
 
 			iHistoriaClinica.save(historiaClinica);
+
+			DetallesHistoria detallesHistoria = DetallesHistoria.builder()
+				.pesoDetalles(6)
+				.tamanoDetalles(30)
+				.diagnosticoDetalles("Engordo")
+				.FK(historiaClinica)
+				.FkC(cita)
+				.build();
+
+			iDetallesHistoria.save(detallesHistoria);
 		};
 	}
 }

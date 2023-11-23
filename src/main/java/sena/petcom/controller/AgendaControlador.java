@@ -40,7 +40,9 @@ public class AgendaControlador {
 
     @GetMapping("/registrarAgendaV")
     public String registrarAgendaV(Model m){
-        m.addAttribute("agenda", new Agenda());
+        Agenda agenda = new Agenda();
+        agenda.setEstadoAgenda(true);
+        m.addAttribute("agenda", agenda);
         m.addAttribute("usuarios", iUsuario.findAll());
         m.addAttribute("usuario", new Usuario());
         return "agenda/registrarAgenda";
