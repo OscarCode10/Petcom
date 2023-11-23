@@ -86,8 +86,7 @@
       <select name="idUsuario">
         <option value="">Peluqueros/Doctores</option>
         <th:block th:each="c : ${usuarios}">
-          <option th:if="${c.FK.idRol == 3 or c.FK.idRol == 4}" th:value="${c.idUsuario}" th:text="${c.nombreUsu}">
-          </option>
+          <option th:if="${c.FK.idRol == 3 or c.FK.idRol == 4}" th:value="${c.idUsuario}" th:text="${c.nombreUsu}"></option>
         </th:block>
       </select><br><br>
 

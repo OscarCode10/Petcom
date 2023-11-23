@@ -28,15 +28,21 @@ public class UsuarioControlador {
         return "index";
     }
 
+    @GetMapping("/accesoDenegado")
+    public String accesoDenegado(Model m){
+        m.addAttribute("error", "No cuentas con esos permisos");
+        return "usuario/dashUsuario";
+    }
+
     @PostMapping("/login")
     public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu, HttpServletRequest req, Model m){
-        if (correoUsu!=null && claveUsu!=null) {
+        if (correoUsu != null && claveUsu != null) {
             Integer idUsuario = iUsuario.login(correoUsu, claveUsu);
             if (idUsuario != null) {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("userDetails", iUsuario.findOne(idUsuario));
                 return "usuario/dashUsuario";
-            }else{  
+            }else{
                 return "redirect:/index";
             }
         }else{
@@ -103,18 +109,16 @@ public class UsuarioControlador {
         return "redirect:/index";
     }
 
-
-        @GetMapping("/verPerfil")
-        public String verPerfil(Model m, HttpServletRequest req) {
-            HttpSession session = req.getSession();
-            Usuario usuario = (Usuario) session.getAttribute("userDetails");
-
-            if (usuario != null) {
-                m.addAttribute("usuario", usuario);
-                return "usuario/verPerfil";
-            } else {
-                return "redirect:/login";
-            }
-        }   
+    @GetMapping("/verPerfil")
+    public String verPerfil(Model m, HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("userDetails");
+        if (usuario != null) {
+            m.addAttribute("usuario", usuario);
+            return "usuario/verPerfil";
+        } else {
+            return "redirect:/login";
+        }
+    }
     
 }
