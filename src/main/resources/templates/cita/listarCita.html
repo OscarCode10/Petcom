@@ -92,17 +92,17 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                <th>Id</th>
+                
                 <th>Motivo</th>
                 <th>Fecha</th>
                 <th>Hora</th>
                 <th>Estado</th>
-                <th>FK Agenda</th>
-                <th>FK Cliente</th>
+                
+                
                 <th>ACCIONES</th>
             </tr>
             <tr th:if="${citas.size()>0}" th:each="c:${citas}">
-                <td th:text="${c.idCita}"></td>
+                
                 <td th:text="${c.motivoConsulta}"></td>
                 <td th:text="${c.fechaCita}"></td>
                 <td th:text="${c.horaCita}"></td>
@@ -112,18 +112,18 @@
                 <td th:if="${c.estadoCita==false}">
                     <h2>Inactivo</h2>
                 </td>
-                <td th:text="${c.FK.idAgenda}"></td>
-                <td th:text="${c.FkC.idCliente}"></td>
+                
+                
                 <td class="cell-with-button">
                     <a th:href="@{/modificarCitaV/{idCita}(idCita=${c.idCita})}"><button
                             class="btnM">Modificar</button></a>
-                            <a th:href="@{/reporteCitas/pdf}" target="_blank">
-                                <button class="btnM">Reporte</button></a>
+                    <a th:href="@{/generarCitaPdf/{idCita}(idCita=${c.idCita})}" target="_blank">
+                        <button class="btnM">Reporte</button></a>
                 </td>
             </tr>
         </table>
     </div>
-    
+
 
 
     <br><br><br>

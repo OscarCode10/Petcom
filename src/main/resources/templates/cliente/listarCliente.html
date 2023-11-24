@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Registrar un cliente</title>
+    <title>Ver cliente</title>
 </head>
 
 <body>
@@ -91,7 +91,7 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                <th>Id</th>
+                
                 <th>Tipo Doc</th>
                 <th>Num Doc</th>
                 <th>Nombre</th>
@@ -101,7 +101,7 @@
                 <th>Opciones</th>
             </tr>
             <tr th:if="${clientes.size()>0}" th:each="c:${clientes}">
-                <td th:text="${c.idCliente}"></td>
+                
                 <td th:text="${c.tipoDocCliente}"></td>
                 <td th:text="${c.numDocCliente}"></td>
                 <td th:text="${c.nombreCliente}"></td>

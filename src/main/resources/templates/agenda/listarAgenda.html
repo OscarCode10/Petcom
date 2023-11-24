@@ -82,84 +82,87 @@
             </div>
         </div>
     </nav>
-    
+    <!-- th:if="${a.fechaInicio != null && a.fechaFin != null}" th:with="diasDiferencia=${T(java.time.temporal.ChronoUnit).DAYS.between(a.fechaInicio, a.fechaFin)}" -->
     <div class="all">
-        <center><h1>Listado de Agenda</h1></center>
-        <div th:each="a:${agenda}" class="agen">
-            <div th:each="u:${agendaUsuario}">
+        <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
+        <div th:each="u:${agendaUsuario}">
+            <div class="agen">
                 <h1 th:if="${u.FK.FK.idRol == 3}" th:text="${'Agenda del doctor ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
                 <h1 th:if="${u.FK.FK.idRol == 4}" th:text="${'Agenda del peluquero ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
-                <div th:each="c:${cita}">
-                    <div th:if="${a.idAgenda == c.FK.idAgenda }">
-                        <h1 th:text="${a.fechaInicio + ' - ' + a.fechaFin}"></h1>
-                        <table class="tabla-colores">
-                            <tr class="indice">
-                                <th class="indi">Hora</th>
-                                <th class="indi">Lunes</th>
-                                <th class="indi">Martes</th>
-                                <th class="indi">Miercoles</th>
-                                <th class="indi">Jueves</th>
-                                <th class="indi">Viernes</th>
-                                <th class="indi">Sabado</th>
-                                <th class="indi">Domingo</th>
-                            </tr>
-                            <tr>
-                                <th class="indi">9:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '09:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">10:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '10:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">10:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '10:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">11:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '11:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">11:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '11:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">12:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '12:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">12:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '12:30'}"  th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">1:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '13:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">1:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '13:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">2:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '14:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">2:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '14:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">3:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '15:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">3:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '15:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">4:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '16:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">4:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '16:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">5:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '17:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">5:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '17:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <th class="indi">6:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '18:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                            </tr>
-                        </table> 
-                    </div>
-                </div>
+                <h1 th:text="${u.FkA.fechaInicio + ' - ' + u.FkA.fechaFin}"></h1>
+                <table class="tabla-colores">
+                    <tr class="indice">
+                        <th class="indi">Hora</th>
+                        <th class="indi">Lunes</th>
+                        <th class="indi">Martes</th>
+                        <th class="indi">Miercoles</th>
+                        <th class="indi">Jueves</th>
+                        <th class="indi">Viernes</th>
+                        <th class="indi">Sabado</th>
+                        <th class="indi">Domingo</th>
+                    </tr>
+                    <tr>
+                        <th class="indi">9:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">10:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">10:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">11:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">11:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">12:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">12:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">1:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">1:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">2:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">2:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">3:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">3:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">4:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">4:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">5:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">5:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                    <tr>
+                        <th class="indi">6:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                    </tr>
+                </table>
+                <!-- <div th:if="${c.FK != null && a.idAgenda == c.FK.idAgenda}" class="agen">
+                    <h1 th:if="${u.FK.FK.idRol == 3}" th:text="${'Agenda del Doctor ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
+                    <h1 th:if="${u.FK.FK.idRol == 4}" th:text="${'Agenda del Peluquero ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
+                    <h1 th:if="${a.idAgenda == u.FkA.idAgenda}" th:text="${a.fechaInicio + ' - ' + a.fechaFin}"></h1>
+                    <p>El día de la semana es: <span th:text="${#temporals.dayOfWeek(a.fechaInicio)}"></span></p>
+                    <p>El día de la semana es: <span th:text="${#temporals.dayOfWeek(a.fechaFin)}"></span></p>
+                </div> -->
             </div>
         </div>
     </div>

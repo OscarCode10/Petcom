@@ -90,7 +90,7 @@ public class AgendaControlador {
     }
 
     @GetMapping("/listarAgenda")
-    public String listarAgenda(Model m){    
+    public String listarAgenda(Model m){
         m.addAttribute("agenda", iAgenda.findAll());
         m.addAttribute("agendaUsuario", iAgendaUsuario.findAll());
         m.addAttribute("cita", iCita.findAll());

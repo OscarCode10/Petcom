@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Registrar un usuario</title>
+    <title>Listar usuario</title>
 </head>
 
 <body>
@@ -91,28 +91,24 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                <th>Id</th>
                 <th>Tipo Doc</th>
                 <th>Num Doc</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Telefono</th>
                 <th>Correo</th>
-                <th>Contraseña</th>
                 <th>Estado</th>
                 <th>Rol</th>
                 <th>Opciones</th>
 
             </tr>
             <tr th:if="${usuarios.size()>0}" th:each="c:${usuarios}">
-                <td th:text="${c.idUsuario}"></td>
                 <td th:text="${c.tipoDocumentoUsu}"></td>
                 <td th:text="${c.numDocumentoUsu}"></td>
                 <td th:text="${c.nombreUsu}"></td>
                 <td th:text="${c.apellidoUsu}"></td>
                 <td th:text="${c.telefonoUsu}"></td>
                 <td th:text="${c.correoUsu}"></td>
-                <td th:text="${c.claveUsu}"></td>
                 <td th:if="${c.estadoUsu==true}">
                     <h2>Activo</h2>
                 </td>

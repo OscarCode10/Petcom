@@ -1,10 +1,7 @@
 package sena.petcom.controller;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +16,8 @@ import com.lowagie.text.DocumentException;
 
 import jakarta.servlet.http.HttpServletResponse;
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
+import sena.petcom.model.GeneradorPDF;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
-import sena.petcom.model.HistoriaClinica.HistoriaClinicaPDF;
 
 @Controller
 public class HistoriaClinicaControlador {
@@ -71,8 +68,8 @@ public class HistoriaClinicaControlador {
             String head = "Content-Disposition";
             String value = "attachment; filename=Histora_Clinica_" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActualString + ".pdf";
             resp.setHeader(head, value);
-            HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(historiaClinica);
-            historiaClinicaPDF.exportHistoria(resp);
+            GeneradorPDF generadorPDF = new GeneradorPDF(historiaClinica);
+            generadorPDF.exportHistoria(resp);
             return "redirect:/reporteHistoria/{idHistoriaClinica}";
         }
         return "redirect:/listarHistoria";

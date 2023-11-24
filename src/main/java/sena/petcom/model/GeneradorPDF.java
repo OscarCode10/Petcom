@@ -1,4 +1,4 @@
-package sena.petcom.model.HistoriaClinica;
+package sena.petcom.model;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -14,19 +14,27 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfWriter;
 
 import jakarta.servlet.http.HttpServletResponse;
+import sena.petcom.model.Cita.Cita;
 import sena.petcom.model.DetallesHistoria.DetallesHistoria;
+import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 
-public class HistoriaClinicaPDF {
+public class GeneradorPDF {
     
     private HistoriaClinica historiaClinica;
 
     private DetallesHistoria detallesHistoria;
 
-    public HistoriaClinicaPDF(DetallesHistoria detallesHistoria) {
+    private Cita cita;
+
+    public GeneradorPDF(Cita cita) {
+        this.cita = cita;
+    }
+
+    public GeneradorPDF(DetallesHistoria detallesHistoria) {
         this.detallesHistoria = detallesHistoria;
     }
 
-    public HistoriaClinicaPDF(HistoriaClinica historiaClinica) {
+    public GeneradorPDF(HistoriaClinica historiaClinica) {
         this.historiaClinica = historiaClinica;
     }
 
@@ -148,6 +156,37 @@ public class HistoriaClinicaPDF {
         reportContent.append("Tamaño: " + detallesHistoria.getTamanoDetalles() + " cm");
         reportContent.append("\n");
         reportContent.append("Diagnóstico: " + detallesHistoria.getDiagnosticoDetalles());
+
+        document.add(new Paragraph(reportContent.toString()));
+
+        document.close();
+    }
+
+    public void exportCita(HttpServletResponse resp) throws DocumentException, IOException{
+        Document document = new Document(PageSize.A4);
+        PdfWriter.getInstance(document, resp.getOutputStream());
+        document.open();
+
+        Font font = new FontFactoryImp().getFont(FontFactory.HELVETICA_BOLD);
+        font.setColor(Color.WHITE);
+        font.setSize(18);
+
+        Paragraph paragraph = new Paragraph("Historia Clinica", font);
+        paragraph.setAlignment(paragraph.ALIGN_CENTER);
+        document.add(paragraph);
+
+        document.add(new Phrase("\n")); // Add a line break
+
+        // Generate the report content
+        StringBuilder reportContent = new StringBuilder();
+        reportContent.append("Cita de: " + cita.getFkC().getNombreCliente());
+        reportContent.append("\n");
+        reportContent.append("Motivo de consulta: " + cita.getMotivoConsulta());
+        reportContent.append("\n");
+        reportContent.append("Fecha de la cita: " + cita.getFechaCita());
+        reportContent.append("\n");
+        reportContent.append("Hora de la cita: " + cita.getHoraCita());
+        reportContent.append("\n");
 
         document.add(new Paragraph(reportContent.toString()));
 

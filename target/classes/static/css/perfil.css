@@ -54,3 +54,15 @@ body{
  text-transform: uppercase;
  color: var(--4);
 }
+
+.btnE{
+    width: 4rem; 
+    height: 2rem;
+    background-color: #1E509A;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

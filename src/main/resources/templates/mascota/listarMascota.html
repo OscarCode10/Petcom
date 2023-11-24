@@ -91,8 +91,7 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                <th>Id </th>
-                <th>Id Cliente</th>
+                
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Fecha Nacimiento</th>
@@ -102,8 +101,8 @@
                 <th>Operacion</th>
             </tr>
             <tr th:if="${mascotas.size()>0}" th:each="c:${mascotas}">
-                <td th:text="${c.idMascota}"></td>
-                <td th:text="${c.FK.idCliente}"></td>
+                
+                
                 <td th:text="${c.nombreMascota}"></td>
                 <td th:text="${c.apellidoMascota}"></td>
                 <td th:text="${c.fechaNacimiento}"></td>

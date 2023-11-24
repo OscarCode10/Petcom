@@ -1,6 +1,8 @@
 package sena.petcom.controller;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -18,8 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.lowagie.text.DocumentException;
+
+import jakarta.servlet.http.HttpServletResponse;
+import sena.petcom.model.GeneradorPDF;
 import sena.petcom.model.Cita.Cita;
 import sena.petcom.model.Cita.ICita;
+import sena.petcom.model.DetallesHistoria.DetallesHistoria;
 
 @Controller
 
@@ -28,24 +35,23 @@ public class CitaControlador {
     private ICita iCita;
 
     @GetMapping("/moduloCita")
-    public String moduloCita(){
+    public String moduloCita() {
         return "cita/moduloCita";
     }
-    
-   @GetMapping("/registrarCitaV")
-    public String registrarCitaV(Model m){
+
+    @GetMapping("/registrarCitaV")
+    public String registrarCitaV(Model m) {
         Cita cita = new Cita();
         cita.setEstadoCita(true);
         m.addAttribute("cita", cita);
         return "cita/registrarCita";
     }
-    
+
     @PostMapping("/registrarCita")
-    public String registrarCita(@Validated Cita cita, BindingResult result, Model m, SessionStatus status){
-        if(result.hasErrors()){
+    public String registrarCita(@Validated Cita cita, BindingResult result, Model m, SessionStatus status) {
+        if (result.hasErrors()) {
             return "redirect:/registrarCitaV";
-        }
-        else{
+        } else {
             iCita.save(cita);
             status.setComplete();
             return "redirect:/moduloCita";
@@ -58,7 +64,6 @@ public class CitaControlador {
         return "cita/listarCita";
     }
 
-
     @GetMapping("/modificarCitaV/{idCita}")
     public String modificarCita(@PathVariable Integer idCita, Model model) {
         Cita cita = null;
@@ -70,47 +75,31 @@ public class CitaControlador {
         return "redirect:/listCita";
     }
 
-    
     @PostMapping("/modificarCita")
     public String modificarCita(@Validated Cita cita, BindingResult result, Model model, SessionStatus status) {
-    if (result.hasErrors()) {
-        return "redirect:/modificarCitaV" + cita.getIdCita();
-    } else {
-        iCita.save(cita);
-        status.setComplete();
-        return "redirect:/listCita";
-    }
-}
-
-@Controller
-@RequestMapping("/reporteCitas")
-public class ReporteCitaController {
-
-    @GetMapping("/pdf")
-    @ResponseBody
-    public byte[] generarReportePDF() throws IOException {
-        // Crea un documento PDF
-        PDDocument document = new PDDocument();
-        PDPage page = new PDPage();
-        document.addPage(page);
-
-        // Contenido del informe
-        try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
-            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-            contentStream.beginText();
-            contentStream.newLineAtOffset(100, 700);
-            contentStream.showText("Informe de Citas");
-            // Agrega más contenido según tus necesidades
-            contentStream.endText();
+        if (result.hasErrors()) {
+            return "redirect:/modificarCitaV" + cita.getIdCita();
+        } else {
+            iCita.save(cita);
+            status.setComplete();
+            return "redirect:/listCita";
         }
-
-        // Convierte el documento a un array de bytes
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        document.save(byteArrayOutputStream);
-        document.close();
-
-        return byteArrayOutputStream.toByteArray();
     }
-}
+
+    @GetMapping("/generarCitaPdf/{idCita}")
+    public String generarCitaPdf(@PathVariable Integer idCita, Model m, HttpServletResponse resp) throws DocumentException, IOException {
+        if (idCita > 0) {
+            Cita cita = iCita.findOne(idCita);
+            resp.setContentType("application/pdf");
+            LocalDate fechaActual = LocalDate.now();
+            String fechaActualString = fechaActual.toString();
+            String head = "Content-Disposition";
+            String value = "attachment; filename=Cita_" + cita.getFkC().getNombreCliente() + "_" + fechaActualString + ".pdf";
+            resp.setHeader(head, value);
+            GeneradorPDF generadorPDF = new GeneradorPDF(cita);
+            generadorPDF.exportCita(resp);
+        }
+        return "redirect:/listarCita";
+    }
 
 }

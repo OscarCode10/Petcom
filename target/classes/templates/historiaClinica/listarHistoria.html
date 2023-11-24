@@ -91,8 +91,8 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                <th>Id </th>
-                <th>Id Mascota</th>
+                
+                
                 <th>Peso</th>
                 <th>Tamaño</th>
                 <th>Enfermedades</th>
@@ -103,8 +103,8 @@
 
             </tr>
             <tr th:if="${historias.size()>0}" th:each="c:${historias}">
-                <td th:text="${c.idHistoriaClinica}"></td>
-                <td th:text="${c.FK.idMascota}"></td>
+                
+                
                 <td th:text="${c.peso + ' Kg'}"></td>
                 <td th:text="${c.tamano + ' Cm'}"></td>
                 <td th:text="${c.enfermedades}"></td>

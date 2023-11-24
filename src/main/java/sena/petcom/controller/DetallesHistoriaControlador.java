@@ -1,10 +1,7 @@
 package sena.petcom.controller;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,9 +18,9 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.lowagie.text.DocumentException;
 
 import jakarta.servlet.http.HttpServletResponse;
+import sena.petcom.model.GeneradorPDF;
 import sena.petcom.model.DetallesHistoria.DetallesHistoria;
 import sena.petcom.model.DetallesHistoria.IDetallesHistoria;
-import sena.petcom.model.HistoriaClinica.HistoriaClinicaPDF;
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
 
 @Controller
@@ -74,8 +71,8 @@ public class DetallesHistoriaControlador {
             String head = "Content-Disposition";
             String value = "attachment; filename=Detalles_Historia_" + detallesHistoria.getFK().getFK().getNombreMascota() + "_" + fechaActualString + ".pdf";
             resp.setHeader(head, value);
-            HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(detallesHistoria);
-            historiaClinicaPDF.exportDetalles(resp);
+            GeneradorPDF generadorPDF = new GeneradorPDF(detallesHistoria);
+            generadorPDF.exportDetalles(resp);
         }
         return "redirect:/listarDetalle/{idHistoriaClinica}";
     }

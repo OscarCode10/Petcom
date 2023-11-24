@@ -85,7 +85,7 @@
         <div class="contenedor">
             <div class="iconoPerfil">&#128100;</div>
             <form th:action="@{/editarPerfil}" th:object="${usuario}" method="post">
-                <h2>Actualizar<br> Usuario</h2>
+                <h2>Editar Perfil</h2>
                 <input type="number" id="numerodocumento" th:field="*{idUsuario}" placeholder="Numero Documento"
                     value="${usuario.idUsuario}" readonly><br>
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/admin.css}">
     <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
-    <title>Admistrador</title>
+    <title>Inicio</title>
     <script th:if="${error}" th:inline="javascript">
         window.onload = function () {
             var errorMessage = /*[[${error}]]*/ '';
@@ -114,10 +114,10 @@
         </div>
         <div class="contR">
             <div class="citas">
-                <input type="submit" id="btnCita" value="IR A CITA">
+                <a th:href="@{/moduloCita}"><input type="submit" id="btnCita" value="IR A CITA"></a>
             </div>
             <div class="agenda">
-                <input type="submit" id="btnAgenda" value="IR A AGENDA">
+                <a th:href="@{/moduloAgenda}"><input type="submit" id="btnAgenda" value="IR A AGENDA"></a>
             </div>
         </div>
     </div>
