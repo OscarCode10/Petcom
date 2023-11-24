@@ -165,7 +165,7 @@ public class PetcomApplication {
 			Cita cita = Cita.builder()
 				.motivoConsulta("Vacuna")
 				.fechaCita(Date.valueOf(LocalDate.of(2023, 11, 20)))
-				.horaCita(Time.valueOf("09:17:00"))
+				.horaCita(Time.valueOf("09:30:00"))
 				.estadoCita(true)
 				.FK(agenda)
 				.FkC(cliente)
