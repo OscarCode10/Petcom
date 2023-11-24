@@ -1,2 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+  <link rel="stylesheet" th:href="@{/css/form.css}">
+  <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+  <title>Editar Perfil</title>
+</head>
+
+<body>
+  <nav>
+    <img th:src="@{img/logo.png}" class="logo">
+    <!-- Administrador -->
+     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
+         <div class="btn">
+             <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+         </div>
+         <div class="cerrar">
+             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+         </div>
+     </div>
+     <!-- Recepcionista -->
+     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
+         <div class="btn">
+             <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+         </div>
+         <div class="cerrar">
+             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+         </div>
+     </div>
+ 
+ <!-- Doctor/Peluquero -->
+     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
+         <div class="btn">
+             <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+         </div>
+         <div class="btn">
+             <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+         </div>
+         <div class="cerrar">
+             <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+         </div>
+     </div>
+  </nav>
+  <main>
+ <div class="contenedor">
+        <div class="iconoPerfil">&#128100;</div>
+   <form th:action="@{/editarPerfil}" th:object="${usuario}" method="post">
+      <h2>Actualizar<br> Usuario</h2>
+      <input type="number" id="numerodocumento" th:field="*{idUsuario}" placeholder="Numero Documento"
+        value="${usuario.idUsuario}" readonly><br>
+
+      <select id="" name="" th:field="*{tipoDocumentoUsu}" value="${usuario.tipoDocumentoUsu}">
+        <option value="">Tipo Documento</option>
+        <option value="C.C.">C.C.</option>
+        <option value="T.I.">T.I.</option>
+        <option value="C.E.">C.E.</option>
+        <option value="DNI">DNI</option>
+      </select><br>
+
+      <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
+        value="${usuario.numDocumentoUsu}" required><br>
+
+      <input type="text" id="nombre" th:field="*{nombreUsu}" value="${usuario.nombreUsu}" placeholder="Nombre"
+        required><br>
+
+      <input type="text" id="apellido" th:field="*{apellidoUsu}" value="${usuario.apellidoUsu}" placeholder="Apellido"
+        required><br>
+
+      <input type="number" id="telefono" th:field="*{telefonoUsu}" value="${usuario.telefonoUsu}" placeholder="Telefono"
+        required><br>
+
+      <input type="email" id="email" th:field="*{correoUsu}" value="${usuario.correoUsu}" placeholder="Email"
+        required><br>
+
+      <input type="text" id="clave" th:field="*{claveUsu}" value="${usuario.claveUsu}" placeholder="Clave" required><br>
 
 
+      <select id="estadoUsu" name="estadoUsu" th:field="*{estadoUsu}">
+        <option value="">Estado</option>
+        <option value="1">Activo</option>
+        <option value="0">Inactivo</option>
+    </select><br>
+
+    <select id="idRol" name="idRol" th:field="*{FK.idRol}">
+        <option value="">Rol</option>
+        <option value="1">Administrador</option>
+        <option value="2">Secretario</option>
+        <option value="3">Doctor</option>
+        <option value="4">Peluquero</option>
+    </select><br>
+      <input type="submit" class="regis" value="Registrar">
+    </form>
+ </div>
+  </main>
+  <footer>
+    <div class="vete">
+        <h1>Veterinaria Boss Bunny</h1>
+    </div>
+    <div class="contac">
+        <div class="text">
+            <h1>CONTACTO</h1>
+            <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+        </div>
+        <div class="img">
+            <img th:src="@{img/logo.png}" class="log">
+        </div>
+    </div>
+    <div class="toda">
+        <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
+    </div>
+  </footer>
+</body>
+
+</html>

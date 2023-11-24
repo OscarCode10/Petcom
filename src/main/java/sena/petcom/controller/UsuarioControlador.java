@@ -6,8 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -120,5 +123,43 @@ public class UsuarioControlador {
             return "redirect:/login";
         }
     }
-    
+    @GetMapping("/editarPerfil")
+public String mostrarFormularioEditarPerfil(Model model, HttpSession session) {
+    // Obtén el usuario actual de la sesión o de la base de datos
+    Usuario usuario = (Usuario) session.getAttribute("userDetails");
+
+    // Si no está en la sesión, puedes cargarlo desde la base de datos
+    if (usuario == null) {
+        // Cargar el usuario según su identificador (por ejemplo, su ID)
+        // usuario = usuarioService.obtenerUsuarioPorId(idUsuario);
+    }
+
+    // Agrega el usuario al modelo para que Thymeleaf pueda acceder a sus propiedades
+    model.addAttribute("usuario", usuario);
+
+    return "usuario/editarPerfil";
 }
+    
+@PostMapping("/editarPerfil")
+public String editarPerfil(@Validated @ModelAttribute("usuario") Usuario usuario, BindingResult res, Model m, SessionStatus status, HttpSession session) {
+    if (res.hasErrors()) {
+        return "usuario/editarPerfil";
+    } else {
+        iUsuario.save(usuario);
+        status.setComplete();
+        
+        // Actualiza el usuario en la sesión con los nuevos datos
+        session.setAttribute("userDetails", usuario);
+        
+        return "redirect:/verPerfil";
+    }
+}
+
+
+    }
+    
+    
+
+
+
+    
