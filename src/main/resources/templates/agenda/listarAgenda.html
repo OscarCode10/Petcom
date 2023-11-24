@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/agenda.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <title>Registrar un usuario</title>
+    <title>Listar Agenda</title>
 </head>
 
 <body>
@@ -91,7 +91,7 @@
                 <h1 th:if="${u.FK.FK.idRol == 4}" th:text="${'Agenda del peluquero ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
                 <div th:each="c:${cita}">
                     <div th:if="${a.idAgenda == c.FK.idAgenda }">
-                        <h1 th:text="${a.fechaInicio + ' - ' + a.fechaFin}"> </h1>
+                        <h1 th:text="${a.fechaInicio + ' - ' + a.fechaFin}"></h1>
                         <table class="tabla-colores">
                             <tr class="indice">
                                 <th class="indi">Hora</th>
@@ -104,58 +104,58 @@
                                 <th class="indi">Domingo</th>
                             </tr>
                             <tr>
-                                <th class="indi">9:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">9:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '09:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">10:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">10:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '10:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">10:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">10:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '10:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">11:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">11:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '11:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">11:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">11:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '11:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">12:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">12:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '12:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">12:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">12:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '12:30'}"  th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">1:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">1:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '13:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">1:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">1:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '13:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">2:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">2:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '14:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">2:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">2:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '14:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">3:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">3:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '15:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">3:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">3:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '15:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">4:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">4:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '16:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">4:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">4:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '16:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">5:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">5:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '17:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">5:30</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">5:30</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '17:30'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                             <tr>
-                                <th class="indi">6:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                <th class="indi">6:00</th><th th:if="${#dates.format(c.horaCita, 'HH:mm') == '18:00'}" th:text="${c.idCita}"></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
                         </table> 
                     </div>
