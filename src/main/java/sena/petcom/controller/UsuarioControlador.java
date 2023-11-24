@@ -136,7 +136,7 @@ public String mostrarFormularioEditarPerfil(Model model, HttpSession session) {
         // usuario = usuarioService.obtenerUsuarioPorId(idUsuario);
     }
 
-    // Agrega el usuario al modelo para que Thymeleaf pueda acceder a sus propiedades
+    
     model.addAttribute("usuario", usuario);
 
     return "usuario/editarPerfil";
