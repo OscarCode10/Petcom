@@ -83,42 +83,113 @@
 </nav>
   <main>
     <form th:action="@{/registrarUsuario}" th:object="${usuario}" method="post" id="form">
+
       <h2>Registrar<br> Usuario</h2>
-      <select th:field="*{tipoDocumentoUsu}">
-        <option value="">Tipo Documento</option>
-        <option value="C.C.">C.C.</option>
-        <option value="T.I.">T.I.</option>
-        <option value="C.E.">C.E.</option>
-        <option value="DNI">DNI</option>
-      </select><br><br>
 
-      <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" ><br><br>
-      <div id="g_nom" class="g_nom">
-      <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" ><br><br>
-      </div>
-      <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" ><br><br>
+
+      <table>
+        <tr>
+          <td>
+            
+            <select th:field="*{tipoDocumentoUsu}">
+            <option value="">Tipo Documento</option>
+            <option value="C.C.">C.C.</option>
+            <option value="T.I.">T.I.</option>
+            <option value="C.E.">C.E.</option>
+            <option value="DNI">DNI</option>
+            </select>
+            <br><label>Tipo Documento</label><br><br>
+        
+          </td>
+
+          <td>
+
+            <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento">
+            <br><label>Numero Documento</label><br><br>
+
+
+          </td>
+
+          <td>
+
+            <div id="g_nom" class="g_nom">
+              <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre">
+              <br><label>Nombre</label><br><br>
+            </div>
+
+          </td>
+
+        </tr>
+        <tr>
+
+          <td>
+
+            <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido">
+            <br><label>Apellido</label><br><br>
+
+
+          </td>
+
+          <td>
+
+            <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono">
+            <br><label>Telefono</label><br><br>
+
+
+          </td>
+          <td>
+
+            <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email">
+            <br><label>Email</label><br><br>
+
+          </td>
+        </tr>
+        <tr>
+
+          
+
+        </tr>
+        <tr>
+
+          <td>
+
+            <input type="password" name="pswd" id="clave" th:field="*{claveUsu}" placeholder="Clave">
+            <br><label>Clave</label><br><br>
+
+
+          </td>
+
+          <td>
+
+            <select name="rol" th:field="*{FK.idRol}">
+              <option value="">Rol</option>
+              <option value="1">Administrador</option>
+              <option value="2">Secretario</option>
+              <option value="3">Doctor</option>
+              <option value="4">Peluquero</option>
+            </select>
+            <br><label>Rol</label><br><br>
+
+          </td>
+
+          <td>
+
+            <select class="state" name="rol" th:field="*{estadoUsu}" hidden>
+              <option value="">Estado</option>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
       
-      <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" ><br><br>
 
-      <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email" ><br><br>
+          </td>
 
-      <input type="password" name="pswd" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
+        </tr>
+      </table>
 
-      <select class="state" name="rol" th:field="*{estadoUsu}" hidden>
-        <option value="">Estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select>
-
-      <select name="rol" th:field="*{FK.idRol}">
-        <option value="">Rol</option>
-        <option value="1">Administrador</option>
-        <option value="2">Secretario</option>
-        <option value="3">Doctor</option>
-        <option value="4">Peluquero</option>
-      </select><br><br>
-      <input type="submit" class="regis" value="Registrar">
+      <input type="submit" class="regis" id="regis" value="Registrar">
     </form>
+
+
   </main>
   <footer>
     <div class="vete">

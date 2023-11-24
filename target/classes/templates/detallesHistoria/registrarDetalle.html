@@ -85,17 +85,46 @@
     <form th:action="@{/registrarDetalle}" th:object="${detalle}" method="post" id="form">
       <h2>Registrar<br> Detalles de Historia</h2>
 
-      <input type="number" th:field="*{tamanoDetalles}" placeholder="Tamaño" required><br><br>
+        <table>
+            <tr>
+                <td>
 
-      <input type="number" th:field="*{pesoDetalles}" placeholder="Peso" required><br><br>
+                    <input type="number" th:field="*{tamanoDetalles}" placeholder="Tamaño" required>
+                    <br><label>Tamaño</label><br><br>
 
-      <input type="text" th:field="*{diagnosticoDetalles}" placeholder="Diagnóstico" required><br><br>
-      
-      <input type="hidden" th:field="*{FK.idHistoriaClinica}" placeholder="Id Historia" readonly>
+                </td>
+                <td>
 
-      <input type="number" th:field="*{FkC.idCita}" placeholder="Id Cita"><br><br>
+                    <input type="number" th:field="*{pesoDetalles}" placeholder="Peso" required>
+                    <br><label>Peso</label><br><br>
 
-      <input type="submit" class="regis" value="Registrar">
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <input type="text" th:field="*{diagnosticoDetalles}" placeholder="Diagnóstico" required>
+                    <br><label>Diagnóstico</label><br><br>
+
+                </td>
+                <td>
+
+                    <input type="number" th:field="*{FkC.idCita}" placeholder="Id Cita">
+                    <br><label>Id Cita</label><br><br>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <input type="hidden" th:field="*{FK.idHistoriaClinica}" placeholder="Id Historia" readonly>
+
+                </td>
+            </tr>
+        </table>
+
+      <input type="submit" class="regis" id="regis" value="Registrar">
     </form>
   </main>
   <footer>

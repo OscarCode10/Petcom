@@ -84,29 +84,70 @@
     <form th:action="@{/registrarMascota}" th:object="${mascota}" method="post">
       <h2>Registrar<br> Mascota</h2>
 
-      <input type="text" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" required value="1"><br><br>
+      <table>
+        <tr>
+          <td>
 
-      <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota" required><br><br>
+            <input type="text" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" required value="1">
+            <br><label>id Clientes</label><br><br>
 
-      <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota" required><br><br>
 
-      <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento" required><br><br>
+          </td>
+          <td>
 
-      <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" required><br><br>
+            <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota" required>
+            <br><label>Nombre Mascota</label><br><br>
 
-      <select id="" name="" th:field="*{genero}">
-        <option value="">Genero</option>
-        <option value="M">Macho</option>
-        <option value="F">Hembra</option>
-      </select><br><br>
 
-      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}" hidden>
-        <option value="">Estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select><br><br>
+          </td>
+          <td>
 
-      <input type="submit" class="regis" value="Registrar">
+            <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota" required>
+            <br><label>Apellido Mascota</label><br><br>
+
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+
+            <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento" required>
+            <br><label>Fecha Nacimiento</label><br><br>
+
+
+          </td>
+          <td>
+
+            <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" required>
+            <br><label>Raza</label><br><br>
+
+
+          </td>
+          <td>
+
+            <select id="" name="" th:field="*{genero}">
+              <option value="">Genero</option>
+              <option value="M">Macho</option>
+              <option value="F">Hembra</option>
+            </select>
+            <br><label>Genero</label><br><br>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+
+            <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}" hidden>
+              <option value="">Estado</option>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select><br><br>
+
+          </td>
+        </tr>
+      </table>
+
+      <input type="submit" class="regis" id="regis" value="Registrar">
     </form>
   </main>
   <footer>

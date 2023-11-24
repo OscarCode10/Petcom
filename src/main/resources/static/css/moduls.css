@@ -13,6 +13,11 @@
     --7: #25407c;
 }
 
+.organizacion{
+    display: flex;
+    flex-direction: row;
+}
+
 #all{
     display: flex;
     flex-direction: column;
@@ -71,3 +76,10 @@
     border: none;
     font-size: 1rem;
 }
+
+.img_registro{
+    width: 650px;
+    height: 500px;
+    margin-left: 200px;
+    margin-top: 0px;
+  }

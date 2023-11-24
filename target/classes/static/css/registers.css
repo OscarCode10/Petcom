@@ -25,20 +25,28 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 380px;
+  width: 1000px;
   height: auto;
-  background-color:rgba(142, 160, 188, 1);
-  border: 1px solid #ccc;
+  background-color:rgb(255, 255, 255);
   border-radius: 5px;
   margin-top: 4rem;
   margin-bottom: 4rem;
+  box-shadow: 0 0 100px rgba(0, 18, 77, 0.1);
+}
+
+
+form label{
+  position: relative;
+  left: 50px;
+  height: auto;
+  width: 60%;
 }
 
 form h2{
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 input[type="text"],
@@ -52,8 +60,12 @@ input[type="time"]{
   height: auto;
   width: 60%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: solid 3px var(--4);
   border-radius: 6px;
+  background-color:rgb(196, 220, 253);
 }
 
 select{
@@ -62,8 +74,12 @@ select{
   height: auto;
   width: 66%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: solid 3px var(--4);
   border-radius: 6px;
+  background-color:rgb(196, 220, 253);
 }
 
 .regis {
@@ -77,8 +93,11 @@ select{
   position: relative;
   left: 130px;
   top: -15px;
+  margin-top: 1.5rem;
+  margin-left: 300px;
 }
 
 .regis:hover {
   background-color: #25407c;
 }
+
