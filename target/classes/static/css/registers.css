@@ -101,3 +101,60 @@ select{
   background-color: #25407c;
 }
 
+.form__input:focus{
+  border: 3px solid rgb(0, 157, 255);
+  outline: none;
+  box-shadow: 3px 0 30px rgba(red, green, blue, alpha);
+}
+
+.form__input-erro{
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+
+}
+
+.form__input-erro-activo {
+  visibility: hidden;
+}
+
+.form__mensa{
+  height: 45px;
+  line-height: 45px;
+  background: red;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: none;
+}
+
+.form__grupo-correcto{
+  color: greenyellow;
+  opacity: 1;
+}
+
+.form__grupo-incorrecto .form__label{
+  color: red;
+  opacity: 1;
+}
+
+.form__grupo-incorrecto .form__input{
+  border: 3px solid red;
+
+}
+
+	.form__mensa{
+		grid-column: 1;
+    display: none;
+	}
+
+  .form__grupo-incorrecto .form__label {
+    color: red;
+  }
+  
+  .form__label-incorrecto {
+    color: red;
+  }
+  .form__input-erro-activo {
+    display: block;
+  }
+  
