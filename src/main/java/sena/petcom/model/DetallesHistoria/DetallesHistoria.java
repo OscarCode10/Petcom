@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,25 +29,15 @@ public class DetallesHistoria {
 
     @NotNull
     @Column
-    private int tamañoDetalles;
-    
-    @NotNull
-    @Column
     private int pesoDetalles;
 
     @NotNull
-    @NotEmpty
     @Column
-    private String antecedentesDetalles;
-
-    @NotNull
-    @NotEmpty
-    @Column
-    private String recomendaciones;
+    private int tamanoDetalles;
 
     @NotNull
     @Column
-    private Boolean estadoDetalles;
+    private String diagnosticoDetalles;
 
     @ManyToOne(fetch=FetchType.LAZY)
     private HistoriaClinica FK;

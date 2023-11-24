@@ -98,7 +98,7 @@
                 <th>Enfermedades</th>
                 <th>Antecedentes</th>
                 <th>Diagnostico</th>
-                <th>Agregar Detalle</th>
+                <th>Más Detalle</th>
                 <th>Reporte</th>
 
             </tr>
@@ -111,7 +111,8 @@
                 <td th:text="${c.antecedentes}"></td>
                 <td th:text="${c.diagnosticoHistoria}"></td>
                 <td class="cell-with-button">
-                    <a><button class="btnM">Agregar Detalle</button></a>
+                    <a th:href="@{/registrarDetalleV/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}"><button class="btnM">Agregar Detalle</button></a>
+                    <a th:href="@{/listarDetalle/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}"><button class="btnM">Ver Detalles</button></a>
                 </td>
                 <td class="cell-with-button">
                     <a th:href="@{/reporteHistoriaV/{idHistoriaClinica}(idHistoriaClinica=${c.idHistoriaClinica})}" target="_blank"><button class="btnM">Reporte</button></a>

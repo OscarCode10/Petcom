@@ -60,7 +60,9 @@ public class UsuarioControlador {
 
     @GetMapping("/registrarUsuarioV")
     public String registrarUsuarioV(Model m){
-        m.addAttribute("usuario", new Usuario());
+        Usuario usuario = new Usuario();
+        usuario.setEstadoUsu(true);
+        m.addAttribute("usuario", usuario);
         return "usuario/registrarUsuario";
     }
 

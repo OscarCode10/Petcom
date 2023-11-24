@@ -16,10 +16,17 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 import jakarta.servlet.http.HttpServletResponse;
+import sena.petcom.model.DetallesHistoria.DetallesHistoria;
 
 public class HistoriaClinicaPDF {
     
     private HistoriaClinica historiaClinica;
+
+    private DetallesHistoria detallesHistoria;
+
+    public HistoriaClinicaPDF(DetallesHistoria detallesHistoria) {
+        this.detallesHistoria = detallesHistoria;
+    }
 
     public HistoriaClinicaPDF(HistoriaClinica historiaClinica) {
         this.historiaClinica = historiaClinica;
@@ -79,7 +86,7 @@ public class HistoriaClinicaPDF {
     //     document.close();
     // }
 
-    public void export(HttpServletResponse resp) throws DocumentException, IOException{
+    public void exportHistoria(HttpServletResponse resp) throws DocumentException, IOException{
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, resp.getOutputStream());
         document.open();
@@ -109,6 +116,40 @@ public class HistoriaClinicaPDF {
         reportContent.append("Antecedentes: " + historiaClinica.getAntecedentes());
         reportContent.append("\n");
         reportContent.append("Diagnóstico: " + historiaClinica.getDiagnosticoHistoria());
+
+        document.add(new Paragraph(reportContent.toString()));
+
+        document.close();
+    }
+
+    public void exportDetalles(HttpServletResponse resp) throws DocumentException, IOException{
+        Document document = new Document(PageSize.A4);
+        PdfWriter.getInstance(document, resp.getOutputStream());
+        document.open();
+
+        Font font = new FontFactoryImp().getFont(FontFactory.HELVETICA_BOLD);
+        font.setColor(Color.WHITE);
+        font.setSize(18);
+
+        Paragraph paragraph = new Paragraph("Historia Clinica", font);
+        paragraph.setAlignment(paragraph.ALIGN_CENTER);
+        document.add(paragraph);
+
+        document.add(new Phrase("\n")); // Add a line break
+
+        // Generate the report content
+        StringBuilder reportContent = new StringBuilder();
+        reportContent.append("Detalles de la Historia Clínica de: " + detallesHistoria.getFK().getFK().getNombreMascota());
+        reportContent.append("\n");
+        reportContent.append("Cliente: " + detallesHistoria.getFK().getFK().getFK().getNombreCliente());
+        reportContent.append("\n");
+        reportContent.append("Fecha de Detalles: " + detallesHistoria.getFkC().getFechaCita());
+        reportContent.append("\n");
+        reportContent.append("Peso: " + detallesHistoria.getPesoDetalles() + " kg");
+        reportContent.append("\n");
+        reportContent.append("Tamaño: " + detallesHistoria.getTamanoDetalles() + " cm");
+        reportContent.append("\n");
+        reportContent.append("Diagnóstico: " + detallesHistoria.getDiagnosticoDetalles());
 
         document.add(new Paragraph(reportContent.toString()));
 

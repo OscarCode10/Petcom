@@ -91,15 +91,15 @@
         <option value="DNI">DNI</option>
       </select><br><br>
 
-      <input type="number" id="" th:field="*{numDocCliente}" placeholder="Número Documento" required><br><br>
+      <input type="text"  th:field="*{numDocCliente}" placeholder="Número Documento" required><br><br>
 
-      <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre Completo" required><br><br>
+      <input type="text" th:field="*{nombreCliente}" placeholder="Nombre Completo" required><br><br>
 
-      <input type="number" id="" value="" th:field="*{telefonoCliente}" placeholder="Teléfono" required><br><br>
+      <input type="text" th:field="*{telefonoCliente}" placeholder="Teléfono" required><br><br>
 
-      <input type="email" id="" th:field="*{correoCliente}" placeholder="Correo" required><br><br>
+      <input type="email" th:field="*{correoCliente}" placeholder="Correo" required><br><br>
 
-      <select id="" name="" th:field="*{estadoCliente}">
+      <select id="" name="" th:field="*{estadoCliente}" hidden>
         <option value="">Estado</option>
         <option value="1">Activo</option>
         <option value="0">Inactivo</option>

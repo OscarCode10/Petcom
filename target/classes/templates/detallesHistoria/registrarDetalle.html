@@ -2,15 +2,15 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
 
 <head>
-  <link rel="stylesheet" th:href="@{css/registers.css}">
-  <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
-  <link rel="stylesheet" th:href="@{css/validar.css}">
-  <title>Registrar Usuario</title>
+  <link rel="stylesheet" th:href="@{/css/registers.css}">
+  <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+  <link rel="stylesheet" th:href="@{/css/validar.css}">
+  <title>Registrar Detalle</title>
 </head>
 
 <body>
   <nav>
-    <img th:src="@{img/logo.png}" class="logo">
+    <img th:src="@{/img/logo.png}" class="logo">
     <!-- Administrador -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
         <div class="btn">
@@ -82,41 +82,19 @@
     </div>
 </nav>
   <main>
-    <form th:action="@{/registrarUsuario}" th:object="${usuario}" method="post" id="form">
-      <h2>Registrar<br> Usuario</h2>
-      <select th:field="*{tipoDocumentoUsu}">
-        <option value="">Tipo Documento</option>
-        <option value="C.C.">C.C.</option>
-        <option value="T.I.">T.I.</option>
-        <option value="C.E.">C.E.</option>
-        <option value="DNI">DNI</option>
-      </select><br><br>
+    <form th:action="@{/registrarDetalle}" th:object="${detalle}" method="post" id="form">
+      <h2>Registrar<br> Detalles de Historia</h2>
 
-      <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento" ><br><br>
-      <div id="g_nom" class="g_nom">
-      <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" ><br><br>
-      </div>
-      <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" ><br><br>
+      <input type="number" th:field="*{tamanoDetalles}" placeholder="Tamaño" required><br><br>
+
+      <input type="number" th:field="*{pesoDetalles}" placeholder="Peso" required><br><br>
+
+      <input type="text" th:field="*{diagnosticoDetalles}" placeholder="Diagnóstico" required><br><br>
       
-      <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" ><br><br>
+      <input type="hidden" th:field="*{FK.idHistoriaClinica}" placeholder="Id Historia" readonly>
 
-      <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email" ><br><br>
+      <input type="number" th:field="*{FkC.idCita}" placeholder="Id Cita"><br><br>
 
-      <input type="password" name="pswd" id="clave" th:field="*{claveUsu}" placeholder="Clave"><br><br>
-
-      <select class="state" name="rol" th:field="*{estadoUsu}" hidden>
-        <option value="">Estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select>
-
-      <select name="rol" th:field="*{FK.idRol}">
-        <option value="">Rol</option>
-        <option value="1">Administrador</option>
-        <option value="2">Secretario</option>
-        <option value="3">Doctor</option>
-        <option value="4">Peluquero</option>
-      </select><br><br>
       <input type="submit" class="regis" value="Registrar">
     </form>
   </main>
@@ -130,7 +108,7 @@
         <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
       </div>
       <div class="img">
-        <img th:src="@{img/logo.png}" class="log">
+        <img th:src="@{/img/logo.png}" class="log">
       </div>
     </div>
     <div class="toda">
@@ -152,7 +130,6 @@
 
     const validarFormulario = (e) =>{
         switch (e.target.name){
-
             case "numDocumentoUsu":
             console.log('se esta escribiendo un numero de documento de usuario')
             

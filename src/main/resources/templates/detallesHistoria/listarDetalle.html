@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="https://www.thymeleaf.org" lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Citas</title>
+    <link rel="stylesheet" th:href="@{/css/lists.css}">
     <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
-    <link rel="stylesheet" th:href="@{/css/registers.css}">
+    <title>Ver listado de historias clínicas</title>
 </head>
 
 <body>
     <nav>
-        <img th:src="@{img/logo.png}" class="logo">
+        <img th:src="@{/img/logo.png}" class="logo">
         <!-- Administrador -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
             <div class="btn">
@@ -83,30 +82,34 @@
             </div>
         </div>
     </nav>
-    <main>
-        <form th:action="@{/registrarCita}" th:object="${cita}" method="post">
-            <h2>Registrar<br> Cita</h2>
 
-            <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" required><br><br>
+    <div class="all">
 
-            <input type="date" id="" th:field="*{fechaCita}" placeholder="Fecha Cita" step="1" required><br><br>
-
-            <input type="time" id="" th:field="*{horaCita}" placeholder="Hora Cita" step="1" required><br><br>
-
-            <select id="" name="" th:field="*{estadoCita}" hidden>
-                <option value="">Estado</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select><br><br>
-
-            <input type="number" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda" required><br><br>
-
-            <input type="number" id="" th:field="*{FkC.idCliente}" placeholder="Id Cliente" required><br><br>
-
-            <input type="submit" class="regis" value="Registrar">
-        </form>
-    </main>
-
+        <center>
+            <h1 class="List">LISTADO DE HISTORIAS CLINICAS</h1>
+        </center>
+        <br>
+        <table class="tabla-colores">
+            <tr>
+                <th>Historia Clinica de</th>
+                <th>Fecha Detalles</th>
+                <th>Tamaño</th>
+                <th>Peso</th>
+                <th>Diagnostico</th>
+                <th>Reporte</th>
+            </tr>
+            <tr th:if="${detalles.size()>0}" th:each="c:${detalles}">
+                <td th:text="${c.FK.FK.nombreMascota}"></td>
+                <td th:text="${c.FkC.fechaCita}"></td>
+                <td th:text="${c.tamanoDetalles + ' Cm'}"></td>
+                <td th:text="${c.pesoDetalles + ' Kg'}"></td>
+                <td th:text="${c.diagnosticoDetalles}"></td>
+                <td>
+                    <a th:href="@{/generarDetallesPdf/{idDetallesHistoria}(idDetallesHistoria=${c.idDetallesHistoria})}"><button class="btnM">Reporte</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
@@ -117,7 +120,7 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img th:src="@{img/logo.png}" class="log">
+                <img th:src="@{/img/logo.png}" class="log">
             </div>
         </div>
         <div class="toda">

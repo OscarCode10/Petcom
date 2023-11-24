@@ -20,51 +20,50 @@ public class MascotaControlador {
     private IMascota iMascota;
 
     @GetMapping("/moduloMascota")
-    public String moduloMascota(){
+    public String moduloMascota() {
         return "mascota/moduloMascota";
     }
 
     @GetMapping("/registrarMascotaV")
-    public String registrarMascotaV(Model m){
-        m.addAttribute("mascota", new Mascota());
+    public String registrarMascotaV(Model m) {
+        Mascota mascota = new Mascota();
+        mascota.setEstadoMascota(true);
+        m.addAttribute("mascota", mascota);
         return "mascota/registrarMascota";
     }
 
     @PostMapping("/registrarMascota")
-    public String registrarMascota(@Validated Mascota mascota, BindingResult result){
-        if(result.hasErrors()){
+    public String registrarMascota(@Validated Mascota mascota, BindingResult result) {
+        if (result.hasErrors()) {
             return "redirect:/registrarMascotaV";
-        }
-        else{
+        } else {
             iMascota.save(mascota);
             return "redirect:/moduloMascota";
         }
     }
-    
+
     @GetMapping("/listarMascota")
-    public String listarMascota(Model m){
+    public String listarMascota(Model m) {
         m.addAttribute("mascotas", iMascota.findAll());
         return "mascota/listarMascota";
     }
 
     @GetMapping("/modificarMascotaV/{idMascota}")
-    public String modificarMascotaV(@PathVariable Integer idMascota,Model m){
-        Mascota mascota=null;
-        if (idMascota>0) {
-            mascota=iMascota.findOne(idMascota);
+    public String modificarMascotaV(@PathVariable Integer idMascota, Model m) {
+        Mascota mascota = null;
+        if (idMascota > 0) {
+            mascota = iMascota.findOne(idMascota);
             m.addAttribute("mascota", mascota);
             return "mascota/modificarMascota";
         }
         return "redirect:/listarMasco";
     }
 
-
-    
     @PostMapping("/modificarMascota")
-    public String modificarMascota(@Validated Mascota mascota, BindingResult res, Model m, SessionStatus status){
+    public String modificarMascota(@Validated Mascota mascota, BindingResult res, Model m, SessionStatus status) {
         if (res.hasErrors()) {
             return "redirect:/modificarMascotaV/{idMascota}";
-        }else{
+        } else {
             iMascota.save(mascota);
             status.setComplete();
             return "redirect:/listarMasco";

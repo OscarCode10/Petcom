@@ -26,7 +26,9 @@ public class ClienteControlador {
 
     @GetMapping("/registrarClienteV")
     public String registrarClienteV(Model m){
-        m.addAttribute("cliente", new Cliente());
+        Cliente cliente = new Cliente();
+        cliente.setEstadoCliente(true);
+        m.addAttribute("cliente", cliente);
         return "cliente/registrarCliente";
     }
 
