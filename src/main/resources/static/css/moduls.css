@@ -81,5 +81,7 @@
     width: 650px;
     height: 500px;
     margin-left: 200px;
-    margin-top: 0px;
-  }
+    position: relative;
+    bottom: 7rem;
+    right: 3rem;
+}

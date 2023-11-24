@@ -3,6 +3,7 @@ package sena.petcom.controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,10 +66,10 @@ public class HistoriaClinicaControlador {
         if (idHistoriaClinica > 0) {
             HistoriaClinica historiaClinica = iHistoriaClinica.findOne(idHistoriaClinica);
             resp.setContentType("application/pdf");
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-            String fechaActual = dateFormat.format(new Date());
+            LocalDate fechaActual = LocalDate.now();
+            String fechaActualString = fechaActual.toString();
             String head = "Content-Disposition";
-            String value = "attachment; filename=Histora_Clinica_" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActual + ".pdf";
+            String value = "attachment; filename=Histora_Clinica_" + historiaClinica.getFK().getNombreMascota() + "_" + fechaActualString + ".pdf";
             resp.setHeader(head, value);
             HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(historiaClinica);
             historiaClinicaPDF.exportHistoria(resp);

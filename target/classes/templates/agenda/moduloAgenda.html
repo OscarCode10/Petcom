@@ -85,12 +85,15 @@
 
     <div id="all">
         <h1>AGENDA</h1>
-        <div class="cont">
-            <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Agenda:</h2>
-            <div class="bot">
-                <a th:href="@{/registrarAgendaV}"><input type="submit" value="REGISTRAR"></a>
-                <a th:href="@{/listarAgenda}"><input type="submit" value="VER"></a>
+        <div class="organizacion">
+            <div class="cont">
+                <h2>A continuación seleccione la opción que corresponda a sus necesidades respecto a Agenda:</h2>
+                <div class="bot">
+                    <a th:href="@{/registrarAgendaV}"><input type="submit" value="REGISTRAR"></a>
+                    <a th:href="@{/listarAgenda}"><input type="submit" value="VER"></a>
+                </div>
             </div>
+            <img th:src="@{img/img_registro.png}" class="img_registro">
         </div>
     </div>
 

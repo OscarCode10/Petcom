@@ -147,8 +147,8 @@ public class PetcomApplication {
 			Agenda agenda = Agenda.builder()
 			 	.fechaInicio(LocalDate.of(2023, 11, 20))
 				.fechaFin((LocalDate.of(2023, 11, 26)))
-			 	.horaInicio(Time.valueOf("10:00:00"))
-			 	.horaFin(Time.valueOf("11:00:00"))
+			 	.horaInicio(Time.valueOf("9:00:00"))
+			 	.horaFin(Time.valueOf("18:00:00"))
 				.estadoAgenda(true)
 				.build();
 

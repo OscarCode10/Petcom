@@ -1,6 +1,5 @@
 package sena.petcom.controller;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;

@@ -86,23 +86,23 @@
    <!-- Administrador -->
 
 <div class="rol" th:if="${session.userDetails.FK.getIdRol == 1}">
-    <h1>ADMINISTRADOR</h1>
+    <h1>ROL ADMINISTRADOR</h1>
 </div>
 
 <!-- Recepcionista -->
 <div class="rol" th:if="${session.userDetails.FK.getIdRol == 2}">
-    <h1>RECEPCIONISTA</h1>
+    <h1>ROL RECEPCIONISTA</h1>
 </div>
 
 <!-- Doctor-->
 <div class="rol" th:if="${session.userDetails.FK.getIdRol == 3}">
-    <h1>DOCTOR</h1>
+    <h1>ROL DOCTOR</h1>
 </div>
 
 <!-- Peluquero -->
 
 <div class="rol" th:if="${session.userDetails.FK.getIdRol == 4}">
-    <h1>PELUQUERO</h1>
+    <h1>ROL PELUQUERO</h1>
 </div>
 
 <i class="bi bi-person-circle custom-person-icon"></i>

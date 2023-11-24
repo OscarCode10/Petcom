@@ -3,6 +3,7 @@ package sena.petcom.controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,7 +23,6 @@ import com.lowagie.text.DocumentException;
 import jakarta.servlet.http.HttpServletResponse;
 import sena.petcom.model.DetallesHistoria.DetallesHistoria;
 import sena.petcom.model.DetallesHistoria.IDetallesHistoria;
-import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 import sena.petcom.model.HistoriaClinica.HistoriaClinicaPDF;
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
 
@@ -69,10 +69,10 @@ public class DetallesHistoriaControlador {
         if (idDetallesHistoria > 0) {
             DetallesHistoria detallesHistoria = iDetallesHistoria.findOne(idDetallesHistoria);
             resp.setContentType("application/pdf");
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-            String fechaActual = dateFormat.format(new Date());
+            LocalDate fechaActual = LocalDate.now();
+            String fechaActualString = fechaActual.toString();
             String head = "Content-Disposition";
-            String value = "attachment; filename=Detalles_Historia_" + detallesHistoria.getFK().getFK().getNombreMascota() + "_" + fechaActual + ".pdf";
+            String value = "attachment; filename=Detalles_Historia_" + detallesHistoria.getFK().getFK().getNombreMascota() + "_" + fechaActualString + ".pdf";
             resp.setHeader(head, value);
             HistoriaClinicaPDF historiaClinicaPDF = new HistoriaClinicaPDF(detallesHistoria);
             historiaClinicaPDF.exportDetalles(resp);

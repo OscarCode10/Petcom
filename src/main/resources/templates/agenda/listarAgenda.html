@@ -83,18 +83,15 @@
         </div>
     </nav>
     
-    
-    
     <div class="all">
-        <center><h1 class="List">LISTADO DE AGENDAS </h1></center>
-        <div th:if="${agenda.size() > 0}" th:each="a:${agenda}">
-            <div th:if="${agendaUsuario.size() > 0}" th:each="u:${agendaUsuario}">
-                <div tj:if="${cita.size() > 0}" th:each="c:${cita}">
-                    <div th:if="${c.FK != null && a.idAgenda == c.FK.idAgenda}" class="agen">
-                        <h1 th:if="${u.FK.FK.idRol == 3}" th:text="${'Agenda del Doctor ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
-                        <h1 th:if="${u.FK.FK.idRol == 4}" th:text="${'Agenda del Peluquero ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
-                        <h1 th:text="${a.fechaInicio + ' - ' + a.fechaFin}"></h1>
-                        <p>El día de la semana es: <span th:text="${#temporals.dayOfWeek(a.fechaInicio)}"></span></p>
+        <center><h1>Listado de Agenda</h1></center>
+        <div th:each="a:${agenda}" class="agen">
+            <div th:each="u:${agendaUsuario}">
+                <h1 th:if="${u.FK.FK.idRol == 3}" th:text="${'Agenda del doctor ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
+                <h1 th:if="${u.FK.FK.idRol == 4}" th:text="${'Agenda del peluquero ' + u.FK.nombreUsu + ' ' + u.FK.apellidoUsu}"></h1>
+                <div th:each="c:${cita}">
+                    <div th:if="${a.idAgenda == c.FK.idAgenda }">
+                        <h1 th:text="${a.fechaInicio + ' - ' + a.fechaFin}"> </h1>
                         <table class="tabla-colores">
                             <tr class="indice">
                                 <th class="indi">Hora</th>
@@ -160,12 +157,13 @@
                             <tr>
                                 <th class="indi">6:00</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                             </tr>
-                        </table>
+                        </table> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <footer>
         <div class="vete">
             <h1>Veterinaria Boss Bunny</h1>
