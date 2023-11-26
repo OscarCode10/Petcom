@@ -2,14 +2,14 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
 
 <head>
-  <link rel="stylesheet" th:href="@{css/registers.css}">
-  <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
+  <link rel="stylesheet" th:href="@{/css/registers.css}">
+  <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
   <title>Registrar Mascota</title>
 </head>
 
 <body>
   <nav>
-    <img th:src="@{img/logo.png}" class="logo">
+    <img th:src="@{/img/logo.png}" class="logo">
     <!-- Administrador -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
       <div class="btn">
@@ -83,70 +83,46 @@
   <main>
     <form th:action="@{/registrarMascota}" th:object="${mascota}" method="post">
       <h2>Registrar<br> Mascota</h2>
-
       <table>
         <tr>
+          <input type="hidden" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" required readonly>
           <td>
-
-            <input type="text" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" required value="1">
-            <br><label>id Clientes</label><br><br>
-
-
-          </td>
-          <td>
-
             <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota" required>
             <br><label>Nombre Mascota</label><br><br>
-
-
           </td>
           <td>
-
             <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota" required>
             <br><label>Apellido Mascota</label><br><br>
-
-
           </td>
         </tr>
         <tr>
           <td>
-
             <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento" required>
             <br><label>Fecha Nacimiento</label><br><br>
-
-
           </td>
           <td>
-
             <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" required>
             <br><label>Raza</label><br><br>
-
-
           </td>
           <td>
-
             <select id="" name="" th:field="*{genero}">
               <option value="">Genero</option>
               <option value="M">Macho</option>
               <option value="F">Hembra</option>
             </select>
             <br><label>Genero</label><br><br>
-
           </td>
         </tr>
         <tr>
           <td>
-
             <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}" hidden>
               <option value="">Estado</option>
               <option value="1">Activo</option>
               <option value="0">Inactivo</option>
             </select><br><br>
-
           </td>
         </tr>
       </table>
-
       <input type="submit" class="regis" id="regis" value="Registrar">
     </form>
   </main>
@@ -160,7 +136,7 @@
         <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
       </div>
       <div class="img">
-        <img th:src="@{img/logo.png}" class="log">
+        <img th:src="@{/img/logo.png}" class="log">
       </div>
     </div>
     <div class="toda">

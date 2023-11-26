@@ -16,6 +16,7 @@ import com.lowagie.text.DocumentException;
 
 import jakarta.servlet.http.HttpServletResponse;
 import sena.petcom.model.HistoriaClinica.IHistoriaClinica;
+import sena.petcom.model.Mascota.IMascota;
 import sena.petcom.model.GeneradorPDF;
 import sena.petcom.model.HistoriaClinica.HistoriaClinica;
 
@@ -25,15 +26,23 @@ public class HistoriaClinicaControlador {
     @Autowired
     private IHistoriaClinica iHistoriaClinica;
 
+    @Autowired
+    private IMascota iMascota;
+
     @GetMapping("/moduloHistoria")
     public String moduloHistoria() {
         return "historiaClinica/moduloHistoria";
     }
 
-    @GetMapping("/registrarHistoriaV")
-    public String registrarHistoriaV(Model m) {
-        m.addAttribute("historia", new HistoriaClinica());
-        return "historiaClinica/registrarHistoria";
+    @GetMapping("/registrarHistoriaV/{idMascota}")
+    public String registrarHistoriaV(@PathVariable Integer idMascota, Model m) {
+        if (idMascota > 0) {
+            HistoriaClinica historiaClinica = new HistoriaClinica();
+            historiaClinica.setFK(iMascota.findOne(idMascota));
+            m.addAttribute("historia", historiaClinica);
+            return "historiaClinica/registrarHistoria";
+        }
+        return "redirect:/listarMascota";
     }
 
     @PostMapping("/registrarHistoria")

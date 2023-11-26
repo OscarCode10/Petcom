@@ -15,7 +15,7 @@
         <!-- Administrador -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
             <div class="btn">
-                <a th:href="@{/usu}"><input type="submit" value="USUARIO"></a>
+                <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
             </div>
             <div class="btn">
                 <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
@@ -84,24 +84,22 @@
     </nav>
 
     <div class="all">
-
         <center>
             <h1 class="List">LISTADO DE CLIENTES </h1>
         </center>
         <br>
         <table class="tabla-colores">
             <tr>
-                
                 <th>Tipo Doc</th>
                 <th>Num Doc</th>
                 <th>Nombre</th>
                 <th>Telefono</th>
                 <th>Correo</th>
                 <th>Estado</th>
+                <th>Mascota</th>
                 <th>Opciones</th>
             </tr>
             <tr th:if="${clientes.size()>0}" th:each="c:${clientes}">
-                
                 <td th:text="${c.tipoDocCliente}"></td>
                 <td th:text="${c.numDocCliente}"></td>
                 <td th:text="${c.nombreCliente}"></td>
@@ -113,9 +111,11 @@
                 <td th:if="${c.estadoCliente==false}">
                     <h2>Inactivo</h2>
                 </td>
+                <td>
+                    <a th:href="@{/registrarMascotaV/{idCliente}(idCliente=${c.idCliente})}"><button class="btnM">Agregar Mascota</button></a>
+                </td>
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarClienteV/{idCliente}(idCliente=${c.idCliente})}"><button
-                            class="btnM">Modificar</button></a>
+                    <a th:href="@{/modificarClienteV/{idCliente}(idCliente=${c.idCliente})}"><button class="btnM">Modificar Cliente</button></a>                    
                 </td>
             </tr>
         </table>

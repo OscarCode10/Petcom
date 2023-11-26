@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@200;300;400;600;800&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-:root{
-    --1: #fff;
-    --2: #000;
-    --3: #1E509A;
-    --4: #123387;
-    --5: #8EA0BC;
-    --6: #D9D9D9;
-    --7: #25407c;
+:root {
+  --1: #fff;
+  --2: #000;
+  --3: #1E509A;
+  --4: #123387;
+  --5: #8EA0BC;
+  --6: #D9D9D9;
+  --7: #25407c;
+  --9: red;
 }
 
-main{
+main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +28,7 @@ form {
   justify-content: center;
   width: 1000px;
   height: auto;
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -35,14 +36,14 @@ form {
 }
 
 
-form label{
+form label {
   position: relative;
   left: 50px;
   height: auto;
   width: 60%;
 }
 
-form h2{
+form h2 {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
@@ -54,7 +55,7 @@ input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
-input[type="time"]{
+input[type="time"] {
   position: relative;
   left: 50px;
   height: auto;
@@ -65,10 +66,31 @@ input[type="time"]{
   border-right: 0;
   border-bottom: solid 3px var(--4);
   border-radius: 6px;
-  background-color:rgb(196, 220, 253);
+  background-color: rgb(196, 220, 253);
 }
 
-select{
+#showPswd{
+  position: relative;
+  left: 15rem;
+  bottom: 7.5rem;
+  background-color: var(--4);
+}
+
+#generarPswd {
+  width: 4.2rem;
+  padding: .4rem .4rem .4rem .4rem;
+  font-size: 1rem;
+  background-color: #365eb3;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  bottom: 2.5rem;
+  left: 12rem;
+}
+
+select {
   position: relative;
   left: 50px;
   height: auto;
@@ -77,9 +99,9 @@ select{
   border-top: 0;
   border-left: 0;
   border-right: 0;
-  border-bottom: solid 3px var(--4);
+  border-bottom: solid 3px var(--9);
   border-radius: 6px;
-  background-color:rgb(196, 220, 253);
+  background-color: rgb(196, 220, 253);
 }
 
 .regis {
@@ -101,13 +123,13 @@ select{
   background-color: #25407c;
 }
 
-.form__input:focus{
+.form__input:focus {
   border: 3px solid rgb(0, 157, 255);
   outline: none;
   box-shadow: 3px 0 30px rgba(red, green, blue, alpha);
 }
 
-.form__input-erro{
+.form__input-erro {
   font-size: 12px;
   margin-bottom: 0;
   display: none;
@@ -118,7 +140,7 @@ select{
   visibility: hidden;
 }
 
-.form__mensa{
+.form__mensa {
   height: 45px;
   line-height: 45px;
   background: red;
@@ -127,34 +149,34 @@ select{
   display: none;
 }
 
-.form__grupo-correcto{
+.form__grupo-correcto {
   color: greenyellow;
   opacity: 1;
 }
 
-.form__grupo-incorrecto .form__label{
+.form__grupo-incorrecto .form__label {
   color: red;
   opacity: 1;
 }
 
-.form__grupo-incorrecto .form__input{
+.form__grupo-incorrecto .form__input {
   border: 3px solid red;
 
 }
 
-	.form__mensa{
-		grid-column: 1;
-    display: none;
-	}
+.form__mensa {
+  grid-column: 1;
+  display: none;
+}
 
-  .form__grupo-incorrecto .form__label {
-    color: red;
-  }
-  
-  .form__label-incorrecto {
-    color: red;
-  }
-  .form__input-erro-activo {
-    display: block;
-  }
-  
+.form__grupo-incorrecto .form__label {
+  color: red;
+}
+
+.form__label-incorrecto {
+  color: red;
+}
+
+.form__input-erro-activo {
+  display: block;
+}

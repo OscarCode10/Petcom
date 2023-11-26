@@ -1,6 +1,7 @@
 package sena.petcom.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties.Web.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
+import sena.petcom.model.Cliente.Cliente;
+import sena.petcom.model.Cliente.ICliente;
 import sena.petcom.model.Mascota.IMascota;
 import sena.petcom.model.Mascota.Mascota;
 
@@ -19,17 +22,24 @@ public class MascotaControlador {
     @Autowired
     private IMascota iMascota;
 
+    @Autowired
+    private ICliente iCliente;
+
     @GetMapping("/moduloMascota")
     public String moduloMascota() {
         return "mascota/moduloMascota";
     }
 
-    @GetMapping("/registrarMascotaV")
-    public String registrarMascotaV(Model m) {
-        Mascota mascota = new Mascota();
-        mascota.setEstadoMascota(true);
-        m.addAttribute("mascota", mascota);
-        return "mascota/registrarMascota";
+    @GetMapping("/registrarMascotaV/{idCliente}")
+    public String registrarMascotaV(@PathVariable Integer idCliente ,Model m) {
+        if (idCliente > 0) {
+            Mascota mascota = new Mascota();
+            mascota.setEstadoMascota(true);
+            mascota.setFK(iCliente.findOne(idCliente));
+            m.addAttribute("mascota", mascota);
+            return "mascota/registrarMascota";
+        }
+        return "redirect/listarCliente";
     }
 
     @PostMapping("/registrarMascota")

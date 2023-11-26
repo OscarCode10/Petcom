@@ -91,18 +91,18 @@
         <br>
         <table class="tabla-colores">
             <tr>
-                
+                <th>Dueño</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Fecha Nacimiento</th>
                 <th>Raza</th>
                 <th>Genero</th>
                 <th>Estado</th>
+                <th>Historia</th>
                 <th>Operacion</th>
             </tr>
             <tr th:if="${mascotas.size()>0}" th:each="c:${mascotas}">
-                
-                
+                <td th:text="${c.FK.nombreCliente}"></td>
                 <td th:text="${c.nombreMascota}"></td>
                 <td th:text="${c.apellidoMascota}"></td>
                 <td th:text="${c.fechaNacimiento}"></td>
@@ -114,8 +114,11 @@
                 <td th:if="${c.estadoMascota == false}">
                     <h2>Inactivo</h2>
                 </td>
+                <td>
+                    <a th:href="@{/registrarHistoriaV/{idMascota}(idMascota=${c.idMascota})}"><button class="btnM">Agregar Historia</button></a>
+                </td>
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarMascotaV/{idMascota}(idMascota=${c.idMascota})}"><button class="btnM">Modificar</button></a>
+                    <a th:href="@{/modificarMascotaV/{idMascota}(idMascota=${c.idMascota})}"><button class="btnM">Modificar Mascota</button></a>
                 </td>
             </tr>
         </table>

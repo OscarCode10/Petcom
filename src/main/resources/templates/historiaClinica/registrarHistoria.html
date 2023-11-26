@@ -2,14 +2,14 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="es">
 
 <head>
-  <link rel="stylesheet" th:href="@{css/registers.css}">
-  <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
+  <link rel="stylesheet" th:href="@{/css/registers.css}">
+  <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
   <title>Registrar Historia Clínica</title>
 </head>
 
 <body>
   <nav>
-    <img th:src="@{img/logo.png}" class="logo">
+    <img th:src="@{/img/logo.png}" class="logo">
     <!-- Administrador -->
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
       <div class="btn">
@@ -83,51 +83,36 @@
   <main>
     <form th:action="@{/registrarHistoria}" th:object="${historia}" method="post">
       <h2>Registrar<br> Historia Clínica</h2>
-
       <table>
         <tr>
           <td>
-
-            <input type="text" id="idmas" th:field="*{FK.idMascota}" placeholder="id Mascotas" required value="1">
-            <br><label>id Mascotas</label><br><br>
-
-          </td>
-          <td>
-
+            <input type="hidden" id="idmas" th:field="*{FK.idMascota}" placeholder="id Mascotas" required readonly>
             <input type="number" id="peso" th:field="*{peso}" placeholder="Peso" required>
             <br><label>Peso</label><br><br>
-
           </td>
           <td>
-
+          </td>
+          <td>
             <input type="number" id="tamaño" th:field="*{tamano}" placeholder="Tamaño" required>
             <br><label>Tamaño</label><br><br>
-
           </td>
         </tr>
         <tr>
           <td>
-
             <input type="text" id="enfermedades" th:field="*{enfermedades}" placeholder="Enfermedades" required>
             <br><label>Enfermedades</label><br><br>
-
           </td>
           <td>
-
             <input type="text" id="antecedentes" th:field="*{antecedentes}" placeholder="Antecedentes" required>
             <br><label>Antecedentes</label><br><br>
-
           </td>
           <td>
-
             <input type="text" id="diagnosticoHistoria" th:field="*{diagnosticoHistoria}" placeholder="Diagnostico Historia"
             required>
             <br><label>Diagnostico Historia</label><br><br>
-
           </td>
         </tr>
       </table>
-
       <input type="submit" class="regis" id="regis" value="Registrar">
     </form>
   </main>
@@ -141,7 +126,7 @@
         <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
       </div>
       <div class="img">
-        <img th:src="@{img/logo.png}" class="log">
+        <img th:src="@{/img/logo.png}" class="log">
       </div>
     </div>
     <div class="toda">

@@ -1,10 +1,5 @@
 package sena.petcom.controller;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +16,7 @@ import sena.petcom.model.Agenda.Agenda;
 import sena.petcom.model.Agenda.IAgenda;
 import sena.petcom.model.AgendaUsuario.AgendaUsuario;
 import sena.petcom.model.AgendaUsuario.IAgendaUsuario;
-import sena.petcom.model.Cita.Cita;
 import sena.petcom.model.Cita.ICita;
-import sena.petcom.model.DetallesHistoria.DetallesHistoria;
 import sena.petcom.model.Usuario.IUsuario;
 import sena.petcom.model.Usuario.Usuario;
 
