@@ -1,5 +1,5 @@
 const generarPswd = document.getElementById("generarPswd");
-const pswd = document.getElementById("clave");
+const pswd = document.getElementById("password");
 
 generarPswd.addEventListener("click", () => {
   const generatedPassword = generatePassword(8);

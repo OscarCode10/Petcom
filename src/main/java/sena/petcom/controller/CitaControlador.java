@@ -89,10 +89,11 @@ public class CitaControlador {
         Cita cita = null;
         if (idCita > 0) {
             cita = iCita.findOne(idCita);
+            model.addAttribute("clientes", iCliente.findAll());
             model.addAttribute("cita", cita);
             return "cita/modificarCita";
         }
-        return "redirect:/listCita";
+        return "redirect:/listarCita";
     }
 
     @PostMapping("/modificarCita")
@@ -102,7 +103,7 @@ public class CitaControlador {
         } else {
             iCita.save(cita);
             status.setComplete();
-            return "redirect:/listCita";
+            return "redirect:/listarCita";
         }
     }
 

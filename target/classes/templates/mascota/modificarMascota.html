@@ -84,37 +84,97 @@
     <form th:action="@{/modificarMascota}" th:object="${mascota}" method="post" id="form">
       <h2>Registrar<br> Mascota</h2>
 
-      <input type="text" id="idcli" th:field="*{idMascota}" placeholder="id CLIENTES" value="${mascota.idMascota}"
-        required><br><br>
+      <table>
+        <tr>
+          <td>
 
-      <input type="text" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" value="${mascota.FK.idCliente}"
-        required><br><br>
+            <div class="form-control">
+              <input type="text" id="idcli" th:field="*{idMascota}" placeholder="id CLIENTES" value="${mascota.idMascota}"
+        required>
+        <br><label>Id Mascotas</label><br><br>
+            </div>
 
-      <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota"
-        value="${mascota.nombreMascota}" required><br><br>
+          </td>
+          <td>
 
-      <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota"
-        value="${mascota.apellidoMascota}" required><br><br>
+            <div class="form-control">
+              <input type="text" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" value="${mascota.FK.idCliente}"
+        required>
+        <br><label>Id Clientes</label><br><br>
+            </div>
 
-      <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento"
-        value="${mascota.fechaNacimiento}" required><br><br>
-      <div class="form-control">
-      <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" value="${mascota.raza}" required><br><br>
+          </td>
+          <td>
+
+            <div class="form-control">
+              <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota"
+        value="${mascota.nombreMascota}" required>
+        <br><label>Nombre Mascota</label><br><br>
+            </div>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+
+            <div class="form-control">
+              <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota"
+        value="${mascota.apellidoMascota}" required>
+        <br><label>Apellido Mascota</label><br><br>
+            </div>
+
+          </td>
+          <td>
+
+            <div class="form-control">
+              <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento"
+        value="${mascota.fechaNacimiento}" required>
+        <br><label>Fecha Nacimiento</label><br><br>
+            </div>
+
+          </td>
+          <td>
+
+            <div class="form-control">
+              <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" value="${mascota.raza}" required>
+              <br><label>Raza</label><br><br>
       <i class="fas fa-check-circle"></i>
       <i class="fas fa-exclamation-circle"></i>
       <small>Error message</small>
-      </div>
-      <select id="" name="" th:field="*{genero}" value="${mascota.genero}">
-        <option value="">Genero</option>
-        <option value="M">Macho</option>
-        <option value="F">Hembra</option>
-      </select><br><br>
+            </div>
 
-      <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}" value="${mascota.estadoMascota}">
-        <option value="">Estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select><br><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            
+            <div class="form-control">
+              <select id="" name="" th:field="*{genero}" value="${mascota.genero}">
+                <option value="">Genero</option>
+                <option value="M">Macho</option>
+                <option value="F">Hembra</option>
+              </select>
+              <br><label>Genero</label><br><br>
+        
+            </div>
+
+          </td>
+          <td>
+
+            <div class="form-control">
+              <select id="estadoMascota" name="estadoMascota" th:field="*{estadoMascota}" value="${mascota.estadoMascota}">
+                <option value="">Estado</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+              </select>
+              <br><label>Estado</label><br><br>
+            </div>
+
+          </td>
+        </tr>
+      </table>
 
       <input type="submit" class="regis" value="Modificar">
     </form>

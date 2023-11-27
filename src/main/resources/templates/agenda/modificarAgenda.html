@@ -86,26 +86,59 @@
         <form th:action="@{/modificarAgenda}" th:object="${agenda}" method="post">
             <h2>Modificar<br> Agenda</h2>
 
-            <input type="text" id="" th:field="*{idAgenda}" placeholder="id CLIENTES" value="${agenda.idAgenda}"
-                required readonly="readonly"><br><br>
+            <table>
+                <tr>
+                    <td>
+                       <div class="form-control">
+                        <input type="text" id="" th:field="*{idAgenda}" placeholder="id CLIENTES" value="${agenda.idAgenda}"
+                required readonly="readonly">
+                <br><label>Id Agenda</label><br><br>
+                       </div> 
+                    </td>
+                    <td>
+                        <div class="form-control">
+                            <input type="date" id="" th:field="*{fechaInicio}" placeholder="id CLIENTES" value="${agenda.fechaInicio}"
+                required>
+                <br><label>Fecha Inicio</label><br><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-control">
+                            <input type="date" id="" th:field="*{fechaFin}" placeholder="Nombre Mascota" value="${agenda.fechaFin}"
+                required>
+                <br><label>Fecha Fin</label><br><br>
+                        </div>
+                    </td>
+                </tr>
 
-            <input type="date" id="" th:field="*{fechaInicio}" placeholder="id CLIENTES" value="${agenda.fechaInicio}"
-                required><br><br>
+                <tr>
+                    <td>
+                        <div class="form-control">
+                            <input type="time" id="" th:field="*{horaInicio}" placeholder="Apellido Mascota"
+                value="${agenda.horaInicio}" required>
+                <br><label>Hora Inicio</label><br><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-control">
+                            <input type="time" id="" th:field="*{horaFin}" placeholder="Fecha Nacimiento" value="${agenda.horaFin}"
+                required>
+                <br><label>Hora Fin</label><br><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-control">
+                            <select id="" th:field="*{estadoAgenda}" value="${agenda.estadoAgenda}">
+                                <option value="">Estado</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                            <br><label>Estado</label><br><br>
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
-            <input type="date" id="" th:field="*{fechaFin}" placeholder="Nombre Mascota" value="${agenda.fechaFin}"
-                required><br><br>
-
-            <input type="time" id="" th:field="*{horaInicio}" placeholder="Apellido Mascota"
-                value="${agenda.horaInicio}" required><br><br>
-
-            <input type="time" id="" th:field="*{horaFin}" placeholder="Fecha Nacimiento" value="${agenda.horaFin}"
-                required><br><br>
-
-            <select id="" th:field="*{estadoAgenda}" value="${agenda.estadoAgenda}">
-                <option value="">Estado</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select><br><br>
 
             <input type="submit" class="regis" value="Modificar">
         </form>

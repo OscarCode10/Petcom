@@ -11,6 +11,8 @@
   <nav>
     <img th:src="@{/img/logo.png}" class="logo">
     <!-- Administrador -->
+
+
     <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
       <div class="btn">
         <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
@@ -83,48 +85,116 @@
   <main>
     <form th:action="@{/modificarUsuario}" th:object="${usuario}" method="post">
       <h2>Actualizar<br> Usuario</h2>
-      <input type="number" id="numerodocumento" th:field="*{idUsuario}" placeholder="Numero Documento"
-        value="${usuario.idUsuario}" readonly><br>
 
-      <select id="" name="" th:field="*{tipoDocumentoUsu}" value="${usuario.tipoDocumentoUsu}">
-        <option value="">Tipo Documento</option>
-        <option value="C.C.">C.C.</option>
-        <option value="T.I.">T.I.</option>
-        <option value="C.E.">C.E.</option>
-        <option value="DNI">DNI</option>
-      </select><br>
 
-      <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
-        value="${usuario.numDocumentoUsu}" required><br>
+      <table>
+        <tr>
+          <td>
+            <div class="form-control">
+            <input type="number" th:field="*{idUsuario}"
+            value="${usuario.idUsuario}" readonly>
+            <br><label>Id Usuario</label><br><br>
+            </div>
+          </td>
 
-      <input type="text" id="nombre" th:field="*{nombreUsu}" value="${usuario.nombreUsu}" placeholder="Nombre"
-        required><br>
+          <td>
+            <div class="form-control">
+            <select id="" name="" th:field="*{tipoDocumentoUsu}" value="${usuario.tipoDocumentoUsu}">
+              <option value="">Tipo Documento</option>
+              <option value="C.C.">C.C.</option>
+              <option value="T.I.">T.I.</option>
+              <option value="C.E.">C.E.</option>
+              <option value="DNI">DNI</option>
+            </select>
+            <br><label>Tipo Documento</label><br><br>
+            </div>
+          </td>
 
-      <input type="text" id="apellido" th:field="*{apellidoUsu}" value="${usuario.apellidoUsu}" placeholder="Apellido"
-        required><br>
+          <td>
+            <div class="form-control">
+            <input type="number" id="numerodocumento" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
+              value="${usuario.numDocumentoUsu}" required>
+              <br><label>Número Documento</label><br><br>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <div class="form-control">
+            <input type="text" id="nombre" th:field="*{nombreUsu}" value="${usuario.nombreUsu}" placeholder="Nombre"
+              required>
+              <br><label>Nombre</label><br><br>
+            </div>
+          </td>
 
-      <input type="number" id="telefono" th:field="*{telefonoUsu}" value="${usuario.telefonoUsu}" placeholder="Telefono"
-        required><br>
+          <td>
+            <div class="form-control">
+            <input type="text" id="apellido" th:field="*{apellidoUsu}" value="${usuario.apellidoUsu}" placeholder="Apellido"
+                required>
+                <br><label>Apellido</label><br><br>
+            </div>
+          </td>
 
-      <input type="email" id="email" th:field="*{correoUsu}" value="${usuario.correoUsu}" placeholder="Email"
-        required><br>
+          <td>
+            <div class="form-control">
+            <input type="number" id="telefono" th:field="*{telefonoUsu}" value="${usuario.telefonoUsu}" placeholder="Telefono"
+              required>
+              <br><label>Telefono</label><br><br>
+            </div>
+          </td>
+        </tr>
+  
+        <tr>
 
-      <input type="text" id="clave" th:field="*{claveUsu}" value="${usuario.claveUsu}" placeholder="Clave" required><br>
+          <td>
+            <div class="form-control">
+            <input type="email" id="email" th:field="*{correoUsu}" value="${usuario.correoUsu}" placeholder="Email"
+              required>
+              <br><label>Email</label><br><br>
+            </div>
+          </td>
+          
+          <td>
+            <div class="form-control">
+            <input type="text" id="clave" th:field="*{claveUsu}" value="${usuario.claveUsu}" placeholder="Clave" required>
+            <br><label>Clave</label><br><br>
+          </div>
 
-      <select id="rol" name="rol" th:field="*{estadoUsu}" value="${usuario.estadoUsu}">
-        <option value="">Estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select><br>
+          </td>
 
-      <select id="rol" name="rol" th:field="*{FK.idRol}" value="${usuario.FK.idRol}">
-        <option value="">Rol</option>
-        <option value="1">Administrador</option>
-        <option value="2">Secretario</option>
-        <option value="3">Doctor</option>
-        <option value="4">Peluquero</option>
-      </select><br>
+          <td>
+            <div class="form-control">
+            <select id="rol" name="rol" th:field="*{estadoUsu}" value="${usuario.estadoUsu}">
+              <option value="">Estado</option>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
+            <br><label>Estado</label><br><br>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-control">
+            <select id="rol" name="rol" th:field="*{FK.idRol}" value="${usuario.FK.idRol}">
+              <option value="">Rol</option>
+              <option value="1">Administrador</option>
+              <option value="2">Secretario</option>
+              <option value="3">Doctor</option>
+              <option value="4">Peluquero</option>
+            </select>
+            <label>Rol</label><br><br>
+          </div>
+          </td>
+
+        </tr>
+
+      </table>
+
       <input type="submit" class="regis" value="Registrar">
+
     </form>
   </main>
   <footer>

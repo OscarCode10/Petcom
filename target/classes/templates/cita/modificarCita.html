@@ -84,23 +84,57 @@
     <form th:action="@{/modificarCita}" th:object="${cita}" method="post">
       <h2>Registrar<br> Cita</h2>
 
-      <input type="number" id="" th:field="*{idCita}" placeholder="Motivo de Consulta" value="${cita.idCita}"
-        readonly><br><br>
+      <table>
+        <tr>
+          <td>
+            <div class="form-control">
+              <input type="number" id="" th:field="*{idCita}" placeholder="Motivo de Consulta" value="${cita.idCita}"
+                readonly>
+              <br><label>Id Cita</label><br><br>
 
-      <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta"
-        value="${cita.motivoConsulta}" required><br><br>
+            </div>
+          </td>
+          <td>
+            <div class="form-control">
+              <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta"
+                value="${cita.motivoConsulta}" required>
+              <br><label>Motivo de Consulta</label><br><br>
+            </div>
+          </td>
+        </tr>
 
-      <select id="" name="" th:field="*{estadoCita}" value="${cita.estadoCita}">
-        <option value="">Estado</option>
-        <option value="1">Activo</option>
-        <option value="0">Inactivo</option>
-      </select><br><br>
-
-      <input type="number" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda" value="${cita.FK.idAgenda}"
-        required><br><br>
-
-      <input type="number" id="" th:field="*{FkC.idCliente}" placeholder="Id Cliente" value="${cita.FkC.idCliente}"
-        required><br><br>
+        <tr>
+          <td>
+            <div class="form-control">
+              <select id="" name="" th:field="*{estadoCita}" value="${cita.estadoCita}">
+                <option value="">Estado</option>
+                <option value="1">Activa</option>
+                <option value="0">Cancelada</option>
+              </select>
+              <br><label>Estado</label><br><br>
+            </div>
+          </td>
+          <td>
+            <div class="form-control">
+              <select name="idUsuario" th:field="*{FkC.idCliente}">
+                <option value="">Clientes</option>
+                <th:block th:each="c:${clientes}">
+                  <option th:if="${c != null}" th:value="${c.idCliente}" th:text="${c.nombreCliente}"></option>
+                </th:block>
+              </select>
+              <br><label>Cliente</label><br><br>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-control">
+              <input type="hidden" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda" value="${cita.FK.idAgenda}"
+                required>
+            </div>
+          </td>
+        </tr>
+      </table>
 
       <input type="submit" class="regis" value="Modificar">
     </form>

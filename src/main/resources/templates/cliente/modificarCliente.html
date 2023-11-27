@@ -86,34 +86,90 @@
     <main>
         <form th:action="@{/modificarCliente}" th:object="${cliente}" method="post">
             <h2>Actualizar<br> Cliente</h2>
-            <input type="number" id="" th:field="*{idCliente}" placeholder="Numero Documento"
-                value="${cliente.idCliente}" readonly><br>
 
-            <select id="" name="" th:field="*{tipoDocCliente}" value="${cliente.tipoDocCliente}">
-                <option value="">Tipo Documento</option>
-                <option value="C.C.">C.C.</option>
-                <option value="T.I.">T.I.</option>
-                <option value="C.E.">C.E.</option>
-                <option value="DNI">DNI</option>
-            </select><br>
+            <table>
+                <tr>
+                    <td>
 
-            <input type="number" id="" th:field="*{numDocCliente}" placeholder="Numero Documento"
-                value="${cliente.numDocCliente}" required><br>
+                        <div class="form-control">
+                            <input type="number" id="" th:field="*{idCliente}" placeholder="Numero Documento"
+                value="${cliente.idCliente}" readonly>
+                <br><label>Id Cliente</label><br><br>
+                        </div>
 
-            <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre" value="${cliente.nombreCliente}"
-                required><br>
+                    </td>
+                    <td>
 
-            <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Telefono"
-                value="${cliente.telefonoCliente}" required><br>
+                        <div class="form-control">
+                            <select id="" name="" th:field="*{tipoDocCliente}" value="${cliente.tipoDocCliente}">
+                                <option value="">Tipo Documento</option>
+                                <option value="C.C.">C.C.</option>
+                                <option value="T.I.">T.I.</option>
+                                <option value="C.E.">C.E.</option>
+                                <option value="DNI">DNI</option>
+                            </select>
+                            <br><label>Tipo Documento</label><br><br>
+                        </div>
 
-            <input type="email" id="" th:field="*{correoCliente}" placeholder="Email" value="${cliente.correoCliente}"
-                required><br>
+                    </td>
+                    <td>
 
-            <select id="" th:field="*{estadoCliente}" value="${cliente.estadoUsu}">
-                <option value="">Estado</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select><br>
+                        <div class="form-control">
+                            <input type="number" id="" th:field="*{numDocCliente}" placeholder="Numero Documento"
+                value="${cliente.numDocCliente}" required>
+                <br><label>Numero Documento</label><br><br>
+                        </div>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <div class="form-control">
+                            <input type="text" id="" th:field="*{nombreCliente}" placeholder="Nombre" value="${cliente.nombreCliente}"
+                required>
+                <br><label>Nombre</label><br><br>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="form-control">
+                            <input type="number" id="" th:field="*{telefonoCliente}" placeholder="Telefono"
+                value="${cliente.telefonoCliente}" required>
+                <br><label>Telefono</label><br><br>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="form-control">
+                            <input type="email" id="" th:field="*{correoCliente}" placeholder="Email" value="${cliente.correoCliente}"
+                required>
+                <br><label>Email</label><br><br>
+                        </div>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+
+                        <div class="form-control">
+                            <select id="" th:field="*{estadoCliente}" value="${cliente.estadoUsu}">
+                                <option value="">Estado</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                            <br><label>Estado</label><br><br>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+
 
             <input type="submit" class="regis" value="Modificar">
 

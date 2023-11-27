@@ -98,7 +98,7 @@
                 <th>Acciones</th>
                 <th>Reporte</th>
             </tr>
-            <tr th:each="c:${citas}">
+            <tr th:each="c:${citas}" th:if="${c.estadoCita != 0}">
                 <td th:text="${c.motivoConsulta}"></td>
                 <td th:text="${c.fechaCita}"></td>
                 <td th:text="${c.horaCita}"></td>
@@ -106,7 +106,7 @@
                     <h2>Activo</h2>
                 </td>
                 <td th:if="${c.estadoCita==false}">
-                    <h2>Inactivo</h2>
+                    <h2>Cancelada</h2>
                 </td>
                 <td class="cell-with-button">
                     <a th:href="@{/modificarCitaV/{idCita}(idCita=${c.idCita})}"><button class="btnM">Modificar</button></a>
@@ -134,7 +134,7 @@
                     <h2>Activo</h2>
                 </td>
                 <td th:if="${c.estadoCita==false}">
-                    <h2>Inactivo</h2>
+                    <h2>Cancelada</h2>
                 </td>
                 <td class="cell-with-button">
                     <a th:href="@{/modificarCitaV/{idCita}(idCita=${c.idCita})}"><button class="btnM">Modificar</button></a>
