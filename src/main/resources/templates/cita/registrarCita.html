@@ -84,11 +84,12 @@
         </div>
     </nav>
     <main>
-        <form th:action="@{/registrarCita}" th:object="${cita}" method="post">
+        <form th:action="@{/registrarCita}" th:object="${cita}" method="post" id="form">
             <h2>Registrar<br> Cita</h2>
             <table>
                 <tr>
-                    <td>
+                    <td> 
+                        <div class="form-control">
                         <select name="idUsuario" th:field="*{FkC.idCliente}">
                             <option value="">Clientes</option>
                             <th:block th:each="c:${clientes}">
@@ -96,23 +97,47 @@
                             </th:block>
                         </select>
                         <br><label>Cliente</label><br><br>
+                    </div>
+                    </td>
+                    
+                    <td>
+
+                        <div class="form-control">
+        
+                        <input type="text" name="consulta" id="consulta" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta">
+                        <br><label class="form__label">Motivo Consulta</label><br><br>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                        </div>
                     </td>
                     <td>
-                        <input type="text" id="" th:field="*{motivoConsulta}" placeholder="Motivo de Consulta" required>
-                        <br><label>Motivo de Consulta</label><br><br>
-                    </td>
-                    <td>
-                        <input type="date" id="" th:field="*{fechaCita}" placeholder="Fecha Cita" step="1" required>
-                        <br><label>Fecha Cita</label><br><br>
+                        <div class="form-control">
+                            
+                            <input type="date" name="fecha" id="fecha" th:field="*{fechaCita}" placeholder="Fecha Cita">
+                            <br><label for="fecha">Fecha Cita</label><br><br>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                            </div>
+                       
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="time" id="" th:field="*{horaCita}" placeholder="Hora Cita" step="1" required>
-                        <br><label>Hora Cita</label><br><br>
+
+                            <div class="form-control">
+                            <input type="date" name="date" id="date" th:field="*{horaCita}" placeholder="Hora Cita" step="1" >
+                            <br><label for="date">Hora Cita </label><br><br>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                            </div>
+                        
+                        
                     </td>
                     <td>
-                        <input type="hidden" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda" required readonly>
+                        <input type="hidden" id="" th:field="*{FK.idAgenda}" placeholder="Id Agenda"  readonly>
                     </td>
                     <td>
                         <select id="" name="" th:field="*{estadoCita}" hidden>
@@ -144,6 +169,7 @@
             <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
         </div>
     </footer>
+    <script th:src="@{/js/validacionC.js}"></script>
 </body>
 
 </html>

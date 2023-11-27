@@ -13,6 +13,7 @@ const razaInput = document.getElementById('raza');
 form.addEventListener('submit', e => {
     e.preventDefault();
     checkInputs();
+    return ;
 });
 
 function checkInputs() {
@@ -22,35 +23,6 @@ function checkInputs() {
     const numeroDocumentoValue = numeroDocumento.value.trim();
     const apellidoValue = apellido.value.trim();
     const telefonoValue = telefono.value.trim();
-    // const fechaValue = fechaInput.value.trim();
-    // const fechaSeleccionada = new Date(fechaValue);
-    // const fechaActual = new Date();
-    // const fechaS = new Date();
-    // const razaValue = razaInput.value.trim();
-
-    // if(fechaS ===''){
-    //     setErrorFor(fechaInput, 'Debe seleccionar una fecha');
-    // } else if (fechaS > fechaSeleccionada) {
-    //     setErrorFor(fechaInput, 'La fecha no puede ser superar al día actual');
-    // } else {
-    //     setSuccessFor(fechaInput);
-    // }
-    
-    // if (razaValue === '') {
-    //     setErrorFor(razaInput, 'El campo no puede estar vacío');
-    // } else if (razaValue.length < 4 || razaValue.length > 10) {
-    //     setErrorFor(razaInput, 'La raza debe tener entre 4 y 10 caracteres');
-    // } else {
-    //     setSuccessFor(razaInput);
-    // }
-
-    // if (fechaValue === '') {
-    //     setErrorFor(fechaInput, 'Debe seleccionar una fecha');
-    // } else if (fechaSeleccionada < fechaActual) {
-    //     setErrorFor(fechaInput, 'La fecha no puede ser anterior al día actual');
-    // } else {
-    //     setSuccessFor(fechaInput);
-    // }
 
     if (usuarioValue === '') {
         setErrorFor(usuario, 'No puede dejar el usuario en blanco');

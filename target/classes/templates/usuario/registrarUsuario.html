@@ -4,7 +4,6 @@
 <head>
   <link rel="stylesheet" th:href="@{css/registers.css}">
   <link rel="stylesheet" th:href="@{css/dashAndFoot.css}">
-  <link rel="stylesheet" th:href="@{css/validar.css}">
   <title>Registrar Usuario</title>
 </head>
 
@@ -141,13 +140,14 @@
           </div>
           </td>
           <td>
+            <div class="form-control">
             <input type="email" name="email" id="email" th:field="*{correoUsu}" placeholder="Email"
               class="form__input">
             <br><label class="form__label">Email</label><br><br>
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
             <small>Error message</small>
-            
+          </div>
           </td>
         </tr>
         <tr>
@@ -163,6 +163,7 @@
             </div>
           </td>
           <td>
+            <div class="form-control">
             <select name="rol" th:field="*{FK.idRol}" class="form__input">
               <option value="">Rol</option>
               <option value="1">Administrador</option>
@@ -171,6 +172,7 @@
               <option value="4">Peluquero</option>
             </select>
             <br><label>Rol</label><br><br>
+          </div>
           </td>
           <td>
             <select class="state" name="rol" th:field="*{estadoUsu}" hidden>

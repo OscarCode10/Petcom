@@ -122,6 +122,7 @@ select {
   top: -15px;
   margin-top: 1.5rem;
   margin-left: 300px;
+  
 }
 
 .form-control.success i.fa-check-circle {
@@ -130,13 +131,13 @@ select {
 }
 
 .form-control.error i.fa-exclamation-circle {
-	color: #e74c3c;
+	color: #ff1900;
 	visibility: visible;
   border-radius: 2rem;
 }
 
 .form-control small {
-	color: #e74c3c;
+	color: rgb(231, 60, 60);
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -146,6 +147,8 @@ select {
 .form-control.error small {
 	visibility: visible;
   border-radius: 2rem;
+  
+  
 }
 
 
@@ -157,3 +160,4 @@ select {
 	width: 400px;
 	max-width: 100%;
 }
+
