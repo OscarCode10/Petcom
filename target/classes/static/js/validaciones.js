@@ -1,0 +1,127 @@
+const form = document.getElementById('form');
+const usuario = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const password2 = document.getElementById('password2');
+const numeroDocumento = document.getElementById('numeroDocumento');
+const apellido = document.getElementById('apellido');
+const telefono = document.getElementById('telefono');
+const fechaInput = document.getElementById('fecha');
+const fechaInputS = document.getElementById('fechaS');
+const razaInput = document.getElementById('raza');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    checkInputs();
+});
+
+function checkInputs() {
+    const usuarioValue = usuario.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const numeroDocumentoValue = numeroDocumento.value.trim();
+    const apellidoValue = apellido.value.trim();
+    const telefonoValue = telefono.value.trim();
+    // const fechaValue = fechaInput.value.trim();
+    // const fechaSeleccionada = new Date(fechaValue);
+    // const fechaActual = new Date();
+    // const fechaS = new Date();
+    // const razaValue = razaInput.value.trim();
+
+    // if(fechaS ===''){
+    //     setErrorFor(fechaInput, 'Debe seleccionar una fecha');
+    // } else if (fechaS > fechaSeleccionada) {
+    //     setErrorFor(fechaInput, 'La fecha no puede ser superar al día actual');
+    // } else {
+    //     setSuccessFor(fechaInput);
+    // }
+    
+    // if (razaValue === '') {
+    //     setErrorFor(razaInput, 'El campo no puede estar vacío');
+    // } else if (razaValue.length < 4 || razaValue.length > 10) {
+    //     setErrorFor(razaInput, 'La raza debe tener entre 4 y 10 caracteres');
+    // } else {
+    //     setSuccessFor(razaInput);
+    // }
+
+    // if (fechaValue === '') {
+    //     setErrorFor(fechaInput, 'Debe seleccionar una fecha');
+    // } else if (fechaSeleccionada < fechaActual) {
+    //     setErrorFor(fechaInput, 'La fecha no puede ser anterior al día actual');
+    // } else {
+    //     setSuccessFor(fechaInput);
+    // }
+
+    if (usuarioValue === '') {
+        setErrorFor(usuario, 'No puede dejar el usuario en blanco');
+    } else if (usuarioValue.length < 3) {
+        setErrorFor(usuario, 'El usuario debe tener al menos 3 caracteres');
+    } else if (!isValidInput(usuarioValue)) {
+        setErrorFor(usuario, 'El usuario no puede contener caracteres especiales');
+    } else {
+        setSuccessFor(usuario);
+    }
+
+    if (apellidoValue === '') {
+        setErrorFor(apellido, 'No puede dejar el apellido en blanco');
+    } else if (apellidoValue.length < 3) {
+        setErrorFor(apellido, 'El apellido debe tener al menos 3 caracteres');
+    } else if (!isValidInput(apellidoValue)) {
+        setErrorFor(apellido, 'El apellido no puede contener caracteres especiales');
+    } else {
+        setSuccessFor(apellido);
+    }
+
+    if (emailValue === '') {
+        setErrorFor(email, 'No puede dejar el email en blanco');
+    } else if (!isEmail(emailValue)) {
+        setErrorFor(email, 'No ingresó un email válido');
+    } else {
+        setSuccessFor(email);
+    }
+
+    if (passwordValue === '') {
+        setErrorFor(password, 'La contraseña no debe estar en blanco.');
+    } else {
+        setSuccessFor(password);
+    }
+
+    if (numeroDocumentoValue === '') {
+        setErrorFor(numeroDocumento, 'No puede dejar el número de documento en blanco');
+    } else {
+        setSuccessFor(numeroDocumento);
+    }
+
+    if (telefonoValue === '') {
+        setErrorFor(telefono, 'No puede dejar el teléfono en blanco');
+    } else if (!isValidPhoneNumber(telefonoValue)) {
+        setErrorFor(telefono, 'El número de teléfono debe tener entre 5 y 10 dígitos');
+    } else {
+        setSuccessFor(telefono);
+    }
+}
+
+function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-control error';
+    small.innerText = message;
+}
+
+function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+}
+
+function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function isValidPhoneNumber(phoneNumber) {
+    return /^\d{5,10}$/.test(phoneNumber);
+}
+
+function isValidInput(input) {
+    // Esta expresión regular permite letras y números, pero no caracteres especiales.
+    return /^[a-zA-Z0-9]+$/.test(input);
+}

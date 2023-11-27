@@ -81,28 +81,49 @@
     </div>
   </nav>
   <main>
-    <form th:action="@{/registrarMascota}" th:object="${mascota}" method="post">
+    <form th:action="@{/registrarMascota}" th:object="${mascota}" method="post" id="form">
       <h2>Registrar<br> Mascota</h2>
       <table>
         <tr>
           <input type="hidden" id="idcli" th:field="*{FK.idCliente}" placeholder="id CLIENTES" required readonly>
           <td>
-            <input type="text" id="nombreMascota" th:field="*{nombreMascota}" placeholder="Nombre Mascota" required>
-            <br><label>Nombre Mascota</label><br><br>
+            <div class="form-control">
+              <input type="text" id="username" th:field="*{nombreMascota}" placeholder="Nombre Mascota" >
+              <br><label for="username">Nombre Mascota</label><br><br>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div> 
+            
           </td>
           <td>
-            <input type="text" id="nombre" th:field="*{apellidoMascota}" placeholder="Apellido Mascota" required>
-            <br><label>Apellido Mascota</label><br><br>
+            <div class="form-control">
+            <input type="text" id="apellido" th:field="*{apellidoMascota}" placeholder="Apellido Mascota" >
+            <br><label for="apellido">Apellido Mascota</label><br><br>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
           </td>
         </tr>
         <tr>
           <td>
-            <input type="date" id="apellido" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento" required>
+            <div class="form-control">
+            <input type="date" id="fecha" th:field="*{fechaNacimiento}" placeholder="Fecha Nacimiento" >
             <br><label>Fecha Nacimiento</label><br><br>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
           </td>
           <td>
-            <input type="text" id="raza" th:field="*{raza}" placeholder="Raza" required>
+            <div class="form-control">
+            <input type="text" id="raza" th:field="*{raza}" placeholder="Raza"  >
             <br><label>Raza</label><br><br>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+            </div>
           </td>
           <td>
             <select id="" name="" th:field="*{genero}">
@@ -123,7 +144,7 @@
           </td>
         </tr>
       </table>
-      <input type="submit" class="regis" id="regis" value="Registrar">
+      <input type="submit" class="regis" value="Registrar">
     </form>
   </main>
   <footer>
@@ -143,6 +164,7 @@
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
   </footer>
+  <script th:src="@{/js/validacionM.js}"></script>
 </body>
 
 </html>

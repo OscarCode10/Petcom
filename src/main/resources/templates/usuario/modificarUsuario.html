@@ -145,5 +145,180 @@
     </div>
   </footer>
 </body>
-
+<!-- 
 </html>
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+  <link rel="stylesheet" th:href="@{/css/registers.css}">
+  <link rel="stylesheet" th:href="@{/css/dashAndFoot.css}">
+  <title>Modificar Usuario</title>
+</head>
+
+<body>
+  <nav>
+    <img th:src="@{/img/logo.png}" class="logo">
+    
+    <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
+      <div class="btn">
+        <a th:href="@{/moduloUsuario}"><input type="submit" value="USUARIO"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+      </div>
+      <div class="cerrar">
+        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+      </div>
+    </div>
+    
+    <div class="btns" th:if="${session.userDetails.FK.getIdRol == 2}">
+      <div class="btn">
+        <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloMascota}"><input type="submit" value="MASCOTA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloCliente}"><input type="submit" value="CLIENTE"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+      </div>
+      <div class="btn">
+        <a href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+      </div>
+      <div class="cerrar">
+        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+      </div>
+    </div>
+   
+    <div class="btns" th:if="${session.userDetails.FK.getIdRol == 3 || session.userDetails.FK.getIdRol == 4}">
+      <div class="btn">
+        <a th:href="@{/moduloCita}"><input type="submit" value="CITA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloAgenda}"><input type="submit" value="AGENDA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/moduloHistoria}"><input type="submit" value="HISTORIA CLÍNICA"></a>
+      </div>
+      <div class="btn">
+        <a th:href="@{/verPerfil}"><input type="submit" value="PERFIL"></a>
+      </div>
+      <div class="cerrar">
+        <a th:href="@{/cerrar}"><input type="submit" value="CERRAR SESIÓN"></a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <form th:action="@{/modificarUsuario}" th:object="${usuario}" method="post" id="form">
+      <h2>Actualizar<br> Usuario</h2>
+      <input type="number" id="numerodocumento" th:field="*{idUsuario}" placeholder="Numero Documento"
+        value="${usuario.idUsuario}" readonly><br>
+
+      <select id="" name="" th:field="*{tipoDocumentoUsu}" value="${usuario.tipoDocumentoUsu}">
+        <option value="">Tipo Documento</option>
+        <option value="C.C.">C.C.</option>
+        <option value="T.I.">T.I.</option>
+        <option value="C.E.">C.E.</option>
+        <option value="DNI">DNI</option>
+      </select><br>
+      <div class="form-control">
+        <input type="number" id="numeroDocumento" th:field="*{numDocumentoUsu}"
+          placeholder="Numero Documento" value="${usuario.numDocumentoUsu}">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div>
+      <div class="form-control">
+        <input type="text" id="username" th:field="*{nombreUsu}" placeholder="Nombre" value="${usuario.nombreUsu}" >
+        
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div>
+      <div class="form-control">
+        <input type="text" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido" value="${usuario.apellidoUsu}">
+        
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div> 
+      <div class="form-control">
+        <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono" value="${usuario.telefonoUsu}">
+        
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div>
+      <div class="form-control">
+      <input type="email" name="email" id="email" th:field="*{correoUsu}" placeholder="Email"value="${usuario.correoUsu}">
+            
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+            <div class="form-control">
+              <input type="password" id="password" th:field="*{claveUsu}" placeholder="Clave" value="${usuario.claveUsu}">
+              
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+       <select id="rol" name="rol" th:field="*{estadoUsu}" value="${usuario.estadoUsu}">
+        <option value="">Estado</option>
+        <option value="1">Activo</option>
+        <option value="0">Inactivo</option>
+      </select><br>
+
+      <select id="rol" name="rol" th:field="*{FK.idRol}" value="${usuario.FK.idRol}">
+        <option value="">Rol</option>
+        <option value="1">Administrador</option>
+        <option value="2">Secretario</option>
+        <option value="3">Doctor</option>
+        <option value="4">Peluquero</option>
+      </select><br>
+      <input type="submit" class="regis" value="Registrar">
+    </form>
+    
+  </main>
+  <footer>
+    <div class="vete">
+      <h1>Veterinaria Boss Bunny</h1>
+    </div>
+    <div class="contac">
+      <div class="text">
+        <h1>CONTACTO</h1>
+        <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
+      </div>
+      <div class="img">
+        <img th:src="@{/img/logo.png}" class="log">
+      </div>
+    </div>
+    <div class="toda">
+      <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
+    </div>
+  </footer>
+</body>
+
+</html> -->
