@@ -14,6 +14,8 @@ function checkInputs() {
     
     const consultaValue = consulta.value.trim();
     const fechaValue = fechaInput.value.trim();
+    const fechaValues = fechaInputs.value.trim();
+
     const fechaSeleccionada = new Date(fechaValue);
     const fechaSeleccionadas = new Date(fechaValues);
 
@@ -27,10 +29,10 @@ function checkInputs() {
         setSuccessFor(usuario);
     }
 
-    if(fechaSeleccionadas > fechaMaxima){
+    if (fechaSeleccionadas > fechaMaxima) {
         setErrorFor(fechaInputs, 'No puede seleccionar una fecha superior a 7 días desde hoy');
     } else {
-        setSuccessFor(fechaInput);
+        setSuccessFor(fechaInputs);
     }
 
     if (fechaSeleccionada < fechaActual) {

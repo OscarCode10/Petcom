@@ -81,12 +81,13 @@
     </div>
   </nav>
   <main>
-    <form th:action="@{/registrarAgenda}" th:object="${agenda}" method="post">
+    <form th:action="@{/registrarAgenda}" th:object="${agenda}" method="post" id="form">
       <h2>Registrar<br> Agenda</h2>
 
       <table>
         <tr>
           <td>
+            <div class="form-control">
             <select name="idUsuario">
               <option value="">Peluqueros/Doctores</option>
               <th:block th:each="c : ${usuarios}">
@@ -94,26 +95,52 @@
               </th:block>
             </select>
             <br><label>Peluqueros/Doctores</label><br><br>
+          </div>
           </td>
           <td>
-            <input type="date" id="" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required step="1">
-            <br><label>Fecha de Inicio</label><br><br>
+            <div class="form-control">
+              <input type="date" id="fecha" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required step="1" >
+              <br><label for="hora">Fecha Inicio </label><br><br>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+              </div>
+            
           </td>
           <td>
-            <input type="date" id="" th:field="*{fechaFin}" placeholder="Fecha de fin" required step="1">
-            <br><label>Fecha de Fin</label><br><br>
+            <div class="form-control">
+              <input type="date" id="fin" th:field="*{fechaFin}" placeholder="Fecha de fin" required step="1">
+              <br><label for="fecha">Fecha Fin </label><br><br>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+              </div>
+            
           </td>
         </tr>
         <tr>
           <td>
-            <input type="time" id="" th:field="*{horaInicio}" placeholder="Hora de inicio" required step="1">
-            <br><label>Hora de Inicio</label><br><br>
+            <div class="form-control">
+              <input type="time" id="hora" th:field="*{horaFin}" placeholder="Hora de inicio" required step="1">
+              <br><label for="hora">Hora Cita </label><br><br>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+              </div>
           </td>
           <td>
-            <input type="time" id="" th:field="*{horaFin}" placeholder="Hora de fin" required step="1">
-            <br><label>Hora de Fin</label><br><br>
+            <div class="form-control">
+              <input type="time" id="" th:field="*{horaFin}" placeholder="Hora de fin" required step="1">
+              <br><label for="hora">Hora Fin </label><br><br>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+              </div>
+              
+            
           </td>
           <td>
+            
             <select th:field="*{estadoAgenda}" hidden>
               <option value="">Estado</option>
               <option value="1">Activo</option>
