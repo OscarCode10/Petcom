@@ -83,3 +83,9 @@ button {
   border: none;
   cursor: pointer;
 }
+
+p{
+  position: relative;
+  top: 1rem;
+  color: red;
+}

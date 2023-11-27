@@ -13,7 +13,7 @@
 
 <body>
     <nav>
-        <img th:src="@{img/logo.png}" class="logo">
+        <img th:src="@{/img/logo.png}" class="logo">
         <!-- Administrador -->
         <div class="btns" th:if="${session.userDetails.FK.getIdRol == 1}">
             <div class="btn">
@@ -85,24 +85,20 @@
         </div>
     </nav>
     <div class="all">
-
         <center>
             <h1 class="List">LISTADO DE CITAS </h1>
         </center>
         <br>
-        <table class="tabla-colores">
+        <table class="tabla-colores" th:if="${citas != null}">
             <tr>
-                
                 <th>Motivo</th>
                 <th>Fecha</th>
                 <th>Hora</th>
                 <th>Estado</th>
-                
-                
-                <th>ACCIONES</th>
+                <th>Acciones</th>
+                <th>Reporte</th>
             </tr>
-            <tr th:if="${citas.size()>0}" th:each="c:${citas}">
-                
+            <tr th:each="c:${citas}">
                 <td th:text="${c.motivoConsulta}"></td>
                 <td th:text="${c.fechaCita}"></td>
                 <td th:text="${c.horaCita}"></td>
@@ -112,19 +108,43 @@
                 <td th:if="${c.estadoCita==false}">
                     <h2>Inactivo</h2>
                 </td>
-                
-                
                 <td class="cell-with-button">
-                    <a th:href="@{/modificarCitaV/{idCita}(idCita=${c.idCita})}"><button
-                            class="btnM">Modificar</button></a>
-                    <a th:href="@{/generarCitaPdf/{idCita}(idCita=${c.idCita})}" target="_blank">
-                        <button class="btnM">Reporte</button></a>
+                    <a th:href="@{/modificarCitaV/{idCita}(idCita=${c.idCita})}"><button class="btnM">Modificar</button></a>
+                </td>
+                <td>
+                    <a th:href="@{/generarCitaPdf/{idCita}(idCita=${c.idCita})}" target="_blank"><button class="btnM">Reporte</button></a>
+                </td>
+            </tr>
+        </table>
+
+        <table class="tabla-colores" th:if="${citasAgenda != null}">
+            <tr>
+                <th>Motivo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+                <th>Reporte</th>
+            </tr>
+            <tr th:each="c:${citasAgenda}">
+                <td th:text="${c.motivoConsulta}"></td>
+                <td th:text="${c.fechaCita}"></td>
+                <td th:text="${c.horaCita}"></td>
+                <td th:if="${c.estadoCita==true}">
+                    <h2>Activo</h2>
+                </td>
+                <td th:if="${c.estadoCita==false}">
+                    <h2>Inactivo</h2>
+                </td>
+                <td class="cell-with-button">
+                    <a th:href="@{/modificarCitaV/{idCita}(idCita=${c.idCita})}"><button class="btnM">Modificar</button></a>
+                </td>
+                <td>
+                    <a th:href="@{/generarCitaPdf/{idCita}(idCita=${c.idCita})}" target="_blank"><button class="btnM">Reporte</button></a>
                 </td>
             </tr>
         </table>
     </div>
-
-
 
     <br><br><br>
     <footer>
@@ -137,7 +157,7 @@
                 <h2>teléfono: 3147888196 • veterinaria@gmail.com</h2>
             </div>
             <div class="img">
-                <img th:src="@{img/logo.png}" class="log">
+                <img th:src="@{/img/logo.png}" class="log">
             </div>
         </div>
         <div class="toda">
@@ -145,5 +165,4 @@
         </div>
     </footer>
 </body>
-
 </html>

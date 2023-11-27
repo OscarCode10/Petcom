@@ -97,35 +97,35 @@
             <br><label>Tipo Documento</label><br><br>
           </td>
           <td class="form__grupo" id="grupo__numero ">
-            <input type="text" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
+            <input type="text" name="noDoc" id="noDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
               class="form__input">
             <br><label class="form__label">Numero Documento</label><br><br>
-            <p class="form__input-erro">El numero de document del usuario tiene que ser de 4 a 16 digitos</p>
+            <p id="mensajeError">El numero de document del usuario tiene que ser de 4 a 16 digitos</p>
           </td>
           <td class="form__grupo " id="grupo__nombre">
-            <input type="text" name="name" id="name" th:field="*{nombreUsu}" placeholder="Nombre" class="form__input">
+            <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" class="form__input">
             <br><label class="form__label ">Nombre</label><br><br>
-            <p class="form__input-erro">El usuario tiene que ser de 4 a 16 digitos</p>
+            <p id="mensajeError">El usuario tiene que ser de 4 a 16 digitos</p>
           </td>
         </tr>
         <tr>
-          <td class="form__grupo ">
+          <td class="form__grupo" id="grupo__apellido">
             <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido"
               class="form__input">
             <br><label class="form__label">Apellido</label><br><br>
-            <p class="form__input-erro">El usuario tiene que ser de 4 a 16 digitos</p>
+            <p id="mensajeError">El usuario tiene que ser de 4 a 16 digitos</p>
           </td>
           <td class="form__grupo ">
             <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono"
               class="form__input">
             <br><label class="form__label">Telefono</label><br><br>
-            <p class="form__input-erro">El usuario tiene que ser de 4 a 16 digitos</p>
+            <p id="mensajeError">El usuario tiene que ser de 4 a 16 digitos</p>
           </td>
           <td class="form__grupo ">
             <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email"
               class="form__input">
             <br><label class="form__label">Email</label><br><br>
-            <p class="form__input-erro">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            <p id="mensajeError">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
           </td>
         </tr>
         <tr>
@@ -134,7 +134,7 @@
             <br><label class="form__label">Clave</label><br><br>
             <h1 id="generarPswd">Generar</h1>
             <input type="checkbox" id="showPswd">
-            <p class="form__input-erro">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+            <p id="mensajeError-clave">La contraseña tiene que ser de 4 a 12 dígitos.</p>
           </td>
           <td>
             <select name="rol" th:field="*{FK.idRol}" class="form__input">
@@ -176,7 +176,6 @@
     <div class="toda">
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
-
   </footer>
   <script th:src="@{js/generar.js}"></script>
 </body>

@@ -23,41 +23,45 @@ public class UsuarioControlador {
     @Autowired
     private IUsuario iUsuario;
 
-    @GetMapping(path = {"/", "/index", "/home"})
-    public String index(Model m){
+    @GetMapping(path = { "/", "/index", "/home" })
+    public String index(Model m) {
         m.addAttribute("usuario", new Usuario());
         return "index";
     }
 
     @GetMapping("/accesoDenegado")
-    public String accesoDenegado(Model m){
+    public String accesoDenegado(Model m) {
         m.addAttribute("error", "No cuentas con esos permisos");
         return "usuario/dashUsuario";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu, HttpServletRequest req, Model m){
-        if (correoUsu != null && claveUsu != null) {
+    public String login(@RequestParam("correoUsu") String correoUsu, @RequestParam("claveUsu") String claveUsu, HttpServletRequest req, Model m) {
+        if (correoUsu != "" && claveUsu != "") {
             Integer idUsuario = iUsuario.login(correoUsu, claveUsu);
             if (idUsuario != null) {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("userDetails", iUsuario.findOne(idUsuario));
                 return "usuario/dashUsuario";
-            }else{
-                return "redirect:/index";
+            } else {
+                m.addAttribute("error", "El usuario no existe");
+                m.addAttribute("usuario", new Usuario()); 
+                return "index";
             }
-        }else{
-            return "redirect:/index";
+        } else {
+            m.addAttribute("error", "Los datos no pueden ir vacíos");
+            m.addAttribute("usuario", new Usuario()); 
+            return "index";
         }
     }
 
     @GetMapping("/moduloUsuario")
-    public String moduloUsuario(Model m){
+    public String moduloUsuario(Model m) {
         return "usuario/moduloUsuario";
     }
 
     @GetMapping("/registrarUsuarioV")
-    public String registrarUsuarioV(Model m){
+    public String registrarUsuarioV(Model m) {
         Usuario usuario = new Usuario();
         usuario.setEstadoUsu(true);
         m.addAttribute("usuario", usuario);
@@ -68,7 +72,7 @@ public class UsuarioControlador {
     public String registrarUsuario(@Validated Usuario usuario, BindingResult res, Model m, SessionStatus status) {
         if (res.hasErrors()) {
             return "redirect:/registrarUsuarioV";
-        }else{
+        } else {
             iUsuario.save(usuario);
             status.setComplete();
             return "redirect:/moduloUsuario";
@@ -82,22 +86,22 @@ public class UsuarioControlador {
     }
 
     @GetMapping("/modificarUsuarioV/{idUsuario}")
-    public String modificarUsuarioV(@PathVariable Integer idUsuario, Model m){
-        Usuario usuario=null;
-        if(idUsuario>0){
-            usuario=iUsuario.findOne(idUsuario);
-            m.addAttribute("usuario",usuario);
+    public String modificarUsuarioV(@PathVariable Integer idUsuario, Model m) {
+        Usuario usuario = null;
+        if (idUsuario > 0) {
+            usuario = iUsuario.findOne(idUsuario);
+            m.addAttribute("usuario", usuario);
             return "usuario/modificarUsuario";
-        }else{
+        } else {
             return "redirect:/listarUsuario";
         }
     }
 
     @PostMapping("/modificarUsuario")
-    public String modificarUsuario(@Validated Usuario usuario, BindingResult res, Model m, SessionStatus status){
+    public String modificarUsuario(@Validated Usuario usuario, BindingResult res, Model m, SessionStatus status) {
         if (res.hasErrors()) {
             return "redirect:/modificarUsuarioV/{idUsuario}";
-        }else{
+        } else {
             iUsuario.save(usuario);
             status.setComplete();
             return "redirect:/listarUsuario";
@@ -105,7 +109,7 @@ public class UsuarioControlador {
     }
 
     @GetMapping("/cerrar")
-    public String cerrar(Model m, HttpServletRequest req){
+    public String cerrar(Model m, HttpServletRequest req) {
         HttpSession findSession = req.getSession();
         findSession.removeAttribute("userDetails");
         findSession.invalidate();
@@ -123,43 +127,33 @@ public class UsuarioControlador {
             return "redirect:/login";
         }
     }
+
     @GetMapping("/editarPerfil")
-public String mostrarFormularioEditarPerfil(Model model, HttpSession session) {
-    // Obtén el usuario actual de la sesión o de la base de datos
-    Usuario usuario = (Usuario) session.getAttribute("userDetails");
+    public String mostrarFormularioEditarPerfil(Model model, HttpSession session) {
+        // Obtén el usuario actual de la sesión o de la base de datos
+        Usuario usuario = (Usuario) session.getAttribute("userDetails");
 
-    // Si no está en la sesión, puedes cargarlo desde la base de datos
-    if (usuario == null) {
-        // Cargar el usuario según su identificador (por ejemplo, su ID)
-        // usuario = usuarioService.obtenerUsuarioPorId(idUsuario);
-    }
+        // Si no está en la sesión, puedes cargarlo desde la base de datos
+        if (usuario == null) {
+            // Cargar el usuario según su identificador (por ejemplo, su ID)
+            // usuario = usuarioService.obtenerUsuarioPorId(idUsuario);
+        }
 
-    
-    model.addAttribute("usuario", usuario);
+        model.addAttribute("usuario", usuario);
 
-    return "usuario/editarPerfil";
-}
-    
-@PostMapping("/editarPerfil")
-public String editarPerfil(@Validated @ModelAttribute("usuario") Usuario usuario, BindingResult res, Model m, SessionStatus status, HttpSession session) {
-    if (res.hasErrors()) {
         return "usuario/editarPerfil";
-    } else {
-        iUsuario.save(usuario);
-        status.setComplete();
-        
-        // Actualiza el usuario en la sesión con los nuevos datos
-        session.setAttribute("userDetails", usuario);
-        
-        return "redirect:/verPerfil";
+    }
+
+    @PostMapping("/editarPerfil")
+    public String editarPerfil(@Validated @ModelAttribute("usuario") Usuario usuario, BindingResult res, Model m,
+            SessionStatus status, HttpSession session) {
+        if (res.hasErrors()) {
+            return "usuario/editarPerfil";
+        } else {
+            iUsuario.save(usuario);
+            status.setComplete();
+            session.setAttribute("userDetails", usuario);
+            return "redirect:/verPerfil";
+        }
     }
 }
-
-
-    }
-    
-    
-
-
-
-    

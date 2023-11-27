@@ -43,7 +43,7 @@
             <input type="password" id="password" th:field="*{claveUsu}" >
 
             <button type="submit">Iniciar sesión</button>
-            <p class="alerta" id="alerta"></p>
+            <p class="alerta" id="alerta" th:if="${error}" th:text="${error}"></p>
         </form>
     </div>
 

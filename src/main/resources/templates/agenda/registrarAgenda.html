@@ -87,7 +87,6 @@
       <table>
         <tr>
           <td>
-
             <select name="idUsuario">
               <option value="">Peluqueros/Doctores</option>
               <th:block th:each="c : ${usuarios}">
@@ -95,50 +94,34 @@
               </th:block>
             </select>
             <br><label>Peluqueros/Doctores</label><br><br>
-
           </td>
           <td>
-
             <input type="date" id="" th:field="*{fechaInicio}" placeholder="Fecha de inicio" required step="1">
             <br><label>Fecha de Inicio</label><br><br>
-
-
           </td>
           <td>
-
             <input type="date" id="" th:field="*{fechaFin}" placeholder="Fecha de fin" required step="1">
             <br><label>Fecha de Fin</label><br><br>
-
-
           </td>
         </tr>
         <tr>
           <td>
-
             <input type="time" id="" th:field="*{horaInicio}" placeholder="Hora de inicio" required step="1">
             <br><label>Hora de Inicio</label><br><br>
-
-
           </td>
           <td>
-
             <input type="time" id="" th:field="*{horaFin}" placeholder="Hora de fin" required step="1">
             <br><label>Hora de Fin</label><br><br>
-
-
           </td>
           <td>
-
             <select th:field="*{estadoAgenda}" hidden>
               <option value="">Estado</option>
               <option value="1">Activo</option>
               <option value="0">Inactivo</option>
             </select><br><br>
-
           </td>
         </tr>
       </table>
-
       <input type="submit" class="regis" id="regis" value="Registrar">
     </form>
   </main>
