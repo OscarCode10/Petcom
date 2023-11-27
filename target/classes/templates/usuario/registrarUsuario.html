@@ -97,44 +97,45 @@
             <br><label>Tipo Documento</label><br><br>
           </td>
           <td class="form__grupo" id="grupo__numero ">
-            <input type="text" name="noDoc" id="noDoc" th:field="*{numDocumentoUsu}" placeholder="Numero Documento"
-              class="form__input">
+            <input type="number" name="noDoc" id="numeroDoc" th:field="*{numDocumentoUsu}"
+              placeholder="Numero Documento" class="form__input">
             <br><label class="form__label">Numero Documento</label><br><br>
-            <p id="mensajeError">El numero de document del usuario tiene que ser de 4 a 16 digitos</p>
+            <p class="form__input-erro">El numero de document del usuario tiene que ser de 4 a 16 digitos</p>
           </td>
           <td class="form__grupo " id="grupo__nombre">
-            <input type="text" name="name" id="nombre" th:field="*{nombreUsu}" placeholder="Nombre" class="form__input">
+            <input type="text" name="name" id="name" th:field="*{nombreUsu}" placeholder="Nombre" class="form__input">
             <br><label class="form__label ">Nombre</label><br><br>
-            <p id="mensajeError">El usuario tiene que ser de 4 a 16 digitos</p>
+            <p class="form__input-erro">El usuario tiene que ser de 4 a 16 digitos</p>
           </td>
         </tr>
         <tr>
-          <td class="form__grupo" id="grupo__apellido">
+          <td class="form__grupo ">
             <input type="text" name="lastName" id="apellido" th:field="*{apellidoUsu}" placeholder="Apellido"
               class="form__input">
             <br><label class="form__label">Apellido</label><br><br>
-            <p id="mensajeError">El usuario tiene que ser de 4 a 16 digitos</p>
+            <p class="form__input-erro">El usuario tiene que ser de 4 a 16 digitos</p>
           </td>
           <td class="form__grupo ">
             <input type="number" name="tel" id="telefono" th:field="*{telefonoUsu}" placeholder="Telefono"
               class="form__input">
             <br><label class="form__label">Telefono</label><br><br>
-            <p id="mensajeError">El usuario tiene que ser de 4 a 16 digitos</p>
+            <p class="form__input-erro">El usuario tiene que ser de 4 a 16 digitos</p>
           </td>
           <td class="form__grupo ">
             <input type="email" name="email" id="correo" th:field="*{correoUsu}" placeholder="Email"
               class="form__input">
             <br><label class="form__label">Email</label><br><br>
-            <p id="mensajeError">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            <p class="form__input-erro">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
           </td>
         </tr>
         <tr>
+        </tr>
+        <tr>
           <td class="form__grupo ">
-            <input type="password" id="clave" th:field="*{claveUsu}" placeholder="Clave" class="form__input">
+            <input type="password" name="pswd" id="clave" th:field="*{claveUsu}" placeholder="Clave"
+              class="form__input">
             <br><label class="form__label">Clave</label><br><br>
-            <h1 id="generarPswd">Generar</h1>
-            <input type="checkbox" id="showPswd">
-            <p id="mensajeError-clave">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+            <p class="form__input-erro">La contraseña tiene que ser de 4 a 12 dígitos.</p>
           </td>
           <td>
             <select name="rol" th:field="*{FK.idRol}" class="form__input">
@@ -158,7 +159,6 @@
       <input type="submit" class="regis" id="regis" value="Registrar">
       <p class="form__mensa">Error: por favor rellena el formulario correctamente</p>
     </form>
-
   </main>
   <footer>
     <div class="vete">
@@ -176,8 +176,78 @@
     <div class="toda">
       <h1>Todas las marcas y logotipos pertenecen a las respectivas empresas. ® 2023. creado por PETCOM ©.</h1>
     </div>
+
   </footer>
-  <script th:src="@{js/generar.js}"></script>
+  <script>
+    const formulario = document.getElementById('form');
+    const inputs = document.querySelectorAll('#form input');
+    const campos = {
+      usuario: false,
+      nombre: false,
+      password: false,
+      correo: false,
+      telefono: false
+    }
+    const expresiones = {
+      usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
+      nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+      password: /^.{8,12}$/,
+      correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+      telefono: /^\d{10,12}$/,
+      numero: /^[0-9]{8,11}$/
+    }
+    const validarFormulario = (e) => {
+      switch (e.target.name) {
+        case "numeroDoc":
+          validarCampo(expresiones.numero, e.target, 'numeroDoc');
+          break;
+        case "name":
+          validarCampo(expresiones.nombre, e.target, 'name');
+          break;
+
+        case "apellido":
+          validarCampo(expresiones.nombre, e.target, 'apellido');
+          break;
+
+        case "telefono":
+          validarCampo(expresiones.telefono, e.target, 'telefono');
+          break;
+
+        case "correo":
+          validarCampo(expresiones.correo, e.target, 'correo');
+          break;
+
+        case "clave":
+          validarCampo(expresiones.password, e.target, 'clave');
+          break;
+      }
+    }
+    const validarCampo = (expresion, input, campo) => {
+      if (expresion.test(input.value)) {
+        document.getElementById(`grupo__${campo}`).classList.remove('form__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.add('form__grupo-correctoF');
+        document.querySelector(`#grupo__${campo} form__input-erro-activo').classList.remove('form__input-erro-activo`);
+        console.log("campo valido");
+        campos[campo] = true;
+      } else {
+        document.getElementById(`grupo__${campo}`).classList.remove('form__grupo-correcto');
+        document.getElementById(`grupo__${campo}`).classList.add('form__grupo-incorrecto');
+        document.querySelector(`#grupo__${campo} form__input-erro-activo').classList.add('form__input-erro-activo`);
+        console.log("campo no valido");
+        campos[campo] = false;
+      }
+    }
+    inputs.forEach((input) => {
+      input.addEventListener('keyup', validarFormulario);
+      input.addEventListener('blur', validarFormulario);
+      console.log(validarFormulario);
+    })
+    formulario.addEventListener('submit', (e) => {
+      if (campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono) {
+        formulario.reset();
+      }
+    });
+  </script>
 </body>
 
 </html>
